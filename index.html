@@ -11,10 +11,10 @@
 </head>
 
 <body>
-  <header class="navigaton-bar">
+  <header class="navigaton-bar" id="navigation-bar">
     <nav>
 
-      <div class="navigation-bar__left">
+      <div id="navigation-bar__left" class="navigation-bar__left">
         <button aria-lablel="Toggle menu." class="navigation-bar-left__menu-btn">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-left__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z" />
@@ -25,13 +25,35 @@
         </a>
       </div>
 
-      <div class="navigation-bar__middle">
-        <input class="navigation-bar-middle__search-input" type="text" placeholder="Search">
-        <button aria-label="Search Videos." data-tooltip="Search" class="navigation-bar-middle__search-btn tooltip-navbar tooltip">
-          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
+      <div id="navigation-bar__middle" class="navigation-bar__middle">
+        <button id="navigation-bar__return-btn" class="navigation-bar__return-btn">
+          <svg class="navigation-bar__return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
           </svg>
         </button>
+      
+        <div class="navigation-bar-middle__search-container">
+          <div class="navigation-bar-middle__search-input-container">
+            <input id="navigation-bar-middle__search-input" class="navigation-bar-middle__search-input" type="text" placeholder="Search">
+            <button id="navigation-bar-middle__search-input-close-btn" class="navigation-bar-middle__search-input-close-btn">
+              <svg class="navigation-bar-middle__search-input-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                  <path d="M8 8L40 40" />
+                  <path d="M8 40L40 8" />
+                </g>
+              </svg>
+            </button>
+
+
+          </div>
+          
+          <button aria-label="Search Videos." data-tooltip="Search" class="navigation-bar-middle__search-btn tooltip-navbar tooltip">
+            <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
+            </svg>
+          </button>
+        </div>
+       
         <button aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-middle__search-with-voice-btn tooltip-navbar tooltip">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
@@ -42,8 +64,8 @@
         </button>
       </div>
 
-      <div class="navigation-bar__right">
-        <button aria-label="Search videos." data-tooltip="Search" class="navigation-bar-right__search-btn tooltip-navbar tooltip">
+      <div id="navigation-bar__right" class="navigation-bar__right">
+        <button id="navigation-bar-right__search-btn" aria-label="Open search bar." data-tooltip="Search" class="navigation-bar-right__search-btn tooltip-navbar tooltip">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
           </svg>
@@ -71,7 +93,7 @@
   </header>
 
 
-  
+
   <nav class="sidebar">
     <div class="home flex-items">
       <a href="#">
@@ -534,6 +556,7 @@
     </section>
     <section class="shorts"></section>
   </main>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

@@ -143,11 +143,23 @@ body {
   justify-content: center;
   align-items: normal;
   max-width: 650px;
+  gap: 17px;
 }
+
+.navigation-bar-middle__search-container {
+  display: flex;
+  align-items: normal;
+  flex: 1;
+}
+
+.navigation-bar-middle__search-input-container {
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+} 
 
 .navigation-bar-middle__search-input {
   width: 100%;
-  max-width: 540px;
   border-radius: 40px 0 0 40px;
   border: 1px solid #d3d3d3;
   font-size: 1rem;
@@ -163,6 +175,26 @@ body {
 
 .navigation-bar-middle__search-input::placeholder {
   opacity: 0.9;
+}
+
+.navigation-bar-middle__search-input-close-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  z-index: 2;
+  line-height: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+  display: none;
+}
+
+.navigation-bar-middle__search-input-close-btn:hover {
+  opacity: 1;
+}
+
+.navigation-bar-middle__search-input-close-icon {
+  width: 1.5em;
 }
 
 .navigation-bar-middle__search-btn {
@@ -182,13 +214,20 @@ body {
 .navigation-bar-middle__search-with-voice-btn {
   border-radius: 30px;
   padding: 0 11px;
-  margin-left: 17px;
   line-height: 0;
   background-color: #f0f0f0;
 }
 
 .navigation-bar-middle__search-with-voice-icon {
   width: 1.3em;
+}
+
+.navigation-bar__return-btn {
+  line-height: 0;
+}
+
+.navigation-bar__return-icon {
+  width: 1.5em
 }
 
 /* END OF NAVIGATION BAR MIDDLE */
@@ -265,6 +304,24 @@ body {
 
 /* END OF NAVIGATION BAR RIGHT */
 
+@media screen and (min-width: 700px) {
+  .navigation-bar__left {
+    display: flex !important;
+  }
+
+  .navigation-bar__middle {
+    display: flex !important;
+  }
+
+  .navigation-bar__right {
+    display: flex !important;
+  }
+
+  .navigation-bar__return-btn {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 700px) {
   header {
     padding: 0 8px;
@@ -299,7 +356,6 @@ body {
     /* NAVBAR MIDDLE */
     .navigation-bar-middle__search-btn:is(:hover, :focus-visible) {
       background-color: #f0f0f0;
-      border: 1px solid #c6c6c6;
       cursor: pointer;
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
       outline: none;
@@ -362,13 +418,6 @@ body {
   /* END OF NAVIGATION MENU */
 
 /* END OF ACTIVE */
-
-
-
-
-
-
-
 
 /*SIDEBAR*/
 
