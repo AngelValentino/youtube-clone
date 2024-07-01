@@ -1,517 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube Clone</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/youtube-favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youtube Clone</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="images/youtube-favicon.png">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="header-left">
-                <div class="menu-icon-container">
-                    <div class="menu-icon">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <a href="">
-                    <img title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="youtube logo">
-                </a>
-            </div>
-            <div class="header-middle">
-                <input type="text" placeholder="Search">
-                <button type="button">
-                    <img src="images/menu-icons/magnifying-glass-icon.png" alt="magnifying glass icon">
-                    <p>Search</p>
-                </button>
-                <button type="button">
-                    <img src="images/menu-icons/voice-search-icon.png" alt="microphone icon">
-                    <p>Search with your voice</p>
-                </button>
-            </div>
-            <div class="header-right">
-                <div>
-                    <img src="images/menu-icons/magnifying-glass-icon.png" alt="magnifying glass icon">
-                    <p>Search</p>
-                </div>
-                <div>
-                    <img src="images/menu-icons/voice-search-icon.png" alt="voice search icon">
-                    <p>Search with your voice</p>
-                </div>
-                <div>
-                    <img src="images/menu-icons/three-dots-icon.png" alt="three verticla dots icon">
-                    <p>Settings</p>
-                </div>
-                <div class="sign-in-button">
-                    <img src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
-                    <p>Sign in</p>
-                </div>    
-            </div>
-        </nav>
-    </header>
-    <nav class="sidebar">
-        <div class="home flex-items">
-            <a href="#">
-                <div title="Home">
-                    <img src="images/menu-icons/home-icon.png" alt="home icon">
-                    <p>Home</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Shorts">
-                    <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
-                    <p>Shorts</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Subscriptions">
-                    <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
-                    <p>Subscriptions</p>
-                </div>
-            </a>
-        </div>
-        <div class="home2 flex-items">
-            <a href="#">
-                <div title="You">
-                    <img src="images/menu-icons/library-icon.png" alt="library icon">
-                    <p>You</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="History">
-                    <img src="images/menu-icons/history-icon.png" alt="history-icon">
-                    <p>History</p>
-                </div>
-            </a>
-        </div>
-        <div class="sign-in-section">
-            <p>Sign in to like videos, comment, and subscribe.</p>
-            <a href="#">
-                <div class="sign-in-button2">
-                    <img src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
-                    <p>Sign in</p>
-                </div>
-            </a>    
-        </div>
-        <div class="explore flex-items">
-            <h3>Explore</h3>
-            <a href="#">
-                <div title="Trending">
-                    <img src="images/menu-icons/trending-icon.png" alt="trending icon">
-                    <p>Trending</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Music">
-                    <img src="images/menu-icons/music-note-icon.png" alt="music note icon">
-                    <p>Music</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Movies">
-                    <img src="images/menu-icons/movies-clapperboard-icon.png" alt="film clapperboard icon">
-                    <p>Movies</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Live">
-                    <img src="images/menu-icons/live-icon.png" alt="live icon">
-                    <p>Live</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Gaming">
-                    <img src="images/menu-icons/gaming-icon.png" alt="gaming icon">
-                    <p>Gaming</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="News">
-                    <img src="images/menu-icons/news-icon.png" alt="news icon">
-                    <p>News</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Sports">
-                    <img src="images/menu-icons/sports-icon.png" alt="sports icon">
-                    <p>Sports</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Learning">
-                    <img src="images/menu-icons/learning-icon.png" alt="learning icon">
-                    <p>Learning</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Fashion & Beauty">
-                    <img src="images/menu-icons/fashion-icon.png" alt="fashion icon">
-                    <p>Fashion & Beauty</p>
-                </div>
-            </a>
-        </div>
-        <div class="browse flex-items">
-            <a href="#">
-                <div class="browse-channels" title="Browse channels">
-                    <img src="images/menu-icons/plus-circle-icon.png" alt="plus circle icon">
-                    <p>Browse channels</p>
-                </div>
-            </a>
-        </div>
-        <div class="youtube-links flex-items">
-            <h3>More from YouTube</h3>
-            <a href="#">
-                <div title="Youtube Premium">
-                    <img src="images/menu-icons/youtube-logo.png" alt="youtube logo">
-                    <p>YouTube Premium</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Youtube Music">
-                    <img src="images/menu-icons/youtube-music-icon.png" alt="youtube music icon">
-                    <p>YouTube Music</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Youtube Kids">
-                    <img src="images/menu-icons/youtube-kids-logo.png" alt="youtube kids icon">
-                    <p>YouTube Kids</p>
-                </div>
-            </a>
-        </div>
-        <div class="settings-feedback flex-items">
-            <a href="#">
-                <div title="Settings">
-                    <img src="images/menu-icons/configuration-icon.png" alt="configuration icon">
-                    <p>Settings</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Report history">
-                    <img src="images/menu-icons/flag-icon.png" alt="flag icon">
-                    <p>Report history</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Help">
-                    <img src="images/menu-icons/help-icon.png" alt="help icon">
-                    <p>Help</p>
-                </div>
-            </a>
-            <a href="#">
-                <div title="Send feedback">
-                    <img src="images/menu-icons/suggestions-icon.png" alt="send feedback icon">
-                    <p>Send feedback</p>
-                </div>
-            </a>
-        </div>
-        <div class="copyright">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+  <header class="navigaton-bar">
+    <nav>
+
+      <div class="navigation-bar__left">
+        <button aria-lablel="Toggle menu." class="navigation-bar-left__menu-btn">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-left__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z" />
+          </svg>
+        </button>
+        <a aria-label="Go to Home." href="/">
+          <img class="navigation-bar-left__youtube-logo" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="YouTube logo">
+        </a>
+      </div>
+
+      <div class="navigation-bar__middle">
+        <input class="navigation-bar-middle__search-input" type="text" placeholder="Search">
+        <button aria-label="Search Videos." data-tooltip="Search" class="navigation-bar-middle__search-btn tooltip-navbar tooltip">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
+          </svg>
+        </button>
+        <button aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-middle__search-with-voice-btn tooltip-navbar tooltip">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+              <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />
+              <path stroke-linecap="round" d="M9 23c0 8.284 6.716 15 15 15c8.284 0 15-6.716 15-15M24 38v6" />
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <div class="navigation-bar__right">
+        <button aria-label="Search videos." data-tooltip="Search" class="navigation-bar-right__search-btn tooltip-navbar tooltip">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
+          </svg>
+        </button>
+        <button aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-right__search-with-voice-btn tooltip-navbar tooltip">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+              <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />
+              <path stroke-linecap="round" d="M9 23c0 8.284 6.716 15 15 15c8.284 0 15-6.716 15-15M24 38v6" />
+            </g>
+          </svg>
+        </button>
+        <button aria-labal="Open settings." data-tooltip="Settings" class="navigation-bar-right__settings-btn tooltip-navbar tooltip">
+          <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M9.5 13a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0" />
+          </svg>
+        </button>
+        <button class="navigation-bar-right__sign-in-btn">
+          <img aria-hidden="true" role="presentation" src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
+          <p>Sign in</p>
+        </button>
+      </div>
+
     </nav>
-    <nav class="sidebar-thin">
-        <a href="#">
-            <div title="Home">
-                <img src="images/menu-icons/home-icon.png" alt="home icon">
-                <p>Home</p>
+  </header>
+
+
+  
+  <nav class="sidebar">
+    <div class="home flex-items">
+      <a href="#">
+        <div title="Home">
+          <img src="images/menu-icons/home-icon.png" alt="home icon">
+          <p>Home</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Shorts">
+          <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
+          <p>Shorts</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Subscriptions">
+          <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
+          <p>Subscriptions</p>
+        </div>
+      </a>
+    </div>
+    <div class="home2 flex-items">
+      <a href="#">
+        <div title="You">
+          <img src="images/menu-icons/library-icon.png" alt="library icon">
+          <p>You</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="History">
+          <img src="images/menu-icons/history-icon.png" alt="history-icon">
+          <p>History</p>
+        </div>
+      </a>
+    </div>
+    <div class="sign-in-section">
+      <p>Sign in to like videos, comment, and subscribe.</p>
+      <a href="#">
+        <div class="sign-in-button2">
+          <img src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
+          <p>Sign in</p>
+        </div>
+      </a>
+    </div>
+    <div class="explore flex-items">
+      <h3>Explore</h3>
+      <a href="#">
+        <div title="Trending">
+          <img src="images/menu-icons/trending-icon.png" alt="trending icon">
+          <p>Trending</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Music">
+          <img src="images/menu-icons/music-note-icon.png" alt="music note icon">
+          <p>Music</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Movies">
+          <img src="images/menu-icons/movies-clapperboard-icon.png" alt="film clapperboard icon">
+          <p>Movies</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Live">
+          <img src="images/menu-icons/live-icon.png" alt="live icon">
+          <p>Live</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Gaming">
+          <img src="images/menu-icons/gaming-icon.png" alt="gaming icon">
+          <p>Gaming</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="News">
+          <img src="images/menu-icons/news-icon.png" alt="news icon">
+          <p>News</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Sports">
+          <img src="images/menu-icons/sports-icon.png" alt="sports icon">
+          <p>Sports</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Learning">
+          <img src="images/menu-icons/learning-icon.png" alt="learning icon">
+          <p>Learning</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Fashion & Beauty">
+          <img src="images/menu-icons/fashion-icon.png" alt="fashion icon">
+          <p>Fashion & Beauty</p>
+        </div>
+      </a>
+    </div>
+    <div class="browse flex-items">
+      <a href="#">
+        <div class="browse-channels" title="Browse channels">
+          <img src="images/menu-icons/plus-circle-icon.png" alt="plus circle icon">
+          <p>Browse channels</p>
+        </div>
+      </a>
+    </div>
+    <div class="youtube-links flex-items">
+      <h3>More from YouTube</h3>
+      <a href="#">
+        <div title="Youtube Premium">
+          <img src="images/menu-icons/youtube-logo.png" alt="youtube logo">
+          <p>YouTube Premium</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Youtube Music">
+          <img src="images/menu-icons/youtube-music-icon.png" alt="youtube music icon">
+          <p>YouTube Music</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Youtube Kids">
+          <img src="images/menu-icons/youtube-kids-logo.png" alt="youtube kids icon">
+          <p>YouTube Kids</p>
+        </div>
+      </a>
+    </div>
+    <div class="settings-feedback flex-items">
+      <a href="#">
+        <div title="Settings">
+          <img src="images/menu-icons/configuration-icon.png" alt="configuration icon">
+          <p>Settings</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Report history">
+          <img src="images/menu-icons/flag-icon.png" alt="flag icon">
+          <p>Report history</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Help">
+          <img src="images/menu-icons/help-icon.png" alt="help icon">
+          <p>Help</p>
+        </div>
+      </a>
+      <a href="#">
+        <div title="Send feedback">
+          <img src="images/menu-icons/suggestions-icon.png" alt="send feedback icon">
+          <p>Send feedback</p>
+        </div>
+      </a>
+    </div>
+    <div class="copyright">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+  <nav class="sidebar-thin">
+    <a href="#">
+      <div title="Home">
+        <img src="images/menu-icons/home-icon.png" alt="home icon">
+        <p>Home</p>
+      </div>
+    </a>
+    <a href="#">
+      <div title="shorts">
+        <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
+        <p>Shorts</p>
+      </div>
+    </a>
+    <a href="#">
+      <div title="subscriptions">
+        <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
+        <p>Subscriptions</p>
+      </div>
+    </a>
+    <a href="#">
+      <div title="You">
+        <img src="images/menu-icons/library-icon.png" alt="library icon">
+        <p>You</p>
+      </div>
+    </a>
+    <a href="#">
+      <div title="history">
+        <img src="images/menu-icons/history-icon.png" alt="history icon">
+        <p>History</p>
+      </div>
+    </a>
+  </nav>
+  <main>
+    <section class="personal-portfolio-ad"></section>
+    <section class="videos">
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/From-Up-on-Poppy-Hill2.jpg" alt="from up on poppy hill">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Umi Matsuzaki</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-        </a>
-        <a href="#">
-            <div title="shorts">
-                <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
-                <p>Shorts</p>
+          </div>
+          <div class="video-statistics">
+            <h3 title="From Up on Poppy Hill">From Up on Poppy Hill</h3>
+            <div>
+              <p title="Umi Matsuzaki">Umi Matsuzaki</p>
+              <p>Umi Matsuzaki</p>
             </div>
-        </a>
-        <a href="#">
-            <div title="subscriptions">
-                <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
-                <p>Subscriptions</p>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/The-Cat-Returns.jpg" alt="the cat returns">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
+              <div class="channel-tooltip-stats">
+                <h3>The Baron</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-        </a>
-        <a href="#">
-            <div title="You">
-                <img src="images/menu-icons/library-icon.png" alt="library icon">
-                <p>You</p>
+          </div>
+          <div class="video-statistics">
+            <h3 title="The Cat Returns">The Cat Returns</h3>
+            <div>
+              <p title="The Baron">The Baron</p>
+              <p>The Baron</p>
             </div>
-        </a>
-        <a href="#">
-            <div title="history">
-                <img src="images/menu-icons/history-icon.png" alt="history icon">
-                <p>History</p>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Princess-Mononoke2.jpg" alt="princess mononoke">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
+              <div class="channel-tooltip-stats">
+                <h3>San</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-        </a>
-    </nav>
-    <main>
-        <section class="personal-portfolio-ad"></section>
-        <section class="videos">
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/From-Up-on-Poppy-Hill2.jpg" alt="from up on poppy hill">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Umi Matsuzaki</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="From Up on Poppy Hill">From Up on Poppy Hill</h3>
-                        <div>
-                            <p title="Umi Matsuzaki">Umi Matsuzaki</p>
-                            <p>Umi Matsuzaki</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Princess Mononoke">Princess Mononoke</h3>
+            <div>
+              <p title="San">San</p>
+              <p>San</p>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/The-Cat-Returns.jpg" alt="the cat returns">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>The Baron</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="The Cat Returns">The Cat Returns</h3>
-                        <div>
-                            <p title="The Baron">The Baron</p>
-                            <p>The Baron</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/My-Neighbor-Totoro.jpg" alt="my neighbor totoro">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Totoro</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Princess-Mononoke2.jpg" alt="princess mononoke">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>San</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Princess Mononoke">Princess Mononoke</h3>
-                        <div>
-                            <p title="San">San</p>
-                            <p>San</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="My Neighbor Totoro">My Neighbor Totoro</h3>
+            <div>
+              <p title="Totoro">Totoro</p>
+              <p>Totoro</p>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/My-Neighbor-Totoro.jpg" alt="my neighbor totoro">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Totoro</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="My Neighbor Totoro">My Neighbor Totoro</h3>
-                        <div>
-                            <p title="Totoro">Totoro</p>
-                            <p>Totoro</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Grave-of-the-Fireflies.jpg" alt="grave of the fireflies">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg"
+              alt="Seita Yokokawa and Setsuko Yokokawa avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg"
+                alt="Seita Yokokawa and Setsuko Yokokawa avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Seita Yokokawa</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Grave-of-the-Fireflies.jpg" alt="grave of the fireflies">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg" alt="Seita Yokokawa and Setsuko Yokokawa avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg" alt="Seita Yokokawa and Setsuko Yokokawa avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Seita Yokokawa</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Grave of the Fireflies">Grave of the Fireflies</h3>
-                        <div>
-                            <p title="Seita Yokokawa">Seita Yokokawa</p>
-                            <p>Seita Yokokawa</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Grave of the Fireflies">Grave of the Fireflies</h3>
+            <div>
+              <p title="Seita Yokokawa">Seita Yokokawa</p>
+              <p>Seita Yokokawa</p>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/The-Wind-Rises2.jpg" alt="the wind rises">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="jiro horikoshi avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="Jiro-Horikoshi avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Jiro Horikoshi</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="The Wind Rises">The Wind Rises</h3>
-                        <div>
-                            <p title="Jiro Horikoshi">Jiro Horikoshi</p>
-                            <p>Jiro Horikoshi</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/The-Wind-Rises2.jpg" alt="the wind rises">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="jiro horikoshi avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="Jiro-Horikoshi avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Jiro Horikoshi</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Kiki's-Delivery-Service.jpg" alt="kiki's delivery service">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Jiji</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Kiki's Delivery Service">Kiki's Delivery Service</h3>
-                        <div>
-                            <p title="Jiji">Jiji</p>
-                            <p>Jiji</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="The Wind Rises">The Wind Rises</h3>
+            <div>
+              <p title="Jiro Horikoshi">Jiro Horikoshi</p>
+              <p>Jiro Horikoshi</p>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Howl's-Moving-Castle.jpg" alt="howl's moving castle">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Turnip Head</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Howl's Moving Castle">Howl's Moving Castle</h3>
-                        <div>
-                            <p title="Turnip Head">Turnip Head</p>
-                            <p>Turnip Head</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Kiki's-Delivery-Service.jpg" alt="kiki's delivery service">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Jiji</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Porco-Rosso.jpg" alt="porco rosso">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Fio Piccolo</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Porco Rosso">Porco Rosso</h3>
-                        <div>
-                            <p title="Fio Piccolo">Fio Piccolo</p>
-                            <p>Fio Piccolo</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Kiki's Delivery Service">Kiki's Delivery Service</h3>
+            <div>
+              <p title="Jiji">Jiji</p>
+              <p>Jiji</p>
             </div>
-            <div class="video-text-container">
-                <div class="video-container">
-                    <img src="images/thumbnails/Tales-from-Earthsea2.jpg" alt="tales from earthsea">
-                    <p>2:56</p>
-                </div>
-                <div class="avatar-text-container">
-                    <div class="channel-icon">
-                        <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
-                        <div class="channel-tooltip">
-                            <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
-                            <div class="channel-tooltip-stats">
-                                <h3>Therru</h3>
-                                <p>3M subscribers</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="video-statistics">
-                        <h3 title="Tales from Earthsea">Tales from Earthsea</h3>
-                        <div>
-                            <p title="Therru">Therru</p>
-                            <p>Therru</p>
-                        </div>
-                        <p>2.1M views <span>&#183</span> 1 year ago</p>
-                    </div>
-                </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Howl's-Moving-Castle.jpg" alt="howl's moving castle">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Turnip Head</h3>
+                <p>3M subscribers</p>
+              </div>
             </div>
-        </section>
-        <section class="shorts"></section>
-    </main>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Howl's Moving Castle">Howl's Moving Castle</h3>
+            <div>
+              <p title="Turnip Head">Turnip Head</p>
+              <p>Turnip Head</p>
+            </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Porco-Rosso.jpg" alt="porco rosso">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Fio Piccolo</h3>
+                <p>3M subscribers</p>
+              </div>
+            </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Porco Rosso">Porco Rosso</h3>
+            <div>
+              <p title="Fio Piccolo">Fio Piccolo</p>
+              <p>Fio Piccolo</p>
+            </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-text-container">
+        <div class="video-container">
+          <img src="images/thumbnails/Tales-from-Earthsea2.jpg" alt="tales from earthsea">
+          <p>2:56</p>
+        </div>
+        <div class="avatar-text-container">
+          <div class="channel-icon">
+            <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
+            <div class="channel-tooltip">
+              <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
+              <div class="channel-tooltip-stats">
+                <h3>Therru</h3>
+                <p>3M subscribers</p>
+              </div>
+            </div>
+          </div>
+          <div class="video-statistics">
+            <h3 title="Tales from Earthsea">Tales from Earthsea</h3>
+            <div>
+              <p title="Therru">Therru</p>
+              <p>Therru</p>
+            </div>
+            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="shorts"></section>
+  </main>
 </body>
+
 </html>
