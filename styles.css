@@ -36,7 +36,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: var(--base-text-color);
   padding: 100px 38px 0 275px;
-  min-width: 402px;
+  min-width: 350px;
 }
 
 /* END OF RESET */
@@ -123,6 +123,13 @@ body {
   padding: 14px;
 }
 
+.navigation-bar-left__youtube-logo-small {
+  display: none;
+  width: 1.9em;
+  margin: 0 10px;
+}
+
+
 .navigation-bar-left__menu-btn {
   line-height: 0;
   border-radius: 50%;
@@ -131,6 +138,7 @@ body {
 
 .navigation-bar-left__menu-icon {
   width: 1.5em;
+  margin-bottom: -2px;
 }
 
 /* END OF NAVIGATION BAR LEFT */
@@ -341,6 +349,17 @@ body {
   .navigation-bar-right__search-with-voice-btn {
     display: initial;
   }
+}
+
+@media screen and (max-width: 402px) {
+  .navigation-bar-left__youtube-logo {
+    display: none;
+  }
+
+  .navigation-bar-left__youtube-logo-small {
+    display: block;
+  }
+  
 }
 
 @media screen and (hover: hover) {

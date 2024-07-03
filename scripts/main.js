@@ -1,3 +1,5 @@
+import { trapFocus } from "./utils.js";
+
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
 const returnBtn = document.getElementById('navigation-bar__return-btn');
 const searchInputLm = document.getElementById('navigation-bar-middle__search-input')
@@ -59,34 +61,14 @@ function openSearchWithVoiceModal() {
   clearTimeout(modalContainerTimId)
   modalContainerLm.style.display = 'block';
   closeModalBtn.focus();
+  
   setTimeout(() => {
     modalOveralyLm.style.opacity = 1;
     modalContentLm.style.opacity = 1;
-  })  
+  });
 
-  function trapFocus(e) {
-    const focusableLms = modalContentLm.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-    const firstFocusableLm = focusableLms[0]; 
-    const lastFocusableLm = focusableLms[focusableLms.length - 1];
-
-    const isTabPressed = (e.key === 'Tab');
-    
-    if (!isTabPressed) { 
-      return; 
-    }
-
-    if (e.shiftKey) /* shift + tab */ {
-      if (document.activeElement === firstFocusableLm ) {
-        lastFocusableLm.focus();
-        e.preventDefault();
-      }
-    } 
-    else /* tab */ {
-      if (document.activeElement === lastFocusableLm) {
-        firstFocusableLm.focus();
-        e.preventDefault();
-      }
-    }
+  function handleTrapFocus(e) {
+    trapFocus(e, modalContentLm);
   }
 
   function closeModal() {
@@ -97,9 +79,10 @@ function openSearchWithVoiceModal() {
       modalContainerLm.style.display = 'none';
       lastFocusLmBeforeAlertDialog.focus();
     }, 150);
+    document.body.removeEventListener('keydown', handleModalCloseAtEscapeKey);
     modalContainerLm.removeEventListener('click', handleModalOutsideClick);
     closeModalBtn.removeEventListener('click', closeModal);
-    modalContentLm.removeEventListener('keydown', trapFocus)
+    modalContentLm.removeEventListener('keydown', handleTrapFocus)
   }
 
   const handleModalCloseAtEscapeKey = e => e.key === 'Escape' && closeModal();
@@ -107,26 +90,128 @@ function openSearchWithVoiceModal() {
   const handleModalOutsideClick = e => e.target.matches('.search-with-voice-modal-overlay') && closeModal();
 
   document.body.addEventListener('keydown', handleModalCloseAtEscapeKey);
-  modalContentLm.addEventListener('keydown', trapFocus);
+  modalContentLm.addEventListener('keydown', handleTrapFocus);
   modalContainerLm.addEventListener('click', handleModalOutsideClick);
   closeModalBtn.addEventListener('click', closeModal);
 }
 
+//TODO Refactor modal functions to be reusable and be used in search with voice and settings modal
 
+const settingsModalData = [
+  {
+    icon: 'shield_person',
+    title: 'Your data in YouTube',
+    chevron: false
+  },
+  {
+    icon: 'mode_night',
+    title: 'Appearance: Device theme',
+    chevron: true
+  },
+  {
+    icon: 'translate',
+    title: 'Language: English',
+    chevron: true
+  },
+  {
+    icon: 'admin_panel_settings',
+    title: 'Restricted Mode: Off',
+    chevron: true
+  },
+  {
+    icon: 'language',
+    title: 'Location: Spain',
+    chevron: true
+  },
+  {
+    icon: 'keyboard',
+    title: 'Keyboard shortcuts',
+    chevron: false
+  },
+  {
+    icon: 'settings',
+    title: 'Settings',
+    chevron: false
+  },
+  {
+    icon: 'help',
+    title: 'Help',
+    chevron: false
+  },
+  {
+    icon: 'feedback',
+    title: 'Send feedback',
+    chevron: false
+  }
+]
 
+function hasChildren(element) {
+  return element.children.length > 0;
+}
 
-function openModalSettings() {
+function handleToggleModalSettings() {
   const settingsModalLm = document.getElementById('settings-modal');
-  console.log('open')
+  settingsModalLm.style.display = 'block';
+  settingsModalLm.classList.toggle('open');
+
+  function closeModal() {
+    settingsModalLm.style.display = 'none';
+    settingsModalLm.classList.remove('open');
+
+    settingsModalLm.removeEventListener('keydown', handleTrapFocus);
+    document.body.removeEventListener('keydown', handleCloseAtEscapeKey);
+    document.body.removeEventListener('keydown', handleOutsideClick);
+  }
+
+  function handleTrapFocus(e) {
+    trapFocus(e, settingsModalLm)
+  }
+
+  function handleOutsideClick(e) {
+    if (!e.target.closest('.settings-modal') && !e.target.closest('.navigation-bar-right__settings-btn')) {
+      closeModal()
+    }
+  }
+  
+  const handleCloseAtEscapeKey = e => e.key === 'Escape' && closeModal();
+
+  function openModal() {
+    if (!hasChildren(settingsModalLm)) {
+      settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
+        icon !== 'settings' 
+          ? `
+              <button class="settings-modal__btn">
+                <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+                ${title}
+                ${chevron ? '<span class="material-symbols-outlined settings-modal__btn-chevron">chevron_right</span>' : ''}
+              </button>
+            `
+          : `
+              <div class="settings-modal__settings-btn-container">
+                <button class="settings-modal__btn settings-modal__settings-btn">
+                  <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+                  ${title}
+                </button>
+              </div>
+            `
+      )).join('');
+    }
+
+    settingsModalLm.style.display = 'block';
+
+    document.body.addEventListener('click', handleOutsideClick)
+    settingsModalLm.addEventListener('keydown', handleTrapFocus);
+    document.body.addEventListener('keydown', handleCloseAtEscapeKey);
+  }
+
+  settingsModalLm.classList.contains('open') ? openModal() : closeModal();
+
+
 }
 
 const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
 
-navbarSettingsBtn.addEventListener('click', openModalSettings);
-
-
-
-
+navbarSettingsBtn.addEventListener('click', handleToggleModalSettings);
 
 middleSearchWtichVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
 
