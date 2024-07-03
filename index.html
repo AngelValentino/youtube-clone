@@ -7,10 +7,36 @@
   <title>Youtube Clone</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="modal.css">
   <link rel="icon" type="image/x-icon" href="images/youtube-favicon.png">
 </head>
 
 <body>
+
+  <div id="search-with-voice-modal-container" class="search-with-voice-modal-container">
+    <div id="search-with-voice-modal-content" class="search-with-voice-modal-content">
+      <button id="search-with-voice-modal__close-btn" class="search-with-voice-modal__close-btn">
+        <svg class="search-with-voice-modal__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+          <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M8 8L40 40" />
+            <path d="M8 40L40 8" />
+          </g>
+        </svg>
+      </button>
+      <h2 class="search-with-voice-modal__title">Search with your voice</h2>
+      <p class="search-with-voice-modal__paragraph">To search by voice, go to your browser settings and allow access to microphone</p>
+      <button class="search-with-voice-modal__search-with-voice-btn">
+        <svg aria-hidden="true" role="presentation" focusable="false" class="search-with-voice-modal__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+          <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
+            <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />
+            <path stroke-linecap="round" d="M9 23c0 8.284 6.716 15 15 15c8.284 0 15-6.716 15-15M24 38v6" />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <div id="search-with-voice-modal-overlay" class="search-with-voice-modal-overlay"></div>
+  </div>
+
   <header class="navigaton-bar" id="navigation-bar">
     <nav>
 
@@ -31,7 +57,6 @@
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
           </svg>
         </button>
-      
         <div class="navigation-bar-middle__search-container">
           <div class="navigation-bar-middle__search-input-container">
             <input id="navigation-bar-middle__search-input" class="navigation-bar-middle__search-input" type="text" placeholder="Search">
@@ -43,18 +68,14 @@
                 </g>
               </svg>
             </button>
-
-
           </div>
-          
           <button aria-label="Search Videos." data-tooltip="Search" class="navigation-bar-middle__search-btn tooltip-navbar tooltip">
             <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
             </svg>
           </button>
         </div>
-       
-        <button aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-middle__search-with-voice-btn tooltip-navbar tooltip">
+        <button id="navigation-bar-middle__search-with-voice-btn" aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-middle__search-with-voice-btn tooltip-navbar tooltip">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
               <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />
@@ -70,7 +91,7 @@
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314" />
           </svg>
         </button>
-        <button aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-right__search-with-voice-btn tooltip-navbar tooltip">
+        <button id="navigation-bar-right__search-with-voice-btn" aria-label="Search with your voice." data-tooltip="Search with your voice" class="navigation-bar-right__search-with-voice-btn tooltip-navbar tooltip">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
               <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />

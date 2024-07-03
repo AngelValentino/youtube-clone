@@ -224,6 +224,8 @@ body {
 
 .navigation-bar__return-btn {
   line-height: 0;
+  padding: 8px;
+  border-radius: 50%;
 }
 
 .navigation-bar__return-icon {
@@ -363,6 +365,10 @@ body {
 
     .navigation-bar-middle__search-with-voice-btn:is(:hover, :focus-visible) {
       background-color: #d3d3d3;
+    }
+
+    .navigation-bar__return-btn:is(:hover, :focus-visible) {
+      background-color: #0000001a;
     }
     /* END OF NAVBAR MIDDLE */
 

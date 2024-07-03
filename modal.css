@@ -1,0 +1,78 @@
+.search-with-voice-modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  padding: 0 20px;
+  display: none;
+}
+
+.search-with-voice-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.search-with-voice-modal-content {
+  background-color: #fff;
+  max-height: 450px;
+  max-width: 590px;
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
+  margin: 8px auto 0;
+  padding: 25px 30px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.10s;
+  border-radius: 1px;
+}
+
+.search-with-voice-modal__close-btn {
+  line-height: 0;
+  position: absolute;
+  right: 15px;
+  top: 32px;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.search-with-voice-modal__close-btn:is(:hover, :focus-visible) {
+  background-color: #0000001a;
+}
+
+.search-with-voice-modal__close-icon {
+  width: 1.5em;
+}
+
+.search-with-voice-modal__title {
+  margin: 48px 0 28px;
+  font-weight: 400;
+}
+
+.search-with-voice-modal__paragraph {
+  font-size: 0.875em;
+}
+
+.search-with-voice-modal__search-with-voice-btn {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 0;
+  background-color: #d3d3d3;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background-color 0.15s;
+}
+
+.search-with-voice-modal__search-with-voice-icon {
+  width: 2.2em;
+}
+
+.search-with-voice-modal__search-with-voice-btn:active {
+  background-color: #a8a8a8;
+}
