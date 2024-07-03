@@ -2,6 +2,9 @@ const openSearchBarBtn = document.getElementById('navigation-bar-right__search-b
 const returnBtn = document.getElementById('navigation-bar__return-btn');
 const searchInputLm = document.getElementById('navigation-bar-middle__search-input')
 const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn')
+const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
+const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
+let modalContainerTimId;
 
 // Toggle display of 'navigation-bar' sections
 function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
@@ -45,11 +48,6 @@ function resetSearchInput() {
 
 // Handle Escape key press to reset search input
 const resetSearchInputAtEsc = e => e.key === 'Escape' && resetSearchInput();
-
-const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
-const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
-
-let modalContainerTimId;
 
 function openSearchWithVoiceModal() {
   const modalContainerLm = document.getElementById('search-with-voice-modal-container');
@@ -113,6 +111,21 @@ function openSearchWithVoiceModal() {
   modalContainerLm.addEventListener('click', handleModalOutsideClick);
   closeModalBtn.addEventListener('click', closeModal);
 }
+
+
+
+
+function openModalSettings() {
+  const settingsModalLm = document.getElementById('settings-modal');
+  console.log('open')
+}
+
+const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
+
+navbarSettingsBtn.addEventListener('click', openModalSettings);
+
+
+
 
 
 middleSearchWtichVoiceBtn.addEventListener('click', openSearchWithVoiceModal);

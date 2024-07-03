@@ -76,3 +76,37 @@
 .search-with-voice-modal__search-with-voice-btn:active {
   background-color: #a8a8a8;
 }
+
+
+.settings-modal {
+  display: none;
+  background-color: #fff;
+  position: fixed;
+  top: 50px;
+  right: 4%;
+  width: 100%;
+  max-width: 300px;
+  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 0px 0px 45px -6px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.settings-modal__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  width: 100%;
+  padding: 10px 17px;
+}
+
+.settings-modal__btn:is(:hover, :focus-visible) {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.settings-modal__btn:active {
+  background-color: rgba(0, 0, 0, 0.15);
+}

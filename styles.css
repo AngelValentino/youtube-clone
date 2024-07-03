@@ -36,15 +36,15 @@ body {
   font-family: "Roboto", sans-serif;
   color: var(--base-text-color);
   padding: 100px 38px 0 275px;
-  min-width: 345px;
+  min-width: 402px;
 }
 
 /* END OF RESET */
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
+  'FILL' 0,
+  'wght' 250,
   'GRAD' 0,
   'opsz' 24
 }
@@ -325,8 +325,12 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-  header {
+  .navigaton-bar {
     padding: 0 8px;
+  }
+
+  .navigaton-bar nav {
+    gap: 0;
   }
 
   .navigation-bar__middle {
