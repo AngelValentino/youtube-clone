@@ -1,4 +1,5 @@
-import { trapFocus } from "./utils.js";
+import { settingsModalData } from "../data/settingsModalData.js";
+import { openSearchWithVoiceModal, handleToggleModalSettings } from "./modal.js";
 
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
 const returnBtn = document.getElementById('navigation-bar__return-btn');
@@ -6,8 +7,9 @@ const searchInputLm = document.getElementById('navigation-bar-middle__search-inp
 const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn')
 const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
-let modalContainerTimId;
+const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
 
+//TODO OpenSearch logic needs to be refactored to also use modal functions and be more modular
 // Toggle display of 'navigation-bar' sections
 function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
   document.getElementById('navigation-bar__left').style.display = leftDisplay; // Set the display style of the left navigation bar section
@@ -19,15 +21,15 @@ function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
 function openSearchBar() {
   toggleSearchDisplay('none', 'flex', 'none'); // Open search bar: hide left and right, show middle
   searchInputLm.focus();
-  document.addEventListener('click', handleNavbarOutsideClick);
-  document.addEventListener('keydown', handleNavbarEscapeKey);
+  document.body.addEventListener('click', handleNavbarOutsideClick);
+  document.body.addEventListener('keydown', handleNavbarEscapeKey);
 }
 
 // Close the search bar and remove event listeners
 function closeSearchBar() {
   toggleSearchDisplay('flex', 'none', 'flex'); // Close search bar: show left and right, hide middle
-  document.removeEventListener('click', handleNavbarOutsideClick);
-  document.removeEventListener('keydown', handleNavbarEscapeKey);
+  document.body.removeEventListener('click', handleNavbarOutsideClick);
+  document.body.removeEventListener('keydown', handleNavbarEscapeKey);
 }
 
 /* JavaScript processes the addEventListener call after the handleNavbarEscapeKey 
@@ -51,172 +53,31 @@ function resetSearchInput() {
 // Handle Escape key press to reset search input
 const resetSearchInputAtEsc = e => e.key === 'Escape' && resetSearchInput();
 
-function openSearchWithVoiceModal() {
-  const modalContainerLm = document.getElementById('search-with-voice-modal-container');
-  const modalOveralyLm = document.getElementById('search-with-voice-modal-overlay');
-  const modalContentLm = document.getElementById('search-with-voice-modal-content');
-  const closeModalBtn = document.getElementById('search-with-voice-modal__close-btn');
-  const lastFocusLmBeforeAlertDialog = document.activeElement;
+const settingsModalLm = document.getElementById('settings-modal');
 
-  clearTimeout(modalContainerTimId)
-  modalContainerLm.style.display = 'block';
-  closeModalBtn.focus();
-  
-  setTimeout(() => {
-    modalOveralyLm.style.opacity = 1;
-    modalContentLm.style.opacity = 1;
-  });
+settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
+  icon !== 'settings' 
+    ? `
+        <button class="settings-modal__btn">
+          <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+          ${title}
+          ${chevron ? '<span class="material-symbols-outlined settings-modal__btn-chevron">chevron_right</span>' : ''}
+        </button>
+      `
+    : `
+        <div class="settings-modal__settings-btn-container">
+          <button class="settings-modal__btn settings-modal__settings-btn">
+            <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+            ${title}
+          </button>
+        </div>
+      `
+)).join('');
 
-  function handleTrapFocus(e) {
-    trapFocus(e, modalContentLm);
-  }
-
-  function closeModal() {
-    modalOveralyLm.style.transition = 'opacity 0.15s'
-    modalOveralyLm.style.opacity = 0;
-    modalContentLm.style.opacity = 0;
-    modalContainerTimId = setTimeout(() => {
-      modalContainerLm.style.display = 'none';
-      lastFocusLmBeforeAlertDialog.focus();
-    }, 150);
-    document.body.removeEventListener('keydown', handleModalCloseAtEscapeKey);
-    modalContainerLm.removeEventListener('click', handleModalOutsideClick);
-    closeModalBtn.removeEventListener('click', closeModal);
-    modalContentLm.removeEventListener('keydown', handleTrapFocus)
-  }
-
-  const handleModalCloseAtEscapeKey = e => e.key === 'Escape' && closeModal();
-
-  const handleModalOutsideClick = e => e.target.matches('.search-with-voice-modal-overlay') && closeModal();
-
-  document.body.addEventListener('keydown', handleModalCloseAtEscapeKey);
-  modalContentLm.addEventListener('keydown', handleTrapFocus);
-  modalContainerLm.addEventListener('click', handleModalOutsideClick);
-  closeModalBtn.addEventListener('click', closeModal);
-}
-
-//TODO Refactor modal functions to be reusable and be used in search with voice and settings modal
-
-const settingsModalData = [
-  {
-    icon: 'shield_person',
-    title: 'Your data in YouTube',
-    chevron: false
-  },
-  {
-    icon: 'mode_night',
-    title: 'Appearance: Device theme',
-    chevron: true
-  },
-  {
-    icon: 'translate',
-    title: 'Language: English',
-    chevron: true
-  },
-  {
-    icon: 'admin_panel_settings',
-    title: 'Restricted Mode: Off',
-    chevron: true
-  },
-  {
-    icon: 'language',
-    title: 'Location: Spain',
-    chevron: true
-  },
-  {
-    icon: 'keyboard',
-    title: 'Keyboard shortcuts',
-    chevron: false
-  },
-  {
-    icon: 'settings',
-    title: 'Settings',
-    chevron: false
-  },
-  {
-    icon: 'help',
-    title: 'Help',
-    chevron: false
-  },
-  {
-    icon: 'feedback',
-    title: 'Send feedback',
-    chevron: false
-  }
-]
-
-function hasChildren(element) {
-  return element.children.length > 0;
-}
-
-function handleToggleModalSettings() {
-  const settingsModalLm = document.getElementById('settings-modal');
-  settingsModalLm.style.display = 'block';
-  settingsModalLm.classList.toggle('open');
-
-  function closeModal() {
-    settingsModalLm.style.display = 'none';
-    settingsModalLm.classList.remove('open');
-
-    settingsModalLm.removeEventListener('keydown', handleTrapFocus);
-    document.body.removeEventListener('keydown', handleCloseAtEscapeKey);
-    document.body.removeEventListener('keydown', handleOutsideClick);
-  }
-
-  function handleTrapFocus(e) {
-    trapFocus(e, settingsModalLm)
-  }
-
-  function handleOutsideClick(e) {
-    if (!e.target.closest('.settings-modal') && !e.target.closest('.navigation-bar-right__settings-btn')) {
-      closeModal()
-    }
-  }
-  
-  const handleCloseAtEscapeKey = e => e.key === 'Escape' && closeModal();
-
-  function openModal() {
-    if (!hasChildren(settingsModalLm)) {
-      settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
-        icon !== 'settings' 
-          ? `
-              <button class="settings-modal__btn">
-                <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
-                ${title}
-                ${chevron ? '<span class="material-symbols-outlined settings-modal__btn-chevron">chevron_right</span>' : ''}
-              </button>
-            `
-          : `
-              <div class="settings-modal__settings-btn-container">
-                <button class="settings-modal__btn settings-modal__settings-btn">
-                  <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
-                  ${title}
-                </button>
-              </div>
-            `
-      )).join('');
-    }
-
-    settingsModalLm.style.display = 'block';
-
-    document.body.addEventListener('click', handleOutsideClick)
-    settingsModalLm.addEventListener('keydown', handleTrapFocus);
-    document.body.addEventListener('keydown', handleCloseAtEscapeKey);
-  }
-
-  settingsModalLm.classList.contains('open') ? openModal() : closeModal();
-
-
-}
-
-const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
-
+// Add modal events
 navbarSettingsBtn.addEventListener('click', handleToggleModalSettings);
-
 middleSearchWtichVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
-
 rightSearchWithVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
-
 
 // Add event listeners to open and close search bar
 openSearchBarBtn.addEventListener('click', openSearchBar);

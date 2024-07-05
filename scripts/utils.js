@@ -1,3 +1,5 @@
+let lastFocusedLmBeforeModalOpened;
+
 export function trapFocus(e, element) {
   const focusableLms = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
   const firstFocusableLm = focusableLms[0]; 
@@ -20,5 +22,15 @@ export function trapFocus(e, element) {
       firstFocusableLm.focus();
       e.preventDefault();
     }
+  }
+}
+
+export function toggleModalFocus(focusBehaviour, firstFocusableLm) {
+  if (focusBehaviour === 'addFocus') {
+    lastFocusedLmBeforeModalOpened = document.activeElement;
+    firstFocusableLm.focus();
+  } 
+  else if (focusBehaviour === 'returnFocus') {
+    lastFocusedLmBeforeModalOpened.focus();
   }
 }
