@@ -4,19 +4,25 @@ let modalContainerTimId;
 // Event handler function for closing modal on Escape key
 export const handleModalCloseAtEscapeKey = closeFun => e => {
   if (e.key === 'Escape') closeFun();
-};
+}
 
 // Event handler function for closing modal on outside click
 export const handleModalOutsideClick = (closeFun, matchingClass) => e => {
-  if (matchingClass === '.settings-modal') {
-    // Check if click is outside of settings modal and its not the toggle button
-    if (!e.target.closest('.settings-modal') && !e.target.closest('.navigation-bar-right__settings-btn')) closeFun();
-  } 
-  else {
-    // Check if click matches the specified matchingClass
-    if (e.target.matches(matchingClass)) closeFun();
+  switch (matchingClass) {
+    case '.navigation-bar':
+      // Check if target is not within the navigation bar
+      if (!e.target.closest(matchingClass)) closeFun();
+      break;
+    case '.settings-modal':
+      // Check if click is outside of settings modal and it is not the toggle button
+      if (!e.target.closest(matchingClass) && !e.target.closest('.navigation-bar-right__settings-btn')) closeFun();
+      break;
+    default:
+      // Check if target matches the specified matchingClass, default overlay click
+      if (e.target.matches(matchingClass)) closeFun(); 
+      break;
   }
-};
+}
 
 // Function to handle focus trapping within modal content
 export const handleTrapFocus = modalContentLm => e => {
@@ -81,7 +87,7 @@ export function openSearchWithVoiceModal() {
     }, 150);
 
     // Remove event listeners and perform cleanup
-    toggleModalEvents('remove', closeModal, modalContentLm, modalContainerLm, closeModalBtn, '.search-with-voice-modal-overlay');
+    toggleModalEvents('remove', null, modalContentLm, modalContainerLm, closeModalBtn, '.search-with-voice-modal-overlay');
   }
 
   // Add event listeners
@@ -99,7 +105,7 @@ export function handleToggleModalSettings() {
     settingsModalLm.classList.remove('settings-modal--open');
     toggleModalFocus('returnFocus'); // Return focus to the last active element
     // Remove event listeners and perform cleanup
-    toggleModalEvents('remove', closeModal, settingsModalLm, document.body, null, '.settings-modal');
+    toggleModalEvents('remove', null, settingsModalLm, document.body, null, '.settings-modal');
   }
 
   // Open settings Modal

@@ -28,6 +28,8 @@ fieldset {
   border: none;
 }
 
+/* TODO ADD VARIABLES FOR NAVBAR BUTTON COLORS*/
+
 html {
   font-size: 16px;
 }
@@ -69,8 +71,6 @@ body {
 
 .tooltip-navbar::before {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   transition: opacity 0.15s;
   content: attr(data-tooltip);
   bottom: -50px;
@@ -86,9 +86,25 @@ body {
   line-height: normal;
 }
 
+.tooltip-navbar--bottom-center::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-navbar--bottom-left::before {
+  left: 0;
+  transform: initial;
+}
+
+.tooltip-navbar--bottom-rigth::before {
+  right: 0;
+  left: initial;
+  transform: initial;
+}
+
 /*HEADER NAVIGATION MENU*/
 
-.navigaton-bar {
+.navigation-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,9 +113,10 @@ body {
   padding: 0 16px;
   z-index: 2;
   font-size: 1rem;
+  border: 1px solid red;
 }
 
-.navigaton-bar nav {
+.navigation-bar nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -314,6 +331,10 @@ body {
 
 /* END OF NAVIGATION BAR RIGHT */
 
+/* NAVBAR TAGS CAROUSEL */
+
+/* END OF NAVBAR TAGS CAROUSEL */
+
 @media screen and (min-width: 700px) {
   .navigation-bar__left {
     display: flex !important;
@@ -330,14 +351,19 @@ body {
   .navigation-bar__return-btn {
     display: none;
   }
+
+  .tooltip-navbar::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
-@media screen and (max-width: 700px) {
-  .navigaton-bar {
+@media screen and (max-width: 699px) {
+  .navigation-bar {
     padding: 0 8px;
   }
 
-  .navigaton-bar nav {
+  .navigation-bar nav {
     gap: 0;
   }
 
@@ -425,6 +451,10 @@ body {
     }
 
     .navigation-bar-middle__search-with-voice-btn:active {
+      background-color: #c0c0c0;
+    }
+
+    .navigation-bar__return-btn:active {
       background-color: #c0c0c0;
     }
     /* END OF NAVBAR MIDDLE */
