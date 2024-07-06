@@ -1,3 +1,5 @@
+/* SEARCH WITH VOICE MODAL */
+
 .search-with-voice-modal-container {
   position: fixed;
   inset: 0;
@@ -77,6 +79,10 @@
   background-color: #a8a8a8;
 }
 
+/* END OF SEARCH WITH VOICE MODAL */
+
+/* SETTINGS MODAL */
+
 .settings-modal {
   background-color: #fff;
   position: fixed;
@@ -84,7 +90,7 @@
   right: 110px;
   width: 100%;
   max-width: 300px;
-  z-index: 100;
+  z-index: 20;
   border-radius: 12px;
   box-shadow: 0px 0px 45px -6px rgba(0, 0, 0, 0.12);
   padding: 10px 0;
@@ -127,4 +133,13 @@
 .settings-modal__settings-btn-container {
   padding: 8px 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* END OF SETTINGS MODAL */
+
+@media screen and (max-width: 500px) {
+  .settings-modal {
+    right: 30%;
+    transform: translateX(30%);
+  }
 }

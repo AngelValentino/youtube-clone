@@ -28,15 +28,14 @@ fieldset {
   border: none;
 }
 
-/* TODO ADD VARIABLES FOR NAVBAR BUTTON COLORS*/
-
 html {
   font-size: 16px;
+  --base-hover-btn-color: rgba(0, 0, 0, 0.1);
+  --base-active-btn-color: #c0c0c0;
 }
 
 body {
   font-family: "Roboto", sans-serif;
-  color: var(--base-text-color);
   padding: 100px 38px 0 275px;
   min-width: 350px;
 }
@@ -70,6 +69,7 @@ body {
 }
 
 .tooltip-navbar::before {
+  z-index: 50;
   position: absolute;
   transition: opacity 0.15s;
   content: attr(data-tooltip);
@@ -103,7 +103,7 @@ body {
   transform: initial;
 }
 
-/*HEADER NAVIGATION MENU*/
+/* HEADER NAVIGATION MENU */
 
 .navigation-bar {
   position: fixed;
@@ -124,6 +124,8 @@ body {
   gap: 80px;
   height: 56px;
 }
+
+/* END OF HEADER NAVIGATION MENU */
 
 /* NAVIGATION BAR LEFT */
 
@@ -294,7 +296,7 @@ body {
 }
 
 .navigation-bar-right__settings-btn:focus-visible {
-  background-color: #0000001a;
+  background-color: var(--base-hover-btn-color);
   outline: none;
 }
 
@@ -302,7 +304,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: 8px;
-  border: 1px solid #0000001a;
+  border: 1px solid var(--base-hover-btn-color);
   border-radius: 30px;
   padding: 6px 15px 6px 11px;
 }
@@ -347,9 +349,9 @@ body {
 
 /* END OF NAVIGATION BAR RIGHT */
 
-/* NAVBAR TAGS CAROUSEL */
+/* SIDE MENU */
 
-/* END OF NAVBAR TAGS CAROUSEL */
+/* END OF SIDE MENU */
 
 @media screen and (min-width: 701px) {
   .navigation-bar__left {
@@ -405,7 +407,6 @@ body {
   .navigation-bar-left__youtube-logo-small-link {
     display: block;
   }
-  
 }
 
 @media screen and (hover: hover) {
@@ -419,7 +420,7 @@ body {
   /* NAVIGATION MENU */
     /* NAVBAR LEFT */
     .navigation-bar-left__menu-btn:is(:hover, :focus-visible) {
-      background-color: #0000001a;
+      background-color: var(--base-hover-btn-color);
       outline: none;
     }
     /* END OF NAVBAR LEFT*/
@@ -437,7 +438,7 @@ body {
     }
 
     .navigation-bar__return-btn:is(:hover, :focus-visible) {
-      background-color: #0000001a;
+      background-color: var(--base-hover-btn-color);
     }
     /* END OF NAVBAR MIDDLE */
 
@@ -449,7 +450,7 @@ body {
     
     .navigation-bar-right__search-btn:is(:hover, :focus-visible),
     .navigation-bar-right__search-with-voice-btn:is(:hover, :focus-visible) {
-      background-color: #0000001a;
+      background-color: var(--base-hover-btn-color);
       outline: none;
     }
     /* END OF NAVBAR RIGHT */
@@ -461,7 +462,7 @@ body {
   /* NAVIGATION MENU */
     /* NAVBAR LEFT */
     .navigation-bar-left__menu-btn:active {
-      background-color: #c0c0c0;
+      background-color: var(--base-active-btn-color);
     }
     /* END OF NAVBAR LEFT */
 
@@ -471,22 +472,22 @@ body {
     }
 
     .navigation-bar-middle__search-with-voice-btn:active {
-      background-color: #c0c0c0;
+      background-color: var(--base-active-btn-color);
     }
 
     .navigation-bar__return-btn:active {
-      background-color: #c0c0c0;
+      background-color: var(--base-active-btn-color);
     }
     /* END OF NAVBAR MIDDLE */
 
     /* NAVBAR RIGHT */
     .navigation-bar-right__settings-btn:active {
-      background-color: #0000001a;
+      background-color: var(--base-hover-btn-color);
     }
 
     .navigation-bar-right__search-btn:active,
     .navigation-bar-right__search-with-voice-btn:active {
-      background-color: #c0c0c0;
+      background-color: var(--base-active-btn-color);
     }
 
     .navigation-bar-right__sign-in-btn:active {
@@ -497,6 +498,11 @@ body {
   /* END OF NAVIGATION MENU */
 
 /* END OF ACTIVE */
+
+
+
+
+/* TODO REFACTOR UNDER THIS LINE */
 
 /*SIDEBAR*/
 
