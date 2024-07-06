@@ -1,38 +1,57 @@
 import { toggleModalEvents } from "./modal.js";
 
+const leftNavigationBarLm = document.getElementById('navigation-bar__left');
+const middleNavigationBarLm = document.getElementById('navigation-bar__middle');
+const rightNavigationBarLm = document.getElementById('navigation-bar__right');
 const returnBtn = document.getElementById('navigation-bar__return-btn');
 const searchInputLm = document.getElementById('navigation-bar-middle__search-input')
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
 const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn');
 
-export function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
-  document.getElementById('navigation-bar__left').style.display = leftDisplay; // Set the display style of the left navigation bar section
-  document.getElementById('navigation-bar__middle').style.display = middleDisplay; // Set the display style of the middle navigation bar section
-  document.getElementById('navigation-bar__right').style.display = rightDisplay; // Set the display style of the right navigation bar section
+// Toggle navigation bar sections' display
+function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
+  leftNavigationBarLm.style.display = leftDisplay; // Set the display style of the left navigation bar section
+  middleNavigationBarLm.style.display = middleDisplay; // Set the display style of the middle navigation bar section
+  rightNavigationBarLm.style.display = rightDisplay; // Set the display style of the right navigation bar section
 }
 
-export function closeSearchBar() {
+function closeSearchBar() {
   middleSearchWtichVoiceBtn.classList.remove('tooltip-navbar--bottom-rigth')
   toggleSearchDisplay('flex', 'none', 'flex'); // Close search bar: show left and right, hide middle
-  toggleModalEvents('remove', null, null, document.body, returnBtn);
+  toggleModalEvents('remove', null, null, document.body, returnBtn); // Remove event listeners and perform clean up
 }
 
 // Open the search bar and add event listeners for closing it
 export function openSearchBar() {
   toggleSearchDisplay('none', 'flex', 'none'); // Open search bar: hide left and right, show middle
-  toggleModalEvents('add', closeSearchBar, null, document.body, returnBtn, '.navigation-bar');
-  searchInputLm.focus();
-  middleSearchWtichVoiceBtn.classList.add('tooltip-navbar--bottom-rigth')
+  toggleModalEvents('add', closeSearchBar, null, document.body, returnBtn, '.navigation-bar'); // Add event listeners
+  searchInputLm.focus(); // Set focus on the search input field
+  middleSearchWtichVoiceBtn.classList.add('tooltip-navbar--bottom-rigth'); // Add tooltip class for search with voice button
 }
 
-// Reset search input fields and remove event listeners
-export function resetSearchInput() {
-  searchInputLm.value = '';
-  closeSearchInputBtn.style.display = 'none';
-  searchInputLm.style.padding = '10px 4px 10px 16px';
-  closeSearchInputBtn.removeEventListener('click', resetSearchInput);
-  searchInputLm.removeEventListener('keydown', resetSearchInputAtEsc);
+// Handle Escape key press to reset search input
+const resetSearchInputAtEsc = e => e.key === 'Escape' && resetSearchInput();
+
+// Reset search input fields
+function resetSearchInput() {
+  searchInputLm.value = ''; // Clear input value
+  closeSearchInputBtn.classList.remove('active');
+  searchInputLm.classList.remove('active');
 };
 
-// Handle Escape key press to reset search input
-export const resetSearchInputAtEsc = e => e.key === 'Escape' && resetSearchInput();
+function handleResetSearchInput(e) {
+  const inputValue = e.target.value;
+  
+  if (inputValue !== '') {
+    searchInputLm.classList.add('active');
+    closeSearchInputBtn.classList.add('active');
+  } 
+  else {
+    resetSearchInput(); // Reset search input if it's empty
+  }
+}
+
+// Event listeners setup
+closeSearchInputBtn.addEventListener('click', resetSearchInput); // Listen for click on close button
+searchInputLm.addEventListener('keydown', resetSearchInputAtEsc); // Listen for Escape key press
+searchInputLm.addEventListener('input', handleResetSearchInput); // Listen for input changes in search input

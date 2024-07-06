@@ -1,10 +1,8 @@
 import { settingsModalData } from "../data/settingsModalData.js";
 import { openSearchWithVoiceModal, handleToggleModalSettings } from "./modal.js";
-import { openSearchBar, resetSearchInput, resetSearchInputAtEsc } from "./searchBar.js";
+import { openSearchBar } from "./searchBar.js";
 
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
-const searchInputLm = document.getElementById('navigation-bar-middle__search-input')
-const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn');
 const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
 const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
@@ -38,18 +36,3 @@ rightSearchWithVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
 
 // Add event listeners to open search bar
 openSearchBarBtn.addEventListener('click', openSearchBar);
-
-// Event listener for input changes in search input
-searchInputLm.addEventListener('input', e => {
-  const inputValue = e.target.value;
-  
-  if (inputValue !== '') {
-    searchInputLm.style.padding = '10px 30px 10px 16px';
-    closeSearchInputBtn.style.display = 'block';
-    closeSearchInputBtn.addEventListener('click', resetSearchInput);
-    searchInputLm.addEventListener('keydown', resetSearchInputAtEsc);
-  } 
-  else {
-    resetSearchInput();
-  }
-});

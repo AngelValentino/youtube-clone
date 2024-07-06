@@ -84,6 +84,7 @@ body {
   opacity: 0;
   width: max-content;
   line-height: normal;
+  visibility: hidden;
 }
 
 .tooltip-navbar--bottom-center::before {
@@ -133,19 +134,26 @@ body {
 
 .navigation-bar__left a {
   line-height: 0;
+  color: inherit;
+}
+
+.navigation-bar-left__youtube-logo-link {
+  display: block;
+  padding: 16px;
 }
 
 .navigation-bar-left__youtube-logo {
-  width: 121px;
-  padding: 14px;
+  width: 5.75em;
+}
+
+.navigation-bar-left__youtube-logo-small-link {
+  display: none;
+  padding: 0 10px;
 }
 
 .navigation-bar-left__youtube-logo-small {
-  display: none;
   width: 1.9em;
-  margin: 0 10px;
 }
-
 
 .navigation-bar-left__menu-btn {
   line-height: 0;
@@ -192,6 +200,10 @@ body {
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
+.navigation-bar-middle__search-input.active {
+  padding: 10px 30px 10px 16px;
+}
+
 .navigation-bar-middle__search-input:focus {
   border: 1px solid #2e66ce;
   outline: none;
@@ -212,6 +224,10 @@ body {
   opacity: 0.5;
   transition: opacity 0.15s;
   display: none;
+}
+
+.navigation-bar-middle__search-input-close-btn.active {
+  display: block;
 }
 
 .navigation-bar-middle__search-input-close-btn:hover {
@@ -285,7 +301,7 @@ body {
 .navigation-bar-right__sign-in-btn {
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 8px;
   border: 1px solid #0000001a;
   border-radius: 30px;
   padding: 6px 15px 6px 11px;
@@ -335,7 +351,7 @@ body {
 
 /* END OF NAVBAR TAGS CAROUSEL */
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 701px) {
   .navigation-bar__left {
     display: flex !important;
   }
@@ -358,7 +374,7 @@ body {
   }
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 700px) {
   .navigation-bar {
     padding: 0 8px;
   }
@@ -375,14 +391,18 @@ body {
   .navigation-bar-right__search-with-voice-btn {
     display: initial;
   }
+
+  .navigation-bar-right__sign-in-btn {
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 402px) {
-  .navigation-bar-left__youtube-logo {
+  .navigation-bar-left__youtube-logo-link {
     display: none;
   }
 
-  .navigation-bar-left__youtube-logo-small {
+  .navigation-bar-left__youtube-logo-small-link {
     display: block;
   }
   
