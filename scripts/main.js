@@ -8,8 +8,6 @@ const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle
 const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
 const settingsModalLm = document.getElementById('settings-modal');
 
-//TODO OpenSearch logic needs to be refactored to also use modal functions and be more modular
-
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   icon !== 'settings' 
     ? `

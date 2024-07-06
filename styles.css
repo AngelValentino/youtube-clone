@@ -509,6 +509,7 @@ body {
 .sidebar-thin {
     display: none;
     background-color: #fff;
+    border: 2px solid blue;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -534,6 +535,7 @@ body {
     width: 240px;
     overflow: auto;
     background-color: #fff;
+    border: 2px solid blue;
 }
 
 .sign-in-section img {
