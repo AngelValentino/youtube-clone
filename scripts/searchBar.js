@@ -1,4 +1,3 @@
-import { toggleModalEvents } from "./modal.js";
 import { toggleModalFocus } from "./utils.js";
 
 const leftNavigationBarLm = document.getElementById('navigation-bar__left');
@@ -8,7 +7,6 @@ const returnBtn = document.getElementById('navigation-bar__return-btn');
 const searchInputLm = document.getElementById('navigation-bar-middle__search-input');
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
 const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn');
-const searchBarEvents = {}; // Dedicated events object for the search bar
 
 // Toggle navigation bar sections' display
 function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
@@ -20,17 +18,32 @@ function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
 function closeSearchBar() {
   middleSearchWtichVoiceBtn.classList.remove('tooltip-navbar--bottom-rigth');
   toggleSearchDisplay('flex', 'none', 'flex'); // Close search bar: show left and right, hide middle
-  toggleModalEvents('remove', searchBarEvents, null, null, document.body, returnBtn); // Remove event listeners and perform clean up
   toggleModalFocus('returnFocus'); // Return focus to the last focused element before search bar opened
+
+  // Remove events
+  document.body.removeEventListener('keydown', handleEscKey);
+  document.body.removeEventListener('click', handleOverlayClick);
+  returnBtn.removeEventListener('click', closeSearchBar);
 }
 
+function handleOverlayClick(e) {
+  if (!e.target.closest('.navigation-bar')) closeSearchBar()
+}
+
+function handleEscKey(e) {
+  if (e.key === 'Escape') closeSearchBar();
+}
 
 // Open the search bar and add event listeners for closing it
 export function openSearchBar() {
   toggleSearchDisplay('none', 'flex', 'none'); // Open search bar: hide left and right, show middle
-  toggleModalEvents('add', searchBarEvents, closeSearchBar, null, document.body, returnBtn, '.navigation-bar'); // Add event listeners
   toggleModalFocus('addFocus', searchInputLm); // Set focus on the search input field
   middleSearchWtichVoiceBtn.classList.add('tooltip-navbar--bottom-rigth'); // Add tooltip class for search with voice button
+
+  // Add events
+  document.body.addEventListener('keydown', handleEscKey);
+  document.body.addEventListener('click', handleOverlayClick);
+  returnBtn.addEventListener('click', closeSearchBar);
 }
 
 // Handle Escape key press to reset search input
