@@ -128,46 +128,6 @@ body {
 /* END OF HEADER NAVIGATION MENU */
 
 /* NAVIGATION BAR LEFT */
-
-.navigation-bar__left {
-  display: flex;
-  align-items: center;
-}
-
-.navigation-bar__left a {
-  line-height: 0;
-  color: inherit;
-}
-
-.navigation-bar-left__youtube-logo-link {
-  display: block;
-  padding: 16px;
-}
-
-.navigation-bar-left__youtube-logo {
-  width: 5.75em;
-}
-
-.navigation-bar-left__youtube-logo-small-link {
-  display: none;
-  padding: 0 10px;
-}
-
-.navigation-bar-left__youtube-logo-small {
-  width: 1.9em;
-}
-
-.navigation-bar-left__menu-btn {
-  line-height: 0;
-  border-radius: 50%;
-  padding: 8px;
-}
-
-.navigation-bar-left__menu-icon {
-  width: 1.5em;
-  margin-bottom: -2px;
-}
-
 /* END OF NAVIGATION BAR LEFT */
 
 /* NAVIGATION BAR MIDDLE */
@@ -395,16 +355,6 @@ body {
   }
 }
 
-@media screen and (max-width: 402px) {
-  .navigation-bar-left__youtube-logo-link {
-    display: none;
-  }
-
-  .navigation-bar-left__youtube-logo-small-link {
-    display: block;
-  }
-}
-
 
 /* SIDE MENU */
 
@@ -416,12 +366,12 @@ body {
   width: 245px;
   scrollbar-width: thin;
   overflow: hidden;
-  border: 2px solid blue;
+  z-index: 100;
+  background-color: #fff;
 }
 
 .side-menu {
   width: 230px;
-  background-color: #fff;
 }
 
 .side-menu ul {
@@ -573,7 +523,6 @@ body {
 
 .side-menu-thin {
   background-color: #fff;
-
   padding: 2px 4px;
 }
 
@@ -628,7 +577,7 @@ body {
 
   /* NAVIGATION MENU */
     /* NAVBAR LEFT */
-    .navigation-bar-left__menu-btn:is(:hover, :focus-visible) {
+    .nav-header__menu-btn:is(:hover, :focus-visible) {
       background-color: var(--base-hover-btn-color);
       outline: none;
     }
@@ -740,8 +689,15 @@ body {
 
 /* END OF ACTIVE */
 
+/* @media screen and (min-width: 1312px) {
+  .side-menu-modal-header,
+  .side-menu__overlay {
+    display: none !important;
+  }
+} */
+
 @media screen and (max-width: 1312px) {
-  .aside-side-menu {
+  .aside-side-menu-container {
     display: none;
   }
 
@@ -751,6 +707,102 @@ body {
 }
 
 
+
+
+
+.nav-header {
+  display: flex;
+  align-items: center;
+}
+
+.nav-header a {
+  line-height: 0;
+  color: inherit;
+}
+
+
+.nav-header__youtube-logo-link,
+.side-menu-modal-header__youtube-logo-link {
+  display: block;
+  padding: 16px;
+}
+
+.nav-header__youtube-logo {
+  width: 5.75em;
+}
+
+.nav-header__youtube-logo-small-link {
+  display: none;
+  padding: 0 10px;
+}
+
+.nav-header__youtube-logo-small {
+  width: 1.9em;
+}
+
+.nav-header__menu-btn {
+  line-height: 0;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.nav-header__menu-icon {
+  width: 1.5em;
+  margin-bottom: -2px;
+}
+
+.side-menu-modal-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 57px;
+  color: red;
+  background-color: white;
+  width: 245px;
+  display: none;
+  padding-left: 16px;
+}
+
+.side-menu__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.active-display {
+  display: initial;
+}
+
+.hide {
+  display: none;
+}
+
+.active-display-flex {
+  display: flex;
+}
+
+
+@media screen and (hover: none) {
+  .aside-side-menu {
+    overflow: auto;
+  }
+}
+
+
+@media screen and (max-width: 402px) {
+  .nav-header__youtube-logo-link {
+    display: none;
+  }
+
+  .nav-header__youtube-logo-small-link {
+    display: block;
+  }
+}
 
 
 
@@ -934,13 +986,13 @@ body {
 
 @media screen and (max-width: 1312px) {
     body {
-        padding: 100px 38px 0 100px;
+        padding: 100px 38px 0 100px !important;
     }
 }
 
 @media screen and (max-width: 791px) {
     body {
-        padding: 100px 26px 0 26px;
+        padding: 100px 26px 0 26px !important
     }
 
     .aside-side-menu-thin {

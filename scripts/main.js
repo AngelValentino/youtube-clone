@@ -10,6 +10,111 @@ const settingsModalLm = document.getElementById('settings-modal');
 const sideMenuLinksLms = document.querySelectorAll('.side-menu__link');
 const thinSideMenuLinksLms = document.querySelectorAll('.side-menu-thin__link')
 
+const sideMenuLm = document.getElementById('aside-side-menu');
+const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
+const navbarMenuBtn = document.getElementById('navigation-bar-left__menu-btn');
+const sideMenuOverlay = document.getElementById('side-menu__overlay');
+const sideModalMenuBtn = document.getElementById('nav-header-modal__menu-btn')
+const sideModalHeaderLm = document.getElementById('side-menu-modal-header');
+
+
+
+function closeSideMenu() {
+  console.log('close')
+
+  sideMenuLm.classList.remove('active-display')
+  sideMenuOverlay.classList.remove('active-display');
+  sideModalHeaderLm.classList.remove('active-display-flex')
+
+  sideModalMenuBtn.removeEventListener('click', closeSideMenu)
+
+
+}
+
+function closeSideMenuWithSlide() {
+
+  sideModalHeaderLm.style.left = '-300px'
+  sideMenuInner.style.left = '-300px'
+  sideMenuOverlay.style.opacity = 0;
+
+  setTimeout(() => {
+    sideMenuLm.classList.remove('active-display')
+    sideMenuOverlay.classList.remove('active-display');
+    sideModalHeaderLm.classList.remove('active-display-flex')
+    sideModalHeaderLm.style.left = 0
+    sideMenuInner.style.left = 0
+  }, 250);
+
+
+  sideModalMenuBtn.removeEventListener('click', closeSideMenu)
+}
+
+// Function to check window width
+function checkWindowSize() {
+  if (window.innerWidth <= 1312) {
+     document.body.style.padding = '100px 38px 0 275px'
+    // Add your code here to handle the window size being smaller than 1312px
+  } else {
+    console.log('Window width is 1312px or larger');
+    closeSideMenu()
+  }
+}
+
+// Initial check when the script loads
+checkWindowSize();
+
+// Set up an event listener to detect window resize
+window.addEventListener('resize', checkWindowSize);
+
+const sideMenuInner = document.getElementById('side-menu');
+
+navbarMenuBtn.addEventListener('click', () => {
+
+
+  console.log(window.innerWidth < 1312)
+
+  if (window.innerWidth <= 1312) {
+    sideMenuLm.classList.add('active-display')
+    sideMenuOverlay.classList.add('active-display');
+    sideModalHeaderLm.classList.add('active-display-flex')
+    sideMenuLm.classList.remove('hide')
+    sideModalHeaderLm.style.left = '-300px'
+    sideModalHeaderLm.style.transition = 'left 0.25s'
+  
+    setTimeout(() => {
+      sideModalHeaderLm.style.left = '0'
+      sideMenuOverlay.style.opacity = 1;
+   });
+    sideMenuInner.style.left = '-300px'
+    sideMenuInner.style.transition = 'left 0.25s'
+    setTimeout(() => {
+       sideMenuInner.style.left = '0'
+    });
+
+  } 
+  else {
+    if (!sideMenuLm.classList.contains('hide')) {
+      sideMenuThinLm.classList.add('active-display');
+      sideMenuLm.classList.add('hide')
+      document.body.style.padding = '100px 38px 0 100px'
+    } else {
+      document.body.style.padding = '100px 38px 0 275px'
+      sideMenuThinLm.classList.remove('active-display');
+      sideMenuLm.classList.remove('hide')
+    }
+    
+  
+  }
+
+
+
+  sideModalMenuBtn.addEventListener('click', closeSideMenuWithSlide);
+
+})
+
+
+
+
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   icon !== 'settings' 
     ? `
