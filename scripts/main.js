@@ -7,7 +7,8 @@ const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__s
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
 const navbarSettingsBtn = document.getElementById('navigation-bar-right__settings-btn');
 const settingsModalLm = document.getElementById('settings-modal');
-const sideMneuLinksLms = document.querySelectorAll('.side-menu__link');
+const sideMenuLinksLms = document.querySelectorAll('.side-menu__link');
+const thinSideMenuLinksLms = document.querySelectorAll('.side-menu-thin__link')
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   icon !== 'settings' 
@@ -28,23 +29,50 @@ settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => 
       `
 )).join('');
 
+// Set the side menu links's 'active' class based on the current URL hash
+function setSideMenuActiveClass(linksLms) {
+  const currentHash = window.location.hash; // Get the current URL hash
 
-function setSideMenuLinkActiveClass() {
-  const currentHash = window.location.hash;
+  linksLms.forEach(link => {
+    const sideMenuHref = link.getAttribute('href'); ; // Get the href attribute of the link
 
-  sideMneuLinksLms.forEach(sideMenuLink => {
-    const sideMenuHref = sideMenuLink.getAttribute('href');
-
+    // Add 'active' class if the link href matches the current hash, otherwise remove it
     if (sideMenuHref === currentHash || (sideMenuHref === '/' && currentHash === '')) {
-      sideMenuLink.classList.add('active');
+      link.classList.add('active');
     } 
     else {
-      sideMenuLink.classList.remove('active');
+      link.classList.remove('active');
     }
   });
 }
 
+// Handler function to set the active class for both side menus
+function setSideMenuActiveClassHandler() {
+  setSideMenuActiveClass(sideMenuLinksLms); // Set active class for side menu
+  setSideMenuActiveClass(thinSideMenuLinksLms); // Set active class for thin side menu
+}
 
+// Add click event listeners to the side menu links
+function addSideMenuEvents(linksLms) {
+  linksLms.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // Prevent default anchor behavior
+      const hash = link.getAttribute('href'); // Get the href attribute of the clicked link
+      history.replaceState(null, null, hash); // Update the URL hash without triggering scroll
+      setSideMenuActiveClassHandler(); // Set active class based on clicked item
+    });
+  });
+}
+
+// Handler function to add click event listeners to the appropriate side menu based on type
+function addSideMenuEventsHandler(type) {
+  if (type === 'side-menu') {
+    addSideMenuEvents(sideMenuLinksLms); // Add event listeners to side menu links
+  } 
+  else if (type === 'side-menu-thin') {
+    addSideMenuEvents(thinSideMenuLinksLms); // Add event listeners to thin side menu links
+  }
+}
 
 // Add modal events
 navbarSettingsBtn.addEventListener('click', handleToggleModalSettings);
@@ -54,14 +82,8 @@ rightSearchWithVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
 // Add event listeners to open search bar
 openSearchBarBtn.addEventListener('click', openSearchBar);
 
-// Add event listeners to side menu links
-sideMneuLinksLms.forEach(sideMenuLink => {
-  sideMenuLink.addEventListener('click', e => {
-    e.preventDefault(); // Prevent default anchor behavior
-    const hash = sideMenuLink.getAttribute('href');
-    history.replaceState(null, null, hash); // Update the URL hash without triggering scroll
-    setSideMenuLinkActiveClass(); // Set active class based on clicked item
-  });
-});
+// Add event handlers to both side menus
+addSideMenuEventsHandler('side-menu');
+addSideMenuEventsHandler('side-menu-thin');
 
-setSideMenuLinkActiveClass(); // Set active side menu class on the first page load
+setSideMenuActiveClassHandler(); // Initial call to set the active class based on the current URL hash

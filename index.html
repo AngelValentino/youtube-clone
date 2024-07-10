@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <div id="search-with-voice-modal-container" class="search-with-voice-modal-container">
     <div id="search-with-voice-modal-content" class="search-with-voice-modal-content">
       <button id="search-with-voice-modal__close-btn" class="search-with-voice-modal__close-btn">
@@ -36,12 +35,10 @@
     </div>
     <div id="search-with-voice-modal-overlay" class="search-with-voice-modal-overlay"></div>
   </div>
-
   <div id="settings-modal" class="settings-modal"></div>
 
   <header class="navigation-bar" id="navigation-bar">
     <nav>
-
       <div id="navigation-bar__left" class="navigation-bar__left">
         <button aria-label="Toggle menu." class="navigation-bar-left__menu-btn">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-left__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -55,7 +52,6 @@
           <img class="navigation-bar-left__youtube-logo-small" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo.png" alt="YouTube logo">
         </a>
       </div>
-
       <div id="navigation-bar__middle" class="navigation-bar__middle">
         <button data-tooltip="Back" id="navigation-bar__return-btn" class="navigation-bar__return-btn tooltip-navbar tooltip tooltip-navbar--bottom-left">
           <svg class="navigation-bar__return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
@@ -89,7 +85,6 @@
           </svg>
         </button>
       </div>
-
       <div id="navigation-bar__right" class="navigation-bar__right">
         <button id="navigation-bar-right__search-btn" aria-label="Open search bar." data-tooltip="Search" class="navigation-bar-right__search-btn tooltip-navbar tooltip tooltip-navbar--bottom-center">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-right__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -114,15 +109,13 @@
           <p>Sign in</p>
         </button>
       </div>
-
     </nav>
   </header>
 
-  <aside>
+  <aside class="aside-side-menu">
     <nav id="side-menu" class="side-menu">
-
       <section class="side-menu__introductory">
-        <ul class="side-menu-introductory__general side-menu__section">
+        <ul class="side-menu-introductory__general-section side-menu__section">
           <li>
             <a class="side-menu__link" href="/">
               <svg class="side-menu-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
@@ -162,7 +155,7 @@
             </a>
           </li>
         </ul>
-        <ul class="side-menu-introductory__user side-menu__section">
+        <ul class="side-menu-introductory__user-section side-menu__section">
           <li>
             <a class="side-menu__link" href="#you">
               <svg class="side-menu-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
@@ -188,7 +181,7 @@
         </ul>
       </section>
 
-      <section class="side-menu__sign-in">
+      <section class="side-menu__sign-in-section">
         <p class="side-menu__sign-in-text">Sign in to like videos, comment, and subscribe.</p>
         <button class="sign-in-btn side-menu__sign-in-btn">
           <img aria-hidden="true" role="presentation" src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
@@ -196,7 +189,7 @@
         </button>
       </section>
       
-      <section class="side-menu__section side-menu__explore">
+      <section class="side-menu__section side-menu__explore-section">
         <h2 class="side-menu__section-title">Explore</h2>
         <ul>
           <li>
@@ -312,7 +305,7 @@
         </ul>
       </section>
 
-      <section class="side-menu__section side-menu__more">
+      <section class="side-menu__section side-menu__more-section">
         <h2 class="side-menu__section-title">More from YouTube</h2>
         <ul>
           <li>
@@ -336,7 +329,7 @@
         </ul>
       </section>
 
-      <section class="side-menu__section side-menu__settings">
+      <section class="side-menu__section side-menu__settings-section">
         <ul>
           <li>
             <a class="side-menu__link" href="#settings">
@@ -425,205 +418,73 @@
       <small class="side-menu-footer__copyright-title">&copy; 2024 Google LLC</small>
     </footer>
   </aside>
+  <aside class="aside-side-menu-thin">
+    <nav class="side-menu-thin">
+      <ul>
+        <li>
+          <a class="side-menu-thin__link" href="/">
+            <svg class="side-menu-thin-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M240-200h156v-234h168v234h156v-360L480-742 240-560v360Zm-28 28v-402l268-203 268 203v402H536v-234H424v234H212Zm268-299Z"/>
+            </svg>
+            <svg class="side-menu-thin-link__icon--active" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M212-172v-402l268-203 268 203v402H550v-248H410v248H212Z"/>
+            </svg>
+            <p class="side-menu-thin-link__text">Home</p>
+          </a>
+        </li>
+        <li>
+          <a class="side-menu-thin__link" href="#shorts">
+            <svg class="side-menu-thin-link__icon side-menu-thin-link__icon-variation" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
+              <g transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                <path d="M 30.063 90 c -6.765 0 -13.323 -3.634 -16.759 -10.009 c -4.669 -8.691 -1.799 -19.627 6.535 -24.901 c 0.049 -0.03 0.099 -0.06 0.15 -0.086 c 0.673 -0.349 1.33 -0.708 1.989 -1.081 c -0.487 -0.279 -0.972 -0.555 -1.464 -0.83 c -5.12 -2.956 -8.263 -7.114 -9.115 -12.038 c -1.115 -6.588 -1.112 -14.914 8.886 -20.927 c 7.687 -4.595 15.564 -9.093 23.183 -13.444 c 2.527 -1.443 5.056 -2.887 7.585 -4.338 c 5.279 -3.008 11.797 -3.129 17.436 -0.329 c 5.692 2.826 9.569 8.152 10.373 14.247 c 1.166 7.769 -2.72 15.545 -9.677 19.315 c -0.449 0.254 -0.885 0.504 -1.313 0.751 c 0.409 0.244 0.816 0.483 1.227 0.715 c 5.715 3.216 9.323 8.684 9.899 14.999 c 0.568 6.244 -1.953 12.194 -6.916 16.325 c -1.584 1.287 -3.325 2.268 -5.008 3.216 c -0.487 0.274 -0.975 0.549 -1.455 0.83 c -7.804 4.547 -17.067 9.922 -26.608 15.32 C 36.162 89.271 33.091 90 30.063 90 z M 21.907 58.516 c -6.513 4.174 -8.746 12.756 -5.08 19.579 c 3.927 7.284 13.009 10.041 20.251 6.138 c 9.485 -5.367 18.734 -10.735 26.526 -15.275 c 0.497 -0.29 1.002 -0.574 1.507 -0.86 c 1.609 -0.906 3.129 -1.762 4.432 -2.821 c 3.918 -3.26 5.918 -7.958 5.472 -12.872 c -0.454 -4.984 -3.326 -9.314 -7.88 -11.877 c -0.734 -0.415 -1.449 -0.845 -2.191 -1.292 c -0.628 -0.378 -1.277 -0.769 -1.975 -1.172 c -0.61 -0.352 -0.99 -0.999 -1.001 -1.704 c -0.01 -0.705 0.352 -1.363 0.951 -1.732 c 1.398 -0.861 2.773 -1.671 4.329 -2.551 c 5.513 -2.987 8.576 -9.111 7.654 -15.256 c -0.635 -4.808 -3.695 -8.99 -8.192 -11.223 c -4.445 -2.207 -9.558 -2.125 -13.671 0.219 c -2.526 1.45 -5.057 2.895 -7.587 4.339 c -7.601 4.341 -15.462 8.83 -23.11 13.401 c -6.346 3.817 -8.376 8.691 -7 16.821 c 0.65 3.762 3.056 6.871 7.149 9.234 c 1.452 0.814 2.868 1.639 4.46 2.583 c 0.606 0.359 0.979 1.011 0.981 1.715 c 0.002 0.705 -0.367 1.359 -0.971 1.721 C 25.216 56.681 23.628 57.622 21.907 58.516 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                <path d="M 36.741 59.95 c -0.345 0 -0.69 -0.089 -0.999 -0.268 c -0.62 -0.357 -1.002 -1.018 -1.002 -1.733 V 32.417 c 0 -0.715 0.381 -1.375 1 -1.732 c 0.619 -0.357 1.382 -0.357 2 0 l 22.085 12.737 c 0.619 0.357 1 1.016 1.001 1.731 c 0.001 0.715 -0.38 1.374 -0.997 1.733 L 37.744 59.681 C 37.433 59.861 37.087 59.95 36.741 59.95 z M 38.741 35.88 V 54.48 l 16.088 -9.321 L 38.741 35.88 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+              </g>
+            </svg>
+            <svg class="side-menu-thin-link__icon--active side-menu-thin-link__icon-variation" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
+              <g transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                <path d="M 69.186 38.498 c -1.406 -0.795 -2.751 -1.651 -4.34 -2.568 c 1.589 -0.978 3.057 -1.834 4.463 -2.629 c 6.541 -3.546 10.148 -10.759 9.047 -18.095 C 76.766 3.164 62.889 -3.804 52.375 2.186 C 41.616 8.361 30.857 14.413 20.22 20.77 c -8.436 5.074 -9.659 11.798 -8.314 19.745 c 0.856 4.952 4.157 8.619 8.497 11.126 c 1.528 0.856 2.995 1.712 4.646 2.69 c -1.834 1.1 -3.484 2.078 -5.257 2.995 c -7.825 4.952 -10.515 15.099 -6.113 23.291 c 4.646 8.62 15.405 11.921 24.024 7.275 c 9.292 -5.257 18.584 -10.637 27.815 -16.016 c 2.201 -1.284 4.524 -2.445 6.48 -4.035 C 81.84 59.649 80.373 44.795 69.186 38.498 z M 36.359 58.549 V 31.835 l 23.108 13.327 L 36.359 58.549 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+              </g>
+            </svg>
+            <p class="side-menu-thin-link__text">Shorts</p>
+          </a>
+        </li>
+        <li>
+          <a class="side-menu-thin__link" href="#subscriptions">
+            <svg class="side-menu-thin-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M192-132q-26 0-43-17t-17-43v-336q0-26 17-43t43-17h576q26 0 43 17t17 43v336q0 26-17 43t-43 17H192Zm0-28h576q12 0 22-10t10-22v-336q0-12-10-22t-22-10H192q-12 0-22 10t-10 22v336q0 12 10 22t22 10Zm234-88 168-112-168-112v224ZM186-668v-28h588v28H186Zm120-108v-28h348v28H306ZM160-160v-400 400Z"/>
+            </svg>
+            <svg class="side-menu-thin-link__icon--active" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M192-132q-26 0-43-17t-17-43v-336q0-26 17-43t43-17h576q26 0 43 17t17 43v336q0 26-17 43t-43 17H192Zm234-116 168-112-168-112v224ZM186-668v-28h588v28H186Zm120-108v-28h348v28H306Z"/>
+            </svg>
+            <p class="side-menu-thin-link__text">Subscriptions</p>
+          </a>
+        </li>
+        <li>
+          <a class="side-menu-thin__link" href="#you">
+            <svg class="side-menu-thin-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="m460-428 206-132-206-132v264ZM326-292q-26 0-43-17t-17-43v-416q0-26 17-43t43-17h416q26 0 43 17t17 43v416q0 26-17 43t-43 17H326Zm0-28h416q12 0 22-10t10-22v-416q0-12-10-22t-22-10H326q-12 0-22 10t-10 22v416q0 12 10 22t22 10ZM218-184q-26 0-43-17t-17-43v-444h28v444q0 12 10 22t22 10h444v28H218Zm76-616v480-480Z"/>
+            </svg>
+            <svg class="side-menu-thin-link__icon--active" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="m460-428 206-132-206-132v264ZM326-292q-26 0-43-17t-17-43v-416q0-26 17-43t43-17h416q26 0 43 17t17 43v416q0 26-17 43t-43 17H326ZM218-184q-26 0-43-17t-17-43v-444h28v444q0 12 10 22t22 10h444v28H218Z"/>
+            </svg>
+            <p class="side-menu-thin-link__text">You</p>
+          </a>
+        </li>
+        <li>
+          <a class="side-menu-thin__link" href="#history">
+            <svg class="side-menu-thin-link__icon" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M478-172q-117 0-204-76T173-440h28q17 103 94.5 171.5T478-200q117 0 198.5-81.5T758-480q0-117-81.5-198.5T478-760q-60 0-113 24.5T270-668h96v28H222v-144h28v96q45-47 104-73.5T478-788q64 0 120 24t98 66q42 42 66 98t24 120q0 64-24 120t-66 98q-42 42-98 66t-120 24Zm133-158L467-474v-206h28v194l136 136-20 20Z"/>
+            </svg>
+            <svg class="side-menu-thin-link__icon--active" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/>
+            </svg>
+            <p class="side-menu-thin-link__text">History</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-
-
-
-  <!-- <nav class="sidebar">
-    <div class="home flex-items">
-      <a href="/">
-        <div title="Home">
-          <img src="images/menu-icons/home-icon.png" alt="home icon">
-          <p>Home</p>
-        </div>
-      </a>
-      <a href="#shorts">
-        <div title="Shorts">
-          <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
-          <p>Shorts</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Subscriptions">
-          <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
-          <p>Subscriptions</p>
-        </div>
-      </a>
-    </div>
-    <div class="home2 flex-items">
-      <a href="#">
-        <div title="You">
-          <img src="images/menu-icons/library-icon.png" alt="library icon">
-          <p>You</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="History">
-          <img src="images/menu-icons/history-icon.png" alt="history-icon">
-          <p>History</p>
-        </div>
-      </a>
-    </div>
-    <div class="sign-in-section">
-      <p>Sign in to like videos, comment, and subscribe.</p>
-      <a href="#">
-        <div class="sign-in-button2">
-          <img src="images/menu-icons/sign-in-icon.png" alt="avatar icon">
-          <p>Sign in</p>
-        </div>
-      </a>
-    </div>
-    <div class="explore flex-items">
-      <h3>Explore</h3>
-      <a href="#">
-        <div title="Trending">
-          <img src="images/menu-icons/trending-icon.png" alt="trending icon">
-          <p>Trending</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Music">
-          <img src="images/menu-icons/music-note-icon.png" alt="music note icon">
-          <p>Music</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Movies">
-          <img src="images/menu-icons/movies-clapperboard-icon.png" alt="film clapperboard icon">
-          <p>Movies</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Live">
-          <img src="images/menu-icons/live-icon.png" alt="live icon">
-          <p>Live</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Gaming">
-          <img src="images/menu-icons/gaming-icon.png" alt="gaming icon">
-          <p>Gaming</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="News">
-          <img src="images/menu-icons/news-icon.png" alt="news icon">
-          <p>News</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Sports">
-          <img src="images/menu-icons/sports-icon.png" alt="sports icon">
-          <p>Sports</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Learning">
-          <img src="images/menu-icons/learning-icon.png" alt="learning icon">
-          <p>Learning</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Fashion & Beauty">
-          <img src="images/menu-icons/fashion-icon.png" alt="fashion icon">
-          <p>Fashion & Beauty</p>
-        </div>
-      </a>
-    </div>
-    <div class="browse flex-items">
-      <a href="#">
-        <div class="browse-channels" title="Browse channels">
-          <img src="images/menu-icons/plus-circle-icon.png" alt="plus circle icon">
-          <p>Browse channels</p>
-        </div>
-      </a>
-    </div>
-    <div class="youtube-links flex-items">
-      <h3>More from YouTube</h3>
-      <a href="#">
-        <div title="Youtube Premium">
-          <img src="images/menu-icons/youtube-logo.png" alt="youtube logo">
-          <p>YouTube Premium</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Youtube Music">
-          <img src="images/menu-icons/youtube-music-icon.png" alt="youtube music icon">
-          <p>YouTube Music</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Youtube Kids">
-          <img src="images/menu-icons/youtube-kids-logo.png" alt="youtube kids icon">
-          <p>YouTube Kids</p>
-        </div>
-      </a>
-    </div>
-    <div class="settings-feedback flex-items">
-      <a href="#">
-        <div title="Settings">
-          <img src="images/menu-icons/configuration-icon.png" alt="configuration icon">
-          <p>Settings</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Report history">
-          <img src="images/menu-icons/flag-icon.png" alt="flag icon">
-          <p>Report history</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Help">
-          <img src="images/menu-icons/help-icon.png" alt="help icon">
-          <p>Help</p>
-        </div>
-      </a>
-      <a href="#">
-        <div title="Send feedback">
-          <img src="images/menu-icons/suggestions-icon.png" alt="send feedback icon">
-          <p>Send feedback</p>
-        </div>
-      </a>
-    </div>
-    <div class="copyright">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </nav> -->
-  
-  <nav class="sidebar-thin">
-    <a href="#">
-      <div title="Home">
-        <img src="images/menu-icons/home-icon.png" alt="home icon">
-        <p>Home</p>
-      </div>
-    </a>
-    <a href="#">
-      <div title="shorts">
-        <img src="images/menu-icons/shorts-icon.png" alt="shorts icon">
-        <p>Shorts</p>
-      </div>
-    </a>
-    <a href="#">
-      <div title="subscriptions">
-        <img src="images/menu-icons/subscriptions-icon.png" alt="subscriptions icon">
-        <p>Subscriptions</p>
-      </div>
-    </a>
-    <a href="#">
-      <div title="You">
-        <img src="images/menu-icons/library-icon.png" alt="library icon">
-        <p>You</p>
-      </div>
-    </a>
-    <a href="#">
-      <div title="history">
-        <img src="images/menu-icons/history-icon.png" alt="history icon">
-        <p>History</p>
-      </div>
-    </a>
-  </nav>
   <main>
     <section class="personal-portfolio-ad"></section>
     <section class="videos">
