@@ -1,6 +1,7 @@
 import { settingsModalData } from "../data/settingsModalData.js";
 import { openSearchWithVoiceModal, handleToggleModalSettings } from "./modal.js";
 import { openSearchBar } from "./searchBar.js";
+import { trapFocus } from "./utils.js";
 
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
 const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
@@ -10,107 +11,157 @@ const settingsModalLm = document.getElementById('settings-modal');
 const sideMenuLinksLms = document.querySelectorAll('.side-menu__link');
 const thinSideMenuLinksLms = document.querySelectorAll('.side-menu-thin__link')
 
+
+//TODO Refactor modal logic
+
 const sideMenuLm = document.getElementById('aside-side-menu');
 const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
 const navbarMenuBtn = document.getElementById('navigation-bar-left__menu-btn');
-const sideMenuOverlay = document.getElementById('side-menu__overlay');
+const sideMenuOverlayLm = document.getElementById('side-menu__overlay');
 const sideModalMenuBtn = document.getElementById('nav-header-modal__menu-btn')
 const sideModalHeaderLm = document.getElementById('side-menu-modal-header');
+const sideMenuInnerLm = document.getElementById('side-menu');
 
+let isSideMenuModalOpen = false; // State to track if the side menu modal is open
+let hideThinModalTimId;
+let lastActiveLmBeforeMenuBtn;
+let closeSideMenuWithSlideTimId;
 
+function closeSideMenuWithSlideAtEsc(e) {
+  if (e.key === 'Escape') {
+    closeSideMenuWithSlide()
+  }
+}
 
+function closeSideMenuWithSlideAtOverlayClick(e) {
+  if (e.target.classList.contains('side-menu__overlay')) {
+    closeSideMenuWithSlide()
+  }
+}
+
+function handleTrapFocus(e) {
+  trapFocus(e, sideMenuLm)
+}
+
+function hideSideMenu() {
+  sideMenuLm.classList.remove('show');
+  sideMenuOverlayLm.classList.remove('show');
+  sideModalHeaderLm.classList.remove('show-flex');
+}
+
+function removeEvents() {
+  sideMenuLm.removeEventListener('keydown', handleTrapFocus)
+  document.body.removeEventListener('click', closeSideMenuWithSlideAtOverlayClick)
+  document.body.removeEventListener('keydown', closeSideMenuWithSlideAtEsc)
+  sideModalMenuBtn.removeEventListener('click', closeSideMenuWithSlide);
+}
+
+// Close the side menu
 function closeSideMenu() {
-  console.log('close')
+  hideSideMenu();
+  sideMenuThinLm.classList.remove('hide', 'show');
+  isSideMenuModalOpen = false;
 
-  sideMenuLm.classList.remove('active-display')
-  sideMenuOverlay.classList.remove('active-display');
-  sideModalHeaderLm.classList.remove('active-display-flex')
-
-  sideModalMenuBtn.removeEventListener('click', closeSideMenu)
-
+  // Remove events
+  removeEvents()
 
 }
 
+// Close the side menu with a sliding animation
 function closeSideMenuWithSlide() {
+  clearTimeout(hideThinModalTimId);
 
-  sideModalHeaderLm.style.left = '-300px'
-  sideMenuInner.style.left = '-300px'
-  sideMenuOverlay.style.opacity = 0;
+  sideModalHeaderLm.style.left = '-300px';
+  sideMenuInnerLm.style.left = '-300px';
+  sideMenuOverlayLm.style.opacity = 0;
+  sideMenuThinLm.classList.remove('hide');
+  isSideMenuModalOpen = false;
 
-  setTimeout(() => {
-    sideMenuLm.classList.remove('active-display')
-    sideMenuOverlay.classList.remove('active-display');
-    sideModalHeaderLm.classList.remove('active-display-flex')
-    sideModalHeaderLm.style.left = 0
-    sideMenuInner.style.left = 0
+  closeSideMenuWithSlideTimId = setTimeout(() => {
+    hideSideMenu();
+    sideModalHeaderLm.style.left = 0;
+    sideMenuInnerLm.style.left = 0;
+    sideMenuLm.classList.add('hide');
+
+    lastActiveLmBeforeMenuBtn.focus();
   }, 250);
 
-
-  sideModalMenuBtn.removeEventListener('click', closeSideMenu)
+  // Remove events
+  removeEvents()
 }
 
 // Function to check window width
 function checkWindowSize() {
-  if (window.innerWidth <= 1312) {
-     document.body.style.padding = '100px 38px 0 275px'
-    // Add your code here to handle the window size being smaller than 1312px
-  } else {
-    console.log('Window width is 1312px or larger');
-    closeSideMenu()
-  }
+  if (window.innerWidth > 1312) {
+    // Adjust body padding and show/hide side menu based on window size
+    if (window.getComputedStyle(sideMenuThinLm).display === 'none') {
+      document.body.style.padding = '100px 38px 0 275px';
+      sideMenuLm.classList.remove('hide');
+    }
+
+    // Close modal side menu if is open when window is bigger than 1312 x
+    if (isSideMenuModalOpen) closeSideMenu();
+  } 
 }
 
-// Initial check when the script loads
-checkWindowSize();
 
 // Set up an event listener to detect window resize
 window.addEventListener('resize', checkWindowSize);
 
-const sideMenuInner = document.getElementById('side-menu');
-
 navbarMenuBtn.addEventListener('click', () => {
-
-
-  console.log(window.innerWidth < 1312)
-
+  // If window width is less than or equal to 1312px, show the side menu modal
   if (window.innerWidth <= 1312) {
-    sideMenuLm.classList.add('active-display')
-    sideMenuOverlay.classList.add('active-display');
-    sideModalHeaderLm.classList.add('active-display-flex')
-    sideMenuLm.classList.remove('hide')
-    sideModalHeaderLm.style.left = '-300px'
-    sideModalHeaderLm.style.transition = 'left 0.25s'
+
+    clearTimeout(closeSideMenuWithSlideTimId)
+    clearTimeout(hideThinModalTimId);
+
+    sideMenuLm.classList.add('show');
+    sideMenuLm.classList.remove('hide');
+    sideMenuOverlayLm.classList.add('show');
+    sideModalHeaderLm.classList.add('show-flex');
+    sideModalHeaderLm.style.left = '-300px';
+    sideMenuInnerLm.style.left = '-300px';
+    isSideMenuModalOpen = true;
+
+    lastActiveLmBeforeMenuBtn = document.activeElement;
+    sideModalMenuBtn.focus();
+
+    hideThinModalTimId = setTimeout(() => {
+      sideMenuThinLm.classList.add('hide');
+    }, 250);
   
     setTimeout(() => {
-      sideModalHeaderLm.style.left = '0'
-      sideMenuOverlay.style.opacity = 1;
-   });
-    sideMenuInner.style.left = '-300px'
-    sideMenuInner.style.transition = 'left 0.25s'
-    setTimeout(() => {
-       sideMenuInner.style.left = '0'
-    });
+      sideModalHeaderLm.style.left = 0;
+      sideMenuInnerLm.style.left = 0;
+      sideMenuOverlayLm.style.opacity = 1;
+   }, 10);
 
+    sideMenuLm.addEventListener('keydown', handleTrapFocus)
+    document.body.addEventListener('click', closeSideMenuWithSlideAtOverlayClick)
+    document.body.addEventListener('keydown', closeSideMenuWithSlideAtEsc)
+    sideModalMenuBtn.addEventListener('click', closeSideMenuWithSlide);
   } 
+  // If window width is greater than 1312px, toggle between showing the thin side menu and the full side menu
   else {
+    // Show thin side menu
     if (!sideMenuLm.classList.contains('hide')) {
-      sideMenuThinLm.classList.add('active-display');
-      sideMenuLm.classList.add('hide')
-      document.body.style.padding = '100px 38px 0 100px'
-    } else {
-      document.body.style.padding = '100px 38px 0 275px'
-      sideMenuThinLm.classList.remove('active-display');
-      sideMenuLm.classList.remove('hide')
+      sideMenuThinLm.classList.add('show');
+      sideMenuLm.classList.add('hide');
+      document.body.style.padding = '100px 38px 0 100px';
+    } 
+    // Show side menu
+    else {
+      document.body.style.padding = '100px 38px 0 275px';
+      sideMenuThinLm.classList.remove('show');
+      sideMenuLm.classList.remove('hide');
     }
-    
-  
   }
+});
 
 
 
-  sideModalMenuBtn.addEventListener('click', closeSideMenuWithSlide);
 
-})
+
 
 
 
@@ -165,6 +216,7 @@ function addSideMenuEvents(linksLms) {
       const hash = link.getAttribute('href'); // Get the href attribute of the clicked link
       history.replaceState(null, null, hash); // Update the URL hash without triggering scroll
       setSideMenuActiveClassHandler(); // Set active class based on clicked item
+      if (isSideMenuModalOpen) closeSideMenuWithSlide();
     });
   });
 }

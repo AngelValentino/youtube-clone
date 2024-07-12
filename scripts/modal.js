@@ -1,5 +1,8 @@
 import { trapFocus, toggleModalFocus } from "./utils.js";
 
+
+//TODO Refactor modal logic system to be reusable throughout all the project's dialogs/modals
+
 let modalContainerTimId;
 let settingsModalClickEvent; // Stores the last click event for the settings modal
 const settingsModalLm = document.getElementById('settings-modal');

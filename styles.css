@@ -368,6 +368,8 @@ body {
   overflow: hidden;
   z-index: 100;
   background-color: #fff;
+  border: 2px solid blue;
+  transition: left 0.25s;
 }
 
 .side-menu {
@@ -514,7 +516,7 @@ body {
 
 .aside-side-menu-thin {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 57px;
   left: 0;
   width: 74px;
@@ -689,12 +691,6 @@ body {
 
 /* END OF ACTIVE */
 
-/* @media screen and (min-width: 1312px) {
-  .side-menu-modal-header,
-  .side-menu__overlay {
-    display: none !important;
-  }
-} */
 
 @media screen and (max-width: 1312px) {
   .aside-side-menu-container {
@@ -762,6 +758,7 @@ body {
   width: 245px;
   display: none;
   padding-left: 16px;
+  transition: left 0.25s;
 }
 
 .side-menu__overlay {
@@ -774,7 +771,7 @@ body {
   transition: opacity 0.25s;
 }
 
-.active-display {
+.show {
   display: initial;
 }
 
@@ -782,7 +779,7 @@ body {
   display: none;
 }
 
-.active-display-flex {
+.show-flex {
   display: flex;
 }
 
