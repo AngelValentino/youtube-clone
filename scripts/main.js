@@ -1,7 +1,7 @@
 import { settingsModalData } from "../data/settingsModalData.js";
-import { openSearchWithVoiceModal, handleToggleModalSettings } from "./modal.js";
+import { openSearchWithVoiceModal, handleToggleModalSettings, toggleModalEvents } from "./modal.js";
 import { openSearchBar } from "./searchBar.js";
-import { trapFocus } from "./utils.js";
+import { toggleModalFocus } from "./utils.js";
 
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
 const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
@@ -11,8 +11,7 @@ const settingsModalLm = document.getElementById('settings-modal');
 const sideMenuLinksLms = document.querySelectorAll('.side-menu__link');
 const thinSideMenuLinksLms = document.querySelectorAll('.side-menu-thin__link')
 
-
-//TODO Refactor modal logic
+//TODO Split side modal logic into its own file
 
 const sideMenuLm = document.getElementById('aside-side-menu');
 const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
@@ -24,24 +23,9 @@ const sideMenuInnerLm = document.getElementById('side-menu');
 
 let isSideMenuModalOpen = false; // State to track if the side menu modal is open
 let hideThinModalTimId;
-let lastActiveLmBeforeMenuBtn;
+// let lastActiveLmBeforeMenuBtn;
 let closeSideMenuWithSlideTimId;
-
-function closeSideMenuWithSlideAtEsc(e) {
-  if (e.key === 'Escape') {
-    closeSideMenuWithSlide()
-  }
-}
-
-function closeSideMenuWithSlideAtOverlayClick(e) {
-  if (e.target.classList.contains('side-menu__overlay')) {
-    closeSideMenuWithSlide()
-  }
-}
-
-function handleTrapFocus(e) {
-  trapFocus(e, sideMenuLm)
-}
+const sideMenuEventsHandler = {};
 
 function hideSideMenu() {
   sideMenuLm.classList.remove('show');
@@ -49,26 +33,20 @@ function hideSideMenu() {
   sideModalHeaderLm.classList.remove('show-flex');
 }
 
-function removeEvents() {
-  sideMenuLm.removeEventListener('keydown', handleTrapFocus)
-  document.body.removeEventListener('click', closeSideMenuWithSlideAtOverlayClick)
-  document.body.removeEventListener('keydown', closeSideMenuWithSlideAtEsc)
-  sideModalMenuBtn.removeEventListener('click', closeSideMenuWithSlide);
-}
-
 // Close the side menu
 function closeSideMenu() {
+  console.log('side nenu closed')
   hideSideMenu();
   sideMenuThinLm.classList.remove('hide', 'show');
   isSideMenuModalOpen = false;
 
-  // Remove events
-  removeEvents()
-
+  // Remove event listeners
+  toggleModalEvents(sideMenuEventsHandler, 'remove', null, sideModalMenuBtn, sideMenuLm, document.body, null);
 }
 
 // Close the side menu with a sliding animation
 function closeSideMenuWithSlide() {
+  console.log('side menu closed with slide')
   clearTimeout(hideThinModalTimId);
 
   sideModalHeaderLm.style.left = '-300px';
@@ -83,11 +61,11 @@ function closeSideMenuWithSlide() {
     sideMenuInnerLm.style.left = 0;
     sideMenuLm.classList.add('hide');
 
-    lastActiveLmBeforeMenuBtn.focus();
+    toggleModalFocus('returnFocus')
   }, 250);
 
-  // Remove events
-  removeEvents()
+  // Remove event listeners
+  toggleModalEvents(sideMenuEventsHandler, 'remove', null, sideModalMenuBtn, sideMenuLm, document.body, null);
 }
 
 // Function to check window width
@@ -123,8 +101,7 @@ navbarMenuBtn.addEventListener('click', () => {
     sideMenuInnerLm.style.left = '-300px';
     isSideMenuModalOpen = true;
 
-    lastActiveLmBeforeMenuBtn = document.activeElement;
-    sideModalMenuBtn.focus();
+    toggleModalFocus('addFocus', sideModalMenuBtn);
 
     hideThinModalTimId = setTimeout(() => {
       sideMenuThinLm.classList.add('hide');
@@ -134,12 +111,10 @@ navbarMenuBtn.addEventListener('click', () => {
       sideModalHeaderLm.style.left = 0;
       sideMenuInnerLm.style.left = 0;
       sideMenuOverlayLm.style.opacity = 1;
-   }, 10);
+    }, 10);
 
-    sideMenuLm.addEventListener('keydown', handleTrapFocus)
-    document.body.addEventListener('click', closeSideMenuWithSlideAtOverlayClick)
-    document.body.addEventListener('keydown', closeSideMenuWithSlideAtEsc)
-    sideModalMenuBtn.addEventListener('click', closeSideMenuWithSlide);
+    // Add event listeners
+    toggleModalEvents(sideMenuEventsHandler, 'add', closeSideMenuWithSlide, sideModalMenuBtn, sideMenuLm, document.body, '.side-menu__overlay');
   } 
   // If window width is greater than 1312px, toggle between showing the thin side menu and the full side menu
   else {
@@ -157,14 +132,6 @@ navbarMenuBtn.addEventListener('click', () => {
     }
   }
 });
-
-
-
-
-
-
-
-
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   icon !== 'settings' 
