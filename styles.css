@@ -38,6 +38,7 @@ body {
   font-family: "Roboto", sans-serif;
   padding: 100px 38px 0 275px;
   min-width: 350px;
+  min-height: 100vh;
 }
 
 /* END OF RESET */
@@ -84,6 +85,7 @@ body {
   opacity: 0;
   width: max-content;
   line-height: normal;
+  visibility: hidden;
 }
 
 .tooltip--top-center::before {
@@ -600,7 +602,7 @@ body {
 /* VIDEO THUMBNAIL */
 
 .video-container {
-  border: 2px solid red;
+  border: 2px solid hotpink;
   text-decoration: none;
   color: inherit;
 }
@@ -689,6 +691,7 @@ body {
 .video-info__author {
   margin: 8px 0 0;
   display: inline-block;
+  transition: color 0.1s;
   will-change: color;
 }
 
@@ -771,6 +774,7 @@ body {
   /* TOOLTIP */
   .tooltip-navbar:is(:hover, :focus-visible)::before {
     opacity: 0.9;
+    visibility: visible;
   }
   /* END OF TOOLTIP */
 
@@ -839,7 +843,7 @@ body {
   }
 
   .video-info__author:hover {
-    color: #0f0f0f;
+    color: #000000;
   }
   /* END FO VIDEOS GRID SECTION */
 }
@@ -957,7 +961,7 @@ body {
   }
 
   .aside-side-menu-thin {
-    display: none;
+    display: none !important;
   }
 }
 

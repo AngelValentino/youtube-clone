@@ -68,3 +68,35 @@ export const timeAgo = (dateString) => {
   
   return formatTimeUnit(yearsAgo, 'year'); // Return the time difference in years for all other cases
 };
+
+
+export function formatNumber(number) {
+  // Check if the number is less than 1000
+
+  if (number < 1000) {
+    return number;
+  } 
+  // Check if the number is between 1000 (inclusive) and 1 million (exclusive)
+  else if (number >= 1000 && number < 1_000_000) {
+    const result = (number / 1000); // Calculate the number in thousands
+    if (result % 1 === 0) {
+      return result.toFixed(0) + "K"
+    } 
+    else {
+      return Number(result.toFixed(1)) % 1 === 0 ? result.toFixed(0) + "K" : result.toFixed(1) + "K";
+    }
+  
+  } 
+  else if (number >= 1_000_000 && number < 1_000_000_000) {
+    const result = (number / 1_000_000);
+    if (result % 1 === 0) {
+      return result.toFixed(0) + "M"
+    } 
+    else {
+      return Number(result.toFixed(1)) % 1 === 0 ? result.toFixed(0) + "M" : result.toFixed(1) + "M";
+    }
+
+  }
+
+  return number; //Edge cases, return number instead of undefined
+}
