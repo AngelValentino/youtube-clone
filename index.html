@@ -499,270 +499,47 @@
   </aside>
 
   <main>
-    <section class="personal-portfolio-ad"></section>
-    <section class="videos">
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/From-Up-on-Poppy-Hill2.jpg" alt="from up on poppy hill">
-          <p>2:56</p>
+    <section id="videos-grid" class="videos-grid">
+      <a id="video-link" href="#" class="video-container">
+        <div class="video-thumbnail">
+          <img class="video-thumbnail__img" src="images/thumbnails/From-Up-on-Poppy-Hill2.jpg" alt="from up on poppy hill">
+          <p class="video-thumbnail__timestamp">2:56</p>
         </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
-              <div class="channel-tooltip-stats">
+        <div class="video-avatar-info-container">
+          <div class="video-avatar">
+            <img class="video-avatar__img" src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
+            <div aria-hidden="true" class="video-avatar__channel-tooltip">
+              <img class="video-avatar__channel-tooltip-img" src="images/channel-icons/Umi-Matsuzaki.jpg" alt="umi matsuzaki avatar">
+              <div class="video-avatar__channel-tooltip-info">
                 <h3>Umi Matsuzaki</h3>
                 <p>3M subscribers</p>
               </div>
             </div>
           </div>
-          <div class="video-statistics">
-            <h3 title="From Up on Poppy Hill">From Up on Poppy Hill</h3>
-            <div>
-              <p title="Umi Matsuzaki">Umi Matsuzaki</p>
-              <p>Umi Matsuzaki</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
+          <div class="video-info">
+            <h2 class="video-info__title" title="From Up on Poppy Hill">From Up on Poppy Hill</h3>
+            <h3 data-tooltip="Umi Matsuzaki" class="video-info__author tooltip tooltip-navbar tooltip--top-center" title="Umi Matsuzaki">Umi Matsuzaki</h3>
+            <h4 class="video-info__stats">2.1M views <span class="video-info__stats-separator">&#183</span> 1 year ago</h4>
+          </div>
+          <button id="video-info__toggle-settings-btn" aria-label="Open settings." class="video-info__toggle-settings-btn">
+            <svg aria-hidden="true" role="presentation" focusable="false" class="video-info__toggle-settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+              <path fill="currentColor" d="M9.5 13a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0" />
+            </svg>
+          </button>
+          <div id="video-info__settings" class="video-info__settings">
+            <button class="video-info__settings-btn">
+              <svg class="video-info__settings-add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M450-450H220v-60h230v-230h60v230h230v60H510v230h-60v-230Z"/></svg>
+              Add to queue
+            </button>
+            <button class="video-info__settings-btn">
+              <svg class="video-info__settings-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M720.09-100q-41.63 0-70.86-29.17Q620-158.33 620-200q0-7.98 1.38-16.53 1.39-8.55 4.16-16.09L315.85-415.08q-14.7 16.54-34.16 25.81Q262.23-380 240-380q-41.67 0-70.83-29.14Q140-438.28 140-479.91q0-41.63 29.17-70.86Q198.33-580 240-580q22.23 0 41.69 9.27 19.46 9.27 34.16 25.81l309.69-182.46q-2.77-7.54-4.16-16.09Q620-752.02 620-760q0-41.67 29.14-70.83Q678.28-860 719.91-860q41.63 0 70.86 29.14Q820-801.72 820-760.09q0 41.63-29.17 70.86Q761.67-660 720-660q-22.23 0-41.69-9.27-19.46-9.27-34.16-25.81L334.46-512.62q2.77 7.54 4.16 16.04 1.38 8.49 1.38 16.42 0 7.93-1.38 16.58-1.39 8.66-4.16 16.2l309.69 182.46q14.7-16.54 34.16-25.81Q697.77-300 720-300q41.67 0 70.83 29.14Q820-241.72 820-200.09q0 41.63-29.14 70.86Q761.72-100 720.09-100ZM720-700q24.69 0 42.35-17.65Q780-735.31 780-760t-17.65-42.35Q744.69-820 720-820t-42.35 17.65Q660-784.69 660-760t17.65 42.35Q695.31-700 720-700ZM240-420q24.69 0 42.35-17.65Q300-455.31 300-480t-17.65-42.35Q264.69-540 240-540t-42.35 17.65Q180-504.69 180-480t17.65 42.35Q215.31-420 240-420Zm480 280q24.69 0 42.35-17.65Q780-175.31 780-200t-17.65-42.35Q744.69-260 720-260t-42.35 17.65Q660-224.69 660-200t17.65 42.35Q695.31-140 720-140Zm0-620ZM240-480Zm480 280Z"/></svg>
+              Share
+            </button>
+
           </div>
         </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/The-Cat-Returns.jpg" alt="the cat returns">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Baron.jpg" alt="the baron avatar">
-              <div class="channel-tooltip-stats">
-                <h3>The Baron</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="The Cat Returns">The Cat Returns</h3>
-            <div>
-              <p title="The Baron">The Baron</p>
-              <p>The Baron</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Princess-Mononoke2.jpg" alt="princess mononoke">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Princess-Mononoke.jpg" alt="princess mononoke avatar">
-              <div class="channel-tooltip-stats">
-                <h3>San</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Princess Mononoke">Princess Mononoke</h3>
-            <div>
-              <p title="San">San</p>
-              <p>San</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/My-Neighbor-Totoro.jpg" alt="my neighbor totoro">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Totoro2.jpg" alt="totoro avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Totoro</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="My Neighbor Totoro">My Neighbor Totoro</h3>
-            <div>
-              <p title="Totoro">Totoro</p>
-              <p>Totoro</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Grave-of-the-Fireflies.jpg" alt="grave of the fireflies">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg"
-              alt="Seita Yokokawa and Setsuko Yokokawa avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Seita-Yokokawa-and-Setsuko-Yokokawa.jpg"
-                alt="Seita Yokokawa and Setsuko Yokokawa avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Seita Yokokawa</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Grave of the Fireflies">Grave of the Fireflies</h3>
-            <div>
-              <p title="Seita Yokokawa">Seita Yokokawa</p>
-              <p>Seita Yokokawa</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/The-Wind-Rises2.jpg" alt="the wind rises">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="jiro horikoshi avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Jiro-Horikoshi.jpg" alt="Jiro-Horikoshi avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Jiro Horikoshi</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="The Wind Rises">The Wind Rises</h3>
-            <div>
-              <p title="Jiro Horikoshi">Jiro Horikoshi</p>
-              <p>Jiro Horikoshi</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Kiki's-Delivery-Service.jpg" alt="kiki's delivery service">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Jiji.jpg" alt="jiji avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Jiji</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Kiki's Delivery Service">Kiki's Delivery Service</h3>
-            <div>
-              <p title="Jiji">Jiji</p>
-              <p>Jiji</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Howl's-Moving-Castle.jpg" alt="howl's moving castle">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Turnip-Head.jpg" alt="turnip head avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Turnip Head</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Howl's Moving Castle">Howl's Moving Castle</h3>
-            <div>
-              <p title="Turnip Head">Turnip Head</p>
-              <p>Turnip Head</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Porco-Rosso.jpg" alt="porco rosso">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Fio-piccolo.jpg" alt="fio piccolo avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Fio Piccolo</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Porco Rosso">Porco Rosso</h3>
-            <div>
-              <p title="Fio Piccolo">Fio Piccolo</p>
-              <p>Fio Piccolo</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
-      <div class="video-text-container">
-        <div class="video-container">
-          <img src="images/thumbnails/Tales-from-Earthsea2.jpg" alt="tales from earthsea">
-          <p>2:56</p>
-        </div>
-        <div class="avatar-text-container">
-          <div class="channel-icon">
-            <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
-            <div class="channel-tooltip">
-              <img src="images/channel-icons/Therru.jpg" alt="Therru avatar">
-              <div class="channel-tooltip-stats">
-                <h3>Therru</h3>
-                <p>3M subscribers</p>
-              </div>
-            </div>
-          </div>
-          <div class="video-statistics">
-            <h3 title="Tales from Earthsea">Tales from Earthsea</h3>
-            <div>
-              <p title="Therru">Therru</p>
-              <p>Therru</p>
-            </div>
-            <p>2.1M views <span>&#183</span> 1 year ago</p>
-          </div>
-        </div>
-      </div>
+      </a>
+     
     </section>
     <section class="shorts"></section>
   </main>
