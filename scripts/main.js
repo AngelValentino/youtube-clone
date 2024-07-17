@@ -12,12 +12,14 @@ const navbarSettingsBtn = document.getElementById('navigation-bar-right__setting
 const settingsModalLm = document.getElementById('settings-modal');
 const navbarMenuBtn = document.getElementById('navigation-bar-left__menu-btn');
 const videosGridLm = document.getElementById('videos-grid');
-const videoLinksLms = document.querySelectorAll('.video-container');
+
 const settingsBtnsLms = [];
 let activeVideoSettingsModalLm = null; // Keeps track of the active video settings modal element
 
 //TODO Implement progressive image loading
+
 //TODO Change modal settings icons to be just SVGs instead of fetching them from google icons
+//TODO Finish remaining styling
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   icon !== 'settings' 
@@ -151,6 +153,7 @@ window.addEventListener('resize', () => {
   }
 });
 
+const videoLinksLms = document.querySelectorAll('.video-container');
 // Loop through each video link to add event listeners for video settings modal button click
 videoLinksLms.forEach(videoLink => {
   // Prevent default action on click (e.g. following a link)
