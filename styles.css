@@ -605,12 +605,10 @@ body {
   text-decoration: none;
   color: inherit;
   display: block;
-  box-sizing: border-box;
-  border: none;
-
+  border: 2px solid hotpink;
 }
 
-.video-container:focus {
+.video-container:focus-visible {
   outline: 2px solid black;
   /* outline-offset: -1px; */
   border-radius: 10px;
