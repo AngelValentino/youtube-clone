@@ -119,7 +119,7 @@
 }
 
 .settings-modal__btn-icon {
-  font-size: 1.6rem;
+  width: 1.6rem;
 }
 
 .settings-modal__btn:is(:hover, :focus-visible) {

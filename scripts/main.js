@@ -22,10 +22,10 @@ let activeVideoSettingsModalLm = null; // Keeps track of the active video settin
 //TODO Finish remaining styling
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
-  icon !== 'settings' 
+  title !== 'Settings' 
     ? `
         <button class="settings-modal__btn">
-          <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+          ${icon}
           ${title}
           ${chevron ? '<span class="material-symbols-outlined settings-modal__btn-chevron">chevron_right</span>' : ''}
         </button>
@@ -33,7 +33,7 @@ settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => 
     : `
         <div class="settings-modal__settings-btn-container">
           <button class="settings-modal__btn settings-modal__settings-btn">
-            <span class="material-symbols-outlined settings-modal__btn-icon">${icon}</span>
+            ${icon}
             ${title}
           </button>
         </div>
