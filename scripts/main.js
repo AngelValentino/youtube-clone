@@ -15,8 +15,6 @@ const thinSideMenuLinksLms = document.querySelectorAll('.side-menu-thin__link')
 
 
 //TODO Implement progressive image loading
-//TODO Split side modal logic into its own file
-//TODO Change modal settings icons to be just SVGs instead of fetching them from google icons
 
 const sideMenuLm = document.getElementById('aside-side-menu');
 const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
@@ -205,12 +203,14 @@ function addSideMenuEventsHandler(type) {
 
 
 //TODO Add event listeners
+//TODO Split side modal logic into its own file
+//TODO Change modal settings icons to be just SVGs instead of fetching them from google icons
 
 const videosGridLm = document.getElementById('videos-grid');
 
-videosGridLm.innerHTML = videosData.map(({ thumbnailURL, avatarURL, length, title, author, views, subscribers, fromDate }) => (
+videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, length, title, author, views, subscribers, fromDate }) => (
   ` 
-    <a id="video-link" href="#" class="video-container">
+    <a data-id="${id}" id="video-link-${id}" href="#" class="video-container">
       <div class="video-thumbnail">
         <img class="video-thumbnail__img" src="${thumbnailURL}" alt=${title}>
         <p class="video-thumbnail__timestamp">${length}</p>
@@ -231,12 +231,12 @@ videosGridLm.innerHTML = videosData.map(({ thumbnailURL, avatarURL, length, titl
           <h3 data-tooltip="${author}" class="video-info__author tooltip tooltip-navbar tooltip--top-center" title="${author}">${author}</h3>
           <h4 class="video-info__stats">${formatNumber(views)} views <span class="video-info__stats-separator">&#183</span> ${timeAgo(fromDate)}</h4>
         </div>
-        <button id="video-info__toggle-settings-btn" aria-label="Open settings." class="video-info__toggle-settings-btn">
+        <button data-id="${id}" aria-label="Open settings." class="video-info__toggle-settings-btn">
           <svg aria-hidden="true" role="presentation" focusable="false" class="video-info__toggle-settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path fill="currentColor" d="M9.5 13a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0" />
           </svg>
         </button>
-        <div id="video-info__settings" class="video-info__settings">
+        <div class="video-info__settings">
           <button class="video-info__settings-btn">
             <svg class="video-info__settings-add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M450-450H220v-60h230v-230h60v230h230v60H510v230h-60v-230Z"/></svg>
             Add to queue
@@ -251,71 +251,107 @@ videosGridLm.innerHTML = videosData.map(({ thumbnailURL, avatarURL, length, titl
   `
 )).join('');
 
+const videoLinksLms = document.querySelectorAll('.video-container');
+const settingsBtnsLms = [];
+let activeVideoSettingsModalLm = null; // Keeps track of the active video settings modal element
 
+// Check modal position and adjust if necessary
+function checkAndAdjustModalPosition(settingsModalLm) {
+  // Get viewport width and modal width
+  const viewportWidth = window.innerWidth;
+  const modalWidth = settingsModalLm.getBoundingClientRect().width;
+  // Get position of settings button
+  const btn = settingsModalLm.parentNode.querySelector('.video-info__toggle-settings-btn')
+  const settingsBtnRect = btn.getBoundingClientRect();
+  const settingsBtnRightEdge = settingsBtnRect.right;
 
-// const videoLinkLm = document.querySelector('.video-container');
-// const videoInfoSettingsModalLm = document.getElementById('video-info__settings');
-// let isVideoSettingsModalOpen = false; // Track modal visibility state
+  // Calculate modal right edge position
+  const modalRightEdge = settingsBtnRightEdge + modalWidth;
 
-// videoLinkLm.addEventListener('click', e => {
-//   e.preventDefault();
-//   const settingsBtn = e.target.closest('.video-info__toggle-settings-btn');
-  
-//   if (settingsBtn) {
-//     console.log('settings clicked');
+  // Check if modal overflows the viewport
+  if (modalRightEdge > viewportWidth) {
+    // Adjust modal position to fit within viewport
+    settingsModalLm.style.right = `-8px`;
+  } else {
+    // Reset to default position if it doesn't overflow
+    settingsModalLm.style.right = '';
+  }
+}
 
-//     isVideoSettingsModalOpen = !isVideoSettingsModalOpen // Toggle modal visibility;
-//     toggleModal();
-//   }
-// });
+// Close the settings video modal
+function closeSettingsVideoModal() {
+  activeVideoSettingsModalLm.classList.remove('show'); // Remove 'show' class to hide the modal
+  toggleModalFocus('returnFocus'); // Restore focus to the previously focused element
+  activeVideoSettingsModalLm = null; // Reset the active modal variable
+}
 
-// // Toggle modal visibility and handle position
-// function toggleModal() {
-//   // Toggle the 'show' class to display or hide the modal
-//   videoInfoSettingsModalLm.classList.toggle('show');
+// Toggle video settings modal visibility and manage its state
+function toggleVideoSettingsModal(settingsModalLm) {
+  // Toggle the 'show' class to display or hide the modal
+  settingsModalLm.classList.toggle('show');
 
-//   // If modal is open, check and adjust its position
-//   if (isVideoSettingsModalOpen) {
-//     checkAndAdjustModalPosition();
-//   } 
-//   // If modal is closed, reset its position
-//   else {
-//     videoInfoSettingsModalLm.style.right = '';
-//   }
-// }
+  // If modal is open, adjust its position and manage focus
+  if (settingsModalLm.classList.contains('show')) {
+    checkAndAdjustModalPosition(settingsModalLm); // Adjust modal position based on its content
+    toggleModalFocus('addFocus', settingsModalLm.children[0]); // Manage focus within the modal
+    activeVideoSettingsModalLm = settingsModalLm; // Set this modal as the active one
+  } 
+  // If modal is closed, reset its position and manage focus
+  else {
+    settingsModalLm.style.right = ''; // Reset modal position
+    toggleModalFocus('returnFocus'); // Restore focus to the previously focused element
+    closeSettingsVideoModal(); // Close the modal and reset its state
+  }
+}
 
-// // Check modal position and adjust if necessary
-// function checkAndAdjustModalPosition() {
-//   // Get viewport width and modal width
-//   const viewportWidth = window.innerWidth;
-//   const modalWidth = videoInfoSettingsModalLm.getBoundingClientRect().width;
-//    // Get position of settings button
-//   const settingsBtnRect = document.querySelector('.video-info__toggle-settings-btn').getBoundingClientRect();
-//   const settingsBtnRightEdge = settingsBtnRect.right;
+// Event listener for Escape key press to close the video settings modal if modal is open
+document.body.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && activeVideoSettingsModalLm) closeSettingsVideoModal();
+})
 
-//   // Calculate modal right edge position
-//   const modalRightEdge = settingsBtnRightEdge + modalWidth;
+// Event listener to close the video settings modal when clicking outside of it
+document.body.addEventListener('click', e => {
+  // Check if clicked element is not within the settings modal and the toggle button, and if modal is active
+  if (!e.target.closest('.video-info__settings') && activeVideoSettingsModalLm && !e.target.closest('.video-info__toggle-settings-btn')) {
+    closeSettingsVideoModal();
+  }
+}) 
 
-//   // Check if modal overflows the viewport
-//   if (modalRightEdge > viewportWidth) {
-//     // Adjust modal position to fit within viewport
-//     videoInfoSettingsModalLm.style.right = `-8px`;
-//   } else {
-//     // Reset to default position if it doesn't overflow
-//     videoInfoSettingsModalLm.style.right = '';
-//   }
-// }
+// Event listener for window resize to adjust video settings modal position if modal is open
+window.addEventListener('resize', () => {
+  // Recalculate modal position on resize if modal is open
+  if (activeVideoSettingsModalLm) {
+    checkAndAdjustModalPosition(activeVideoSettingsModalLm, activeVideoSettingsModalLm.parentNode.querySelector('.video-info__toggle-settings-btn'));
+  }
+});
 
-// window.addEventListener('resize', () => {
-//   // Recalculate modal position on resize if modal is open
-//   if (isVideoSettingsModalOpen) {
-//     checkAndAdjustModalPosition();
-//   }
-// });
+// Loop through each video link to add event listeners for settings button clicks
+videoLinksLms.forEach(videoLink => {
+  // Prevent default action on click (e.g. following a link)
+  videoLink.addEventListener('click', e => e.preventDefault());
 
+  // Find and handle settings button for each video link
+  const settingsBtn = videoLink.querySelector('.video-info__toggle-settings-btn');
+  settingsBtnsLms.push(settingsBtn); // Store settings buttons for further reference
 
+  settingsBtn.addEventListener('click', e => {
+    settingsBtnsLms.forEach(btn => {
+      const videoLinkLm = document.getElementById(`video-link-${btn.dataset.id}`) // Get parent video link element
+      const settingsModalLm = videoLinkLm.querySelector('.video-info__settings') // Find settings modal within the video link
+      
+      // Toggle modal
+      if (btn === e.target.closest('.video-info__toggle-settings-btn')) {
+        toggleVideoSettingsModal(settingsModalLm);
+      } 
+      // Close the rest
+      else {
+        settingsModalLm.classList.remove('show');
+      }
+    });
+  });
+});
 
-// Add modal events
+// Add navbar modal events
 navbarSettingsBtn.addEventListener('click', handleToggleModalSettings);
 middleSearchWtichVoiceBtn.addEventListener('click', openSearchWithVoiceModal);
 rightSearchWithVoiceBtn.addEventListener('click', openSearchWithVoiceModal);

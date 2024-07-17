@@ -602,13 +602,23 @@ body {
 /* VIDEO THUMBNAIL */
 
 .video-container {
-  border: 2px solid hotpink;
   text-decoration: none;
   color: inherit;
+  display: block;
+  box-sizing: border-box;
+  border: none;
+
+}
+
+.video-container:focus {
+  outline: 2px solid black;
+  /* outline-offset: -1px; */
+  border-radius: 10px;
 }
 
 .video-thumbnail {
   position: relative;
+  
 }
 
 .video-thumbnail__img {
@@ -664,6 +674,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s;
+  visibility: hidden;
 }
 
 .video-avatar__channel-tooltip-img {
@@ -840,6 +851,7 @@ body {
   /* VIDEOS GRID SECTION */
   .video-avatar__img:hover ~ .video-avatar__channel-tooltip {
     opacity: 1;
+    visibility: visible;
   }
 
   .video-info__author:hover {
