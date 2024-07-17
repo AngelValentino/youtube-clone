@@ -16,18 +16,22 @@ const videosGridLm = document.getElementById('videos-grid');
 const settingsBtnsLms = [];
 let activeVideoSettingsModalLm = null; // Keeps track of the active video settings modal element
 
-//TODO Implement progressive image loading
 
-//TODO Change modal settings icons to be just SVGs instead of fetching them from google icons
-//TODO Finish remaining styling
+//TODO Implement progressive image loading
+//TODO Add sound to search with voice
+//TODO Review app
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
-  title !== 'Settings' 
+  title !== 'Settings'  
     ? `
         <button class="settings-modal__btn">
           ${icon}
           ${title}
-          ${chevron ? '<span class="material-symbols-outlined settings-modal__btn-chevron">chevron_right</span>' : ''}
+          ${chevron ? `
+            <svg class="settings-modal__btn-chevron" aria-hidden="true" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor">
+              <path d="m531.69-480-184-184L376-692.31 588.31-480 376-267.69 347.69-296l184-184Z"/>
+            </svg>
+            ` : ''}
         </button>
       `
     : `
