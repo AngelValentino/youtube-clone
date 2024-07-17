@@ -553,16 +553,19 @@ body {
   width: 1.9em;
 }
 
+.navigation-bar-left__menu-btn,
 .nav-header__menu-btn {
   line-height: 0;
   border-radius: 50%;
   padding: 8px;
 }
 
-.nav-header__menu-icon {
+.navigation-bar-left__menu-icon,
+.nav-header__menu-icon  {
   width: 1.5em;
   margin-bottom: -2px;
 }
+
 
 .side-menu-modal-header {
   position: fixed;
@@ -746,8 +749,8 @@ body {
   width: 1.6rem;
 }
 
-.video-info__settings-btn:hover {
-  background-color: rgba(0, 0, 0 , 0.1);
+.video-info__settings-btn:focus {
+  outline: none;
 }
 
 .video-info__toggle-settings-btn {
@@ -757,6 +760,7 @@ body {
   position: absolute;
   line-height: 0;
   padding: 8px;
+  border-radius: 50%;
 }
 
 .video-info__toggle-settings-icon {
@@ -789,7 +793,7 @@ body {
 
   /* NAVIGATION MENU */
     /* NAVBAR LEFT */
-    .nav-header__menu-btn:is(:hover, :focus-visible) {
+    .navigation-bar-left__menu-btn:is(:hover, :focus-visible) {
       background-color: var(--base-hover-btn-color);
       outline: none;
     }
@@ -855,7 +859,17 @@ body {
   .video-info__author:hover {
     color: #000000;
   }
-  /* END FO VIDEOS GRID SECTION */
+
+  .video-info__settings-btn:is(:hover, :focus-visible ) {
+    background-color: rgba(0, 0, 0 , 0.1);
+  }
+
+  .video-info__toggle-settings-btn:focus-visible {
+    background-color: var(--base-hover-btn-color);
+    outline: none;
+  }
+  
+  /* END OF VIDEOS GRID SECTION */
 }
 
 /* END OF MEDIA QUERIES FOR HOVER CAPABLE DEVICES */
@@ -866,6 +880,10 @@ body {
     /* NAVBAR LEFT */
     .navigation-bar-left__menu-btn:active {
       background-color: var(--base-active-btn-color);
+    }
+
+    .nav-header__menu-btn:active {
+      background-color: var(--base-hover-btn-color);
     }
     /* END OF NAVBAR LEFT */
 
@@ -912,13 +930,17 @@ body {
   }
   /* END OF SIDE MENU */
 
+  /* VIDEOS GRID SECTION */
+  .video-info__toggle-settings-btn:active {
+    background-color: var(--base-hover-btn-color);
+  }
+
+  .video-info__settings-btn:active {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  /* END OF VIDEOS GRID SECTION */
+
 /* END OF ACTIVE */
-
-
-
-@media screen and (hover: hover) {
-
-}
 
 
 /*VIDEOS GRID SECTION*/
