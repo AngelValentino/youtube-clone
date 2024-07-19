@@ -21,6 +21,7 @@ let activeVideoSettingsModalLm = null; // Keeps track of the active video settin
 //TODO Add sound to search with voice
 //TODO Review app
 
+
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   title !== 'Settings'  
     ? `
@@ -44,20 +45,22 @@ settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => 
       `
 )).join('');
 
-videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, length, title, author, views, subscribers, fromDate }) => (
+videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAvatarURL, lowResThumbnailURL, length, title, author, views, subscribers, fromDate }) => (
   ` 
     <a data-id="${id}" id="video-link-${id}" href="#" class="video-container">
-      <div class="video-thumbnail">
-        <img class="video-thumbnail__img" src="${thumbnailURL}" alt=${title}>
+      <div class="video-thumbnail blur-img-loader" style="background-image: url(${lowResThumbnailURL})">
+        <img class="video-thumbnail__img" src="${thumbnailURL}" alt="${title}">
         <p class="video-thumbnail__timestamp">${length}</p>
       </div>
       <div class="video-avatar-info-container">
-        <div class="video-avatar">
+        <div class="video-avatar blur-img-loader" style="background-image: url(${lowResAvatarURL})">
           <img class="video-avatar__img" src=${avatarURL} alt="${author} avatar">
           <div aria-hidden="true" class="video-avatar__channel-tooltip">
-            <img class="video-avatar__channel-tooltip-img" src="${avatarURL}" alt="${author} avatar">
+            <div class="video-avatar__channel-tooltip-img-container blur-img-loader" style="background-image: url(${lowResAvatarURL})">
+              <img class="video-avatar__channel-tooltip-img" src="${avatarURL}" alt="${author} avatar">
+            </div>
             <div class="video-avatar__channel-tooltip-info">
-              <h3>${author}</h3>
+              <h3 class="video-avatar__channel-tooltip-title">${author}</h3>
               <p>${formatNumber(subscribers)} subscribers</p>
             </div>
           </div>
@@ -86,6 +89,34 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, length, 
     </a>
   `
 )).join('');
+
+
+const videoThumbnailsLms = document.querySelectorAll('.video-thumbnail');
+const videoAvatarsLms = document.querySelectorAll('.video-avatar');
+const videoAvatarsTooltipsLms = document.querySelectorAll('.video-avatar__channel-tooltip-img-container')
+
+addProgessiveLoading(videoThumbnailsLms)
+addProgessiveLoading(videoAvatarsLms)
+addProgessiveLoading(videoAvatarsTooltipsLms)
+
+function addProgessiveLoading(element) {
+  element.forEach(div => {
+    const thumbnailImg = div.querySelector('img');
+  
+    function loaded() {
+      div.classList.add('loaded');
+    }
+  
+    if (thumbnailImg.complete) {
+      loaded();
+    } 
+    else {
+      thumbnailImg.addEventListener('load', loaded);
+    }
+  })
+}
+
+
 
 // Check modal position and adjust if necessary
 function checkAndAdjustModalPosition(settingsModalLm) {
