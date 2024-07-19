@@ -89,24 +89,41 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAv
 
 // Check modal position and adjust if necessary
 function checkAndAdjustModalPosition(settingsModalLm) {
-  // Get viewport width and modal width
+  // Get viewport width and height
   const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  // Get modal dimensions
   const modalWidth = settingsModalLm.getBoundingClientRect().width;
-  // Get position of settings button
+  const modalHeight = settingsModalLm.getBoundingClientRect().height;
+
+  // Get position of the settings button
   const btn = settingsModalLm.parentNode.querySelector('.video-info__toggle-settings-btn')
   const settingsBtnRect = btn.getBoundingClientRect();
   const settingsBtnRightEdge = settingsBtnRect.right;
+  const settingsBtnBottomEdge = settingsBtnRect.bottom;
 
-  // Calculate modal right edge position
+  // Calculate modal right and bottom edge positions
   const modalRightEdge = settingsBtnRightEdge + modalWidth;
+  const modalBottomEdge = settingsBtnBottomEdge + modalHeight;
 
-  // Check if modal overflows the viewport
+  // Check horizontal position overflow
   if (modalRightEdge > viewportWidth) {
-    // Adjust modal position to fit within viewport
+    // Adjust modal position to fit within viewport horizontally
     settingsModalLm.style.right = `-8px`;
   } else {
-    // Reset to default position if it doesn't overflow
+    // Reset to default position if it doesn't overflow horizontally
     settingsModalLm.style.right = '';
+  }
+
+  // Check vertical position overflow
+  if (modalBottomEdge > viewportHeight) {
+    // Adjust modal position to fit within viewport vertically
+    settingsModalLm.style.top = `-${modalHeight + 10}px`;
+  } 
+  else {
+    // Reset to default position if it doesn't overflow vertically
+    settingsModalLm.style.top = '30px';
   }
 }
 

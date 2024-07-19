@@ -61,7 +61,7 @@ function checkWindowSize() {
   if (window.innerWidth > 1312) {
     // Adjust body padding and show/hide side menu based on window size
     if (window.getComputedStyle(sideMenuThinLm).display === 'none') {
-      document.body.style.padding = '100px 38px 0 275px';
+      document.body.style.padding = '100px 34px 0 275px';
       sideMenuLm.classList.remove('hide');
     }
 
@@ -110,11 +110,11 @@ export function toggleSideMenu() {
     if (!sideMenuLm.classList.contains('hide')) {
       sideMenuThinLm.classList.add('show');
       sideMenuLm.classList.add('hide');
-      document.body.style.padding = '100px 38px 0 100px';
+      document.body.style.padding = '100px 34px 0 100px';
     } 
     // Show side menu
     else {
-      document.body.style.padding = '100px 38px 0 275px';
+      document.body.style.padding = '100px 34px 0 275px';
       sideMenuThinLm.classList.remove('show');
       sideMenuLm.classList.remove('hide');
     }
