@@ -4,7 +4,7 @@ import { toggleModalFocus } from "./utils.js";
 const sideMenuLm = document.getElementById('aside-side-menu');
 const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
 const sideMenuOverlayLm = document.getElementById('side-menu__overlay');
-const sideModalMenuBtn = document.getElementById('nav-header-modal__menu-btn')
+const sideModalMenuBtn = document.getElementById('side-menu-modal-header__menu-btn')
 const sideModalHeaderLm = document.getElementById('side-menu-modal-header');
 const sideMenuInnerLm = document.getElementById('side-menu');
 const sideMenuLinksLms = document.querySelectorAll('.side-menu__link');
