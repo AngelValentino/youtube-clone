@@ -78,13 +78,16 @@ export function toggleModalEvents(eventsHandler, action, closeFun, closeModalBtn
 
 //* SEARCH WITH VOICE MODAL 
 
+// Preload search with voice audio file
+const searchWithVoiceAudio = new Audio('../audios/search-with-voice-sound.mp3');
+
 export function openSearchWithVoiceModal() {
   const eventsHandler = {};
-
   const modalContainerLm = document.getElementById('search-with-voice-modal-container');
   const modalOverlayLm = document.getElementById('search-with-voice-modal-overlay');
   const modalContentLm = document.getElementById('search-with-voice-modal-content');
   const closeModalBtn = document.getElementById('search-with-voice-modal__close-btn');
+  const searchWithVoiceBtn = document.getElementById('search-with-voice-modal__search-with-voice-btn');
 
   // Display modal and set initial styles
   modalContainerLm.style.display = 'block';
@@ -94,6 +97,13 @@ export function openSearchWithVoiceModal() {
     modalOverlayLm.style.opacity = 1;
     modalContentLm.style.opacity = 1;
   });
+
+  function playSound() {
+    searchWithVoiceAudio.currentTime = 0; // Reset to the start
+    searchWithVoiceAudio.play().catch(error => {
+      console.error('Playback error:', error);
+    });
+  }
 
   function closeModal() {
     console.log('close search with voice modal')
@@ -106,10 +116,14 @@ export function openSearchWithVoiceModal() {
     }, 150);
 
     // Remove events listeners
+    searchWithVoiceBtn.removeEventListener('click', playSound)
     toggleModalEvents(eventsHandler, 'remove', null, closeModalBtn, modalContentLm, modalContainerLm, null);
   }
 
+  playSound();
+
   // Add event listeners
+  searchWithVoiceBtn.addEventListener('click', playSound);
   toggleModalEvents(eventsHandler, 'add', closeModal, closeModalBtn, modalContentLm, modalContainerLm, '.search-with-voice-modal-overlay')
 }
 

@@ -1,5 +1,22 @@
 let lastFocusedLmBeforeModalOpened;
 
+export function addProgessiveLoading(element) {
+  element.forEach(div => {
+    const thumbnailImg = div.querySelector('img');
+  
+    function loaded() {
+      div.classList.add('loaded');
+    }
+  
+    if (thumbnailImg.complete) {
+      loaded();
+    } 
+    else {
+      thumbnailImg.addEventListener('load', loaded);
+    }
+  })
+}
+
 export function trapFocus(e, element) {
   const focusableLms = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
   const firstFocusableLm = focusableLms[0]; 

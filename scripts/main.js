@@ -1,7 +1,7 @@
 import { settingsModalData } from "../data/settingsModalData.js";
 import { openSearchWithVoiceModal, handleToggleModalSettings } from "./modal.js";
 import { openSearchBar } from "./searchBar.js";
-import { toggleModalFocus, timeAgo, formatNumber } from "./utils.js";
+import { toggleModalFocus, timeAgo, formatNumber, addProgessiveLoading } from "./utils.js";
 import { videosData } from "../data/videosData.js";
 import { toggleSideMenu, addSideMenuEventsHandler, setSideMenuActiveClassHandler } from "./sideMenu.js";
 
@@ -17,10 +17,7 @@ const settingsBtnsLms = [];
 let activeVideoSettingsModalLm = null; // Keeps track of the active video settings modal element
 
 
-//TODO Implement progressive image loading
-//TODO Add sound to search with voice
 //TODO Review app
-
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   title !== 'Settings'  
@@ -54,7 +51,7 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAv
       </div>
       <div class="video-avatar-info-container">
         <div class="video-avatar blur-img-loader" style="background-image: url(${lowResAvatarURL})">
-          <img class="video-avatar__img" src=${avatarURL} alt="${author} avatar">
+          <img title="${author}" class="video-avatar__img" src=${avatarURL} alt="${author} avatar">
           <div aria-hidden="true" class="video-avatar__channel-tooltip">
             <div class="video-avatar__channel-tooltip-img-container blur-img-loader" style="background-image: url(${lowResAvatarURL})">
               <img class="video-avatar__channel-tooltip-img" src="${avatarURL}" alt="${author} avatar">
@@ -89,34 +86,6 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAv
     </a>
   `
 )).join('');
-
-
-const videoThumbnailsLms = document.querySelectorAll('.video-thumbnail');
-const videoAvatarsLms = document.querySelectorAll('.video-avatar');
-const videoAvatarsTooltipsLms = document.querySelectorAll('.video-avatar__channel-tooltip-img-container')
-
-addProgessiveLoading(videoThumbnailsLms)
-addProgessiveLoading(videoAvatarsLms)
-addProgessiveLoading(videoAvatarsTooltipsLms)
-
-function addProgessiveLoading(element) {
-  element.forEach(div => {
-    const thumbnailImg = div.querySelector('img');
-  
-    function loaded() {
-      div.classList.add('loaded');
-    }
-  
-    if (thumbnailImg.complete) {
-      loaded();
-    } 
-    else {
-      thumbnailImg.addEventListener('load', loaded);
-    }
-  })
-}
-
-
 
 // Check modal position and adjust if necessary
 function checkAndAdjustModalPosition(settingsModalLm) {
@@ -166,6 +135,11 @@ function toggleVideoSettingsModal(settingsModalLm) {
     closeSettingsVideoModal(); // Close the modal and reset its state
   }
 }
+
+// Adds progessive loading to video containers' images
+addProgessiveLoading(document.querySelectorAll('.video-thumbnail'));
+addProgessiveLoading(document.querySelectorAll('.video-avatar'));
+addProgessiveLoading(document.querySelectorAll('.video-avatar__channel-tooltip-img-container'));
 
 // Event listener for Escape key press to close the video settings modal if modal is open
 document.body.addEventListener('keydown', e => {

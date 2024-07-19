@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-
 *,
 *::before,
 *::after {
@@ -124,9 +122,6 @@ body {
 }
 
 /* END OF HEADER NAVIGATION MENU */
-
-/* NAVIGATION BAR LEFT */
-/* END OF NAVIGATION BAR LEFT */
 
 /* NAVIGATION BAR MIDDLE */
 
@@ -580,8 +575,6 @@ body {
   transition: opacity 0.25s;
 }
 
-/*TODO: REFACTOR BELOW THIS LINE*/
-
 /* VIDEOS GRID SECTION */
 
 .videos-grid {
@@ -665,7 +658,6 @@ body {
   border-radius: 4px;
 }
 
-
 /* CHANNEL ICON AND VIDEO INFO */
 
 .video-avatar-info-container {
@@ -703,8 +695,8 @@ body {
   align-items: center;
   position: absolute;
   white-space: nowrap;
-  bottom: -45px;
-  left: 0;
+  bottom: 32px;
+  left: 32px;
   background-color: #fff;
   padding: 8px 50px 8px 10px;
   border-radius: 10px;
@@ -1042,6 +1034,12 @@ body {
 
   .aside-side-menu-thin {
     display: initial;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .navigation-bar nav {
+    gap: 60px;
   }
 }
 
