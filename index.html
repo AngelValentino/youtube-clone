@@ -42,18 +42,22 @@
 
   <header class="navigation-bar" id="navigation-bar">
     <nav>
-      <div id="navigation-bar__left" class="nav-header">
+      <div id="navigation-bar__left" class="navigation-bar__left">
         <button aria-label="Toggle menu." id="navigation-bar-left__menu-btn" class="navigation-bar-left__menu-btn">
           <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-left__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z" />
           </svg>
         </button>
-        <a class="nav-header__youtube-logo-link" aria-label="Go to Home." href="/">
-          <img class="nav-header__youtube-logo" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="YouTube logo">
-        </a>
-        <a class="nav-header__youtube-logo-small-link" aria-label="Go to Home." href="/">
-          <img class="nav-header__youtube-logo-small" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo.png" alt="YouTube logo">
-        </a>
+        <h1 class="nav-header__title">
+          <a class="navigation-bar-left__youtube-logo-link" aria-label="Go to Home." href="/">
+            <img class="navigation-bar-left__youtube-logo" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="YouTube logo">
+          </a>
+        </h1>
+        <h1 class="nav-header__title nav-header__small-image-title">
+          <a class="navigation-bar-left__youtube-logo-small-link" aria-label="Go to Home." href="/">
+            <img class="navigation-bar-left__youtube-logo-small" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo.png" alt="YouTube logo">
+          </a>
+        </h1>
       </div>
       <div id="navigation-bar__middle" class="navigation-bar__middle">
         <button data-tooltip="Back" id="navigation-bar__return-btn" class="navigation-bar__return-btn tooltip-navbar tooltip tooltip-navbar--bottom-left">
@@ -116,15 +120,17 @@
   </header>
 
   <aside id="aside-side-menu" class="aside-side-menu-container">
-    <div id="side-menu-modal-header" class="nav-header nav-header-side-menu side-menu-modal-header">
-      <button aria-label="Toggle menu." id="nav-header-modal__menu-btn" class="nav-header__menu-btn">
-        <svg aria-hidden="true" role="presentation" focusable="false" class="nav-header__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <div id="side-menu-modal-header" class="side-menu-modal-header">
+      <button aria-label="Toggle menu." id="nav-header-modal__menu-btn" class="side-menu-modal-header__menu-btn">
+        <svg aria-hidden="true" role="presentation" focusable="false" class="side-menu-modal-header__menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z" />
         </svg>
       </button>
-      <a class="side-menu-modal-header__youtube-logo-link" aria-label="Go to Home." href="/">
-        <img class="nav-header__youtube-logo" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="YouTube logo">
-      </a>
+      <h1 class="nav-header__title">
+        <a class="side-menu-modal-header__youtube-logo-link" aria-label="Go to Home." href="/">
+          <img class="side-menu-modal-header__youtube-logo" aria-hidden="true" role="presentation" title="YouTube Home" src="images/menu-icons/youtube-logo-long.png" alt="YouTube logo">
+        </a>
+      </h1>
     </div>
     <div id="side-menu" class="aside-side-menu">
       <nav class="side-menu">

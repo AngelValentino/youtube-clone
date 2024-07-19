@@ -160,44 +160,69 @@ main {
 
 /* NAVIGATION MENU HEADER */
 
-.nav-header {
+
+.navigation-bar__left,
+.side-menu-modal-header{
   display: flex;
   align-items: center;
 }
 
-.nav-header a {
+.side-menu-modal-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 56px;
+  color: red;
+  background-color: white;
+  width: 245px;
+  display: none;
+  padding-left: 16px;
+  transition: left 0.25s;
+}
+
+.nav-header__title {
+  font-size: 1rem;
+}
+
+.navigation-bar__left a,
+.side-menu-modal-header a {
   line-height: 0;
   color: inherit;
 }
 
-.nav-header__youtube-logo-link,
+.navigation-bar-left__youtube-logo-link,
 .side-menu-modal-header__youtube-logo-link {
   display: block;
   padding: 16px;
 }
 
-.nav-header__youtube-logo {
+.navigation-bar-left__youtube-logo,
+.side-menu-modal-header__youtube-logo {
   width: 5.75em;
 }
 
-.nav-header__youtube-logo-small-link {
+.nav-header__small-image-title {
   display: none;
+}
+
+.navigation-bar-left__youtube-logo-small-link {
   padding: 0 10px;
 }
 
-.nav-header__youtube-logo-small {
+.navigation-bar-left__youtube-logo-small {
   width: 1.9em;
 }
 
 .navigation-bar-left__menu-btn,
-.nav-header__menu-btn {
+.side-menu-modal-header__menu-btn {
   line-height: 0;
   border-radius: 50%;
   padding: 8px;
 }
 
 .navigation-bar-left__menu-icon,
-.nav-header__menu-icon  {
+.side-menu-modal-header__menu-icon  {
   width: 1.5em;
   margin-bottom: -2px;
 }
@@ -384,7 +409,7 @@ main {
 .aside-side-menu {
   position: fixed;
   left: 0;
-  top: 57px;
+  top: 56px;
   bottom: 0;
   width: 245px;
   scrollbar-width: thin;
@@ -539,7 +564,7 @@ main {
 .aside-side-menu-thin {
   display: none;
   position: fixed;
-  top: 57px;
+  top: 56px;
   left: 0;
   width: 74px;
 }
@@ -588,19 +613,7 @@ main {
 
 /* END OF SIDE MENU THIN */
 
-.side-menu-modal-header {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  height: 57px;
-  color: red;
-  background-color: white;
-  width: 245px;
-  display: none;
-  padding-left: 16px;
-  transition: left 0.25s;
-}
+
 
 .side-menu__overlay {
   position: fixed;
@@ -941,7 +954,7 @@ main {
       background-color: var(--base-active-btn-color);
     }
 
-    .nav-header__menu-btn:active {
+    .side-menu-modal-header__menu-btn:active {
       background-color: var(--base-hover-btn-color);
     }
     /* END OF NAVBAR LEFT */
@@ -1063,7 +1076,7 @@ main {
 }
 
 @media screen and (min-width: 701px) {
-  .navigation-bar__left {
+  .navigation-bar__left  {
     display: flex !important;
   }
 
@@ -1115,11 +1128,15 @@ main {
 }
 
 @media screen and (max-width: 402px) {
-  .nav-header__youtube-logo-link {
+  .navigation-bar-left__youtube-logo-link {
     display: none;
   }
 
-  .nav-header__youtube-logo-small-link {
+  .nav-header__small-image-title {
+    display: block;
+  }
+
+  .navigation-bar-left__youtube-logo-small-link {
     display: block;
   }
 }

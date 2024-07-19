@@ -49,7 +49,7 @@ export function closeSideMenuWithSlide() {
     sideMenuInnerLm.style.left = 0;
     sideMenuLm.classList.add('hide');
 
-    toggleModalFocus('returnFocus')
+    toggleModalFocus('returnFocus');
   }, 250);
 
   // Remove event listeners
