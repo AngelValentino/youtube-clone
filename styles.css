@@ -40,7 +40,7 @@ body {
 }
 
 main {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 /* END OF RESET */
@@ -645,10 +645,6 @@ main {
   transition: background-color 0.5s;
 }
 
-.video-container:focus-visible {
-  outline: 2px solid black;
-}
-
 .video-thumbnail {
   position: relative;
   border-radius: 12px;
@@ -891,6 +887,10 @@ main {
   /* END OF SIDE MENU */
 
   /* VIDEOS GRID SECTION */
+  .video-container:focus-visible {
+    outline: 2px solid black;
+  }
+
   .video-avatar__img:hover ~ .video-avatar__channel-tooltip {
     opacity: 1;
     visibility: visible;
@@ -904,7 +904,6 @@ main {
     background-color: var(--base-hover-btn-color);
     outline: none;
   }
-  
   /* END OF VIDEOS GRID SECTION */
 }
 
@@ -1088,7 +1087,7 @@ main {
 
 @media screen and (max-width: 499px) {
   body {
-    padding: 100px 15px 20px 15px !important;
+    padding: 90px 15px 0 15px !important;
   }
 }
 
