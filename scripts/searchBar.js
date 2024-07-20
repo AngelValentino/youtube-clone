@@ -1,5 +1,4 @@
-import { toggleModalFocus } from "./utils.js";
-import { toggleModalEvents } from "./modal.js";
+import { toggleModalEvents, toggleModalFocus } from "./modal.js";
 
 const leftNavigationBarLm = document.getElementById('navigation-bar__left');
 const middleNavigationBarLm = document.getElementById('navigation-bar__middle');
@@ -8,6 +7,7 @@ const returnBtn = document.getElementById('navigation-bar__return-btn');
 const searchInputLm = document.getElementById('navigation-bar-middle__search-input');
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
 const closeSearchInputBtn = document.getElementById('navigation-bar-middle__search-input-close-btn');
+
 const searchBarEventsHandler = {};
 
 // Toggle navigation bar sections' display
@@ -18,7 +18,6 @@ function toggleSearchDisplay(leftDisplay, middleDisplay, rightDisplay) {
 }
 
 function closeSearchBar() {
-  console.log('search bar closed')
   middleSearchWtichVoiceBtn.classList.remove('tooltip-navbar--bottom-rigth');
   toggleSearchDisplay('flex', 'none', 'flex'); // Close search bar: show left and right, hide middle
   toggleModalFocus('returnFocus'); // Return focus to the last focused element before search bar opened

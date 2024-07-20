@@ -1,5 +1,4 @@
-import { toggleModalEvents } from "./modal.js";
-import { toggleModalFocus } from "./utils.js";
+import { toggleModalEvents, toggleModalFocus } from "./modal.js";
 
 const sideMenuLm = document.getElementById('aside-side-menu');
 const sideMenuThinLm = document.getElementById('aside-side-menu-thin');
@@ -23,7 +22,6 @@ function hideSideMenu() {
 
 // Close the side menu
 function closeSideMenu() {
-  console.log('side nenu closed')
   hideSideMenu();
   sideMenuThinLm.classList.remove('hide', 'show');
   isSideMenuModalOpen = false;
@@ -34,7 +32,6 @@ function closeSideMenu() {
 
 // Close the side menu with a sliding animation
 export function closeSideMenuWithSlide() {
-  console.log('side menu closed with slide')
   clearTimeout(hideThinModalTimId);
 
   sideModalHeaderLm.style.left = '-300px';
@@ -65,7 +62,7 @@ function checkWindowSize() {
       sideMenuLm.classList.remove('hide');
     }
 
-    // Close modal side menu if is open when window is bigger than 1312 x
+    // Close modal side menu if is open when window is bigger than 1312 px
     if (isSideMenuModalOpen) closeSideMenu();
   } 
 }
@@ -77,7 +74,6 @@ window.addEventListener('resize', checkWindowSize);
 export function toggleSideMenu() {
   // If window width is less than or equal to 1312px, show the side menu modal
   if (window.innerWidth <= 1312) {
-
     clearTimeout(closeSideMenuWithSlideTimId)
     clearTimeout(hideThinModalTimId);
 
@@ -114,9 +110,10 @@ export function toggleSideMenu() {
     } 
     // Show side menu
     else {
-      document.body.style.padding = '100px 34px 0 275px';
       sideMenuThinLm.classList.remove('show');
       sideMenuLm.classList.remove('hide');
+      document.body.style.padding = '100px 34px 0 275px';
+      toggleModalFocus('addFocus', sideMenuLinksLms[0]);
     }
   }
 }
@@ -127,7 +124,7 @@ function setSideMenuActiveClass(linksLms) {
   const currentHash = window.location.hash; // Get the current URL hash
 
   linksLms.forEach(link => {
-    const sideMenuHref = link.getAttribute('href'); ; // Get the href attribute of the link
+    const sideMenuHref = link.getAttribute('href'); // Get the href attribute of the link
 
     // Add 'active' class if the link href matches the current hash, otherwise remove it
     if (sideMenuHref === currentHash || (sideMenuHref === '/' && currentHash === '')) {

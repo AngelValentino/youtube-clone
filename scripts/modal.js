@@ -1,9 +1,44 @@
-import { trapFocus, toggleModalFocus } from "./utils.js";
+const settingsModalLm = document.getElementById('settings-modal');
 
+let lastFocusedLmBeforeModalOpened;
 let modalContainerTimId;
 let settingsModalClickEvent; // Stores the last click event for the settings modal
-const settingsModalLm = document.getElementById('settings-modal');
 const settingsEventsHandler = {};
+
+export function toggleModalFocus(focusBehaviour, firstFocusableLm) {
+  if (focusBehaviour === 'addFocus') {
+    lastFocusedLmBeforeModalOpened = document.activeElement;
+    firstFocusableLm.focus();
+  } 
+  else if (focusBehaviour === 'returnFocus') {
+    lastFocusedLmBeforeModalOpened.focus();
+  }
+}
+
+function trapFocus(e, element) {
+  const focusableLms = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+  const firstFocusableLm = focusableLms[0]; 
+  const lastFocusableLm = focusableLms[focusableLms.length - 1];
+
+  const isTabPressed = (e.key === 'Tab');
+  
+  if (!isTabPressed) { 
+    return; 
+  }
+
+  if (e.shiftKey) /* shift + tab */ {
+    if (document.activeElement === firstFocusableLm ) {
+      lastFocusableLm.focus();
+      e.preventDefault();
+    }
+  } 
+  else /* tab */ {
+    if (document.activeElement === lastFocusableLm) {
+      firstFocusableLm.focus();
+      e.preventDefault();
+    }
+  }
+}
 
 // Event handler function for closing modal on Escape key
 const handleModalCloseAtEscapeKey = closeFun => e => {
@@ -31,7 +66,6 @@ const handleModalOutsideClick = (closeFun, matchingClass) => e => {
 
 // Function to handle focus trapping within modal content
 const handleTrapFocus = modalContentLm => e => {
-  console.log('trap focus')
   trapFocus(e, modalContentLm);
 }
 
@@ -106,7 +140,6 @@ export function openSearchWithVoiceModal() {
   }
 
   function closeModal() {
-    console.log('close search with voice modal')
     modalOverlayLm.style.transition = 'opacity 0.15s';
     modalOverlayLm.style.opacity = 0;
     modalContentLm.style.opacity = 0;
@@ -124,7 +157,7 @@ export function openSearchWithVoiceModal() {
 
   // Add event listeners
   searchWithVoiceBtn.addEventListener('click', playSound);
-  toggleModalEvents(eventsHandler, 'add', closeModal, closeModalBtn, modalContentLm, modalContainerLm, '.search-with-voice-modal-overlay')
+  toggleModalEvents(eventsHandler, 'add', closeModal, closeModalBtn, modalContentLm, modalContainerLm, '.search-with-voice-modal-overlay');
 }
 
 //* END OF SEARCH WITH VOICE MODAL 
@@ -132,7 +165,6 @@ export function openSearchWithVoiceModal() {
 //* SETTINGS MODAL
 
 function closeSettingsModal() {
-  console.log('close settings modal')
   settingsModalLm.style.display = 'none';
   settingsModalLm.classList.remove('settings-modal--open');
   // Checks if focus should be returned when the settings modal is closed
@@ -140,7 +172,7 @@ function closeSettingsModal() {
 
   //Remove Events 
   document.body.removeEventListener('click', updateSettingsModalClickEvent)
-  toggleModalEvents(settingsEventsHandler, 'remove', null, null, settingsModalLm, document.body, null)
+  toggleModalEvents(settingsEventsHandler, 'remove', null, null, settingsModalLm, document.body, null);
 }
 
 // Updates the document.body click event for the settings modal

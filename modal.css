@@ -95,7 +95,6 @@
   box-shadow: 0px 0px 45px -6px rgba(0, 0, 0, 0.12);
   padding: 10px 0;
   overflow-x: hidden;
-  overflow-y: auto;
   display: none;
 }
 
@@ -137,9 +136,73 @@
 
 /* END OF SETTINGS MODAL */
 
+/* VIDEO INFO SETTINGS */
+
+.video-info__settings {
+  background-color: #fff;
+  position: absolute;
+  top: 30px;
+  right: -145px;
+  z-index: 20;
+  border-radius: 12px;
+  box-shadow: 0px 0px 45px -6px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  overflow-x: hidden;
+  width: 175px;
+  display: none;
+}
+
+.video-info__settings-btn {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875em;
+  width: 100%;
+  padding: 8px 14px;
+  overflow: hidden;
+  justify-items: start;
+}
+
+.video-info__settings-share-icon {
+  width: 1.3rem;
+}
+
+.video-info__settings-add-icon {
+  width: 1.6rem;
+}
+
+.video-info__settings-btn:focus {
+  outline: none;
+}
+
+/* END OF VIDEO INFO SETTINGS */
+
+/* HOVER CAPABLE DEVICES */
+
+@media screen and (hover: hover) {
+  .video-info__settings-btn:is(:hover, :focus-visible ) {
+    background-color: rgba(0, 0, 0 , 0.1);
+  }
+}
+
+/* END OF HOVER CAPABLE DEVICES */
+
+/* ACTIVE */
+
+.video-info__settings-btn:active {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* END OF ACTIVE */
+
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 500px) {
   .settings-modal {
     right: 30%;
     transform: translateX(30%);
   }
 }
+
+/* END OF MEDIA QUERIES */

@@ -145,7 +145,6 @@ main {
   background-color: #fff;
   padding: 0 16px;
   z-index: 2;
-  font-size: 1rem;
 }
 
 .navigation-bar nav {
@@ -198,7 +197,7 @@ main {
 
 .navigation-bar-left__youtube-logo,
 .side-menu-modal-header__youtube-logo {
-  width: 5.75em;
+  width: 5.75rem;
 }
 
 .nav-header__small-image-title {
@@ -210,7 +209,7 @@ main {
 }
 
 .navigation-bar-left__youtube-logo-small {
-  width: 1.9em;
+  width: 1.9rem;
 }
 
 .navigation-bar-left__menu-btn,
@@ -220,9 +219,13 @@ main {
   padding: 8px;
 }
 
+.side-menu-modal-header__menu-btn:focus {
+  outline: none;
+}
+
 .navigation-bar-left__menu-icon,
 .side-menu-modal-header__menu-icon  {
-  width: 1.5em;
+  width: 1.5rem;
   margin-bottom: -2px;
 }
 
@@ -291,7 +294,7 @@ main {
 }
 
 .navigation-bar-middle__search-input-close-icon {
-  width: 1.5em;
+  width: 1.5rem;
 }
 
 .navigation-bar-middle__search-btn {
@@ -305,7 +308,7 @@ main {
 }
 
 .navigation-bar-middle__search-icon {
-  width: 1.4em;
+  width: 1.4rem;
 }
 
 .navigation-bar-middle__search-with-voice-btn {
@@ -316,7 +319,7 @@ main {
 }
 
 .navigation-bar-middle__search-with-voice-icon {
-  width: 1.3em;
+  width: 1.3rem;
 }
 
 .navigation-bar__return-btn {
@@ -326,7 +329,7 @@ main {
 }
 
 .navigation-bar__return-icon {
-  width: 1.5em
+  width: 1.5rem;
 }
 
 /* END OF NAVIGATION BAR MIDDLE */
@@ -345,7 +348,7 @@ main {
 }
 
 .navigation-bar-right__settings-icon {
-  width: 1.2em;
+  width: 1.2rem;
   color: #5c5c5c;
 }
 
@@ -387,7 +390,7 @@ main {
 }
 
 .navigation-bar-right__search-icon {
-  width: 1.4em;
+  width: 1.4rem;
 }
 
 .navigation-bar-right__search-with-voice-btn {
@@ -398,7 +401,7 @@ main {
 }
 
 .navigation-bar-right__search-with-voice-icon {
-  width: 1.35em;
+  width: 1.35rem;
 }
 
 /* END OF NAVIGATION BAR RIGHT */
@@ -556,6 +559,16 @@ main {
   color: #909090
 }
 
+.side-menu__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
 /* END OF SIDE MENU */
 
 /* SIDE MENU THIN */
@@ -611,18 +624,6 @@ main {
 }
 
 /* END OF SIDE MENU THIN */
-
-
-
-.side-menu__overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 50;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
 
 /* VIDEOS GRID SECTION */
 
@@ -789,44 +790,6 @@ main {
   font-weight: 900;
 }
 
-.video-info__settings {
-  background-color: #fff;
-  position: absolute;
-  top: 30px;
-  right: -145px;
-  z-index: 20;
-  border-radius: 12px;
-  box-shadow: 0px 0px 45px -6px rgba(0, 0, 0, 0.12);
-  padding: 8px 0;
-  overflow-x: hidden;
-  width: 175px;
-  display: none;
-}
-
-.video-info__settings-btn {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.875em;
-  width: 100%;
-  padding: 8px 14px;
-  overflow: hidden;
-  justify-items: start;
-}
-
-.video-info__settings-share-icon {
-  width: 1.3rem;
-}
-
-.video-info__settings-add-icon {
-  width: 1.6rem;
-}
-
-.video-info__settings-btn:focus {
-  outline: none;
-}
-
 .video-info__toggle-settings-btn {
   color: #5c5c5c;
   top: -8px;
@@ -838,7 +801,7 @@ main {
 }
 
 .video-info__toggle-settings-icon {
-  width: 1.2em;
+  width: 1.2rem;
 }
 
 /* END OF CHANNEL ICON AND VIDEO INFO */
@@ -870,6 +833,10 @@ main {
     .navigation-bar-left__menu-btn:is(:hover, :focus-visible) {
       background-color: var(--base-hover-btn-color);
       outline: none;
+    }
+
+    .side-menu-modal-header__menu-btn:focus-visible {
+      background-color: var(--base-hover-btn-color);
     }
     /* END OF NAVBAR LEFT*/
 
@@ -920,7 +887,7 @@ main {
   }
 
   .side-menu__link.active:is(:hover, :focus-visible) {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--base-hover-btn-color);
   }
   /* END OF SIDE MENU */
 
@@ -932,10 +899,6 @@ main {
 
   .video-info__author:hover {
     color: #000000;
-  }
-
-  .video-info__settings-btn:is(:hover, :focus-visible ) {
-    background-color: rgba(0, 0, 0 , 0.1);
   }
 
   .video-info__toggle-settings-btn:focus-visible {
@@ -1009,13 +972,9 @@ main {
     background-color: var(--base-hover-btn-color);
   }
 
-  .video-info__settings-btn:active {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
-
   .video-container:active:has(.video-info__toggle-settings-btn:not(:active)):has(.video-info__settings:not(:active)) {
     background-color: rgba(0, 0, 0 , 0.1);
-    transition: background-color 0.05s
+    transition: background-color 0.05s;
   }
   /* END OF VIDEOS GRID SECTION */
 
@@ -1074,7 +1033,7 @@ main {
 
 @media screen and (max-width: 791px) {
   body {
-    padding: 100px 22px 0 !important
+    padding: 100px 22px 0 !important;
   }
 
   .aside-side-menu-thin {
