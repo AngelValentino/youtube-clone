@@ -96,6 +96,7 @@
   padding: 10px 0;
   overflow-x: hidden;
   display: none;
+  scrollbar-width: thin;
 }
 
 .settings-modal__btn {
@@ -202,6 +203,12 @@
   .settings-modal {
     right: 30%;
     transform: translateX(30%);
+  }
+}
+
+@media screen and (max-height: 472px) {
+  .settings-modal {
+    bottom: 0;
   }
 }
 
