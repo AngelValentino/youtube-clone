@@ -64,7 +64,7 @@ const handleModalOutsideClick = (closeFun, matchingClass) => e => {
   }
 };
 
-// Function to handle focus trapping within modal content
+// Event handler function for trapping focus within the modal content
 const handleTrapFocus = modalContentLm => e => {
   trapFocus(e, modalContentLm);
 }
@@ -77,12 +77,13 @@ export function toggleModalEvents(eventsHandler, action, closeFun, closeModalBtn
     const outsideClickHandler = handleModalOutsideClick(closeFun, matchingClass);
     const trapFocusHandler = handleTrapFocus(modalContentLm);
 
+    // Add event listeners if elements exist
     document.body.addEventListener('keydown', escKeyHandler);
     modalContentLm?.addEventListener('keydown', trapFocusHandler);
     modalContainerLm?.addEventListener('click', outsideClickHandler);
     closeModalBtn?.addEventListener('click', closeFun);
 
-    // Store handlers on elements to remove later
+    // Store handlers on the eventsHandler object to remove them later
     eventsHandler.escKeyHandler = escKeyHandler;
     modalContentLm && (eventsHandler.trapFocusHandler = trapFocusHandler);
     modalContainerLm && (eventsHandler.outsideClickHandler = outsideClickHandler);
@@ -90,6 +91,7 @@ export function toggleModalEvents(eventsHandler, action, closeFun, closeModalBtn
   }
 
   function removeEventListeners() {
+    // Remove event listeners if elements exist
     document.body.removeEventListener('keydown', eventsHandler.escKeyHandler);
     modalContentLm?.removeEventListener('keydown', eventsHandler.trapFocusHandler);
     modalContainerLm?.removeEventListener('click', eventsHandler.outsideClickHandler);
