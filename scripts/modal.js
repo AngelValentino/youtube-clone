@@ -142,6 +142,7 @@ export function openSearchWithVoiceModal() {
   }
 
   function closeModal() {
+    document.body.style.overflow = 'initial';
     modalOverlayLm.style.transition = 'opacity 0.15s';
     modalOverlayLm.style.opacity = 0;
     modalContentLm.style.opacity = 0;
@@ -156,6 +157,7 @@ export function openSearchWithVoiceModal() {
   }
 
   playSound();
+  document.body.style.overflow = 'hidden';
 
   // Add event listeners
   searchWithVoiceBtn.addEventListener('click', playSound);

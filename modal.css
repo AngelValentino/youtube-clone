@@ -4,7 +4,7 @@
   position: fixed;
   inset: 0;
   z-index: 120;
-  padding: 0 20px;
+  padding: 8px 20px 8px;
   display: none;
 }
 
@@ -20,10 +20,10 @@
   background-color: #fff;
   max-height: 450px;
   max-width: 590px;
-  min-height: 400px;
+  min-height: 340px;
   height: 100%;
   width: 100%;
-  margin: 8px auto 0;
+  margin: 0 auto;
   padding: 25px 30px;
   font-size: 1rem;
   position: relative;
@@ -40,10 +40,6 @@
   top: 32px;
   padding: 8px;
   border-radius: 50%;
-}
-
-.search-with-voice-modal__close-btn:is(:hover, :focus-visible) {
-  background-color: #0000001a;
 }
 
 .search-with-voice-modal__close-icon {
@@ -73,10 +69,6 @@
 
 .search-with-voice-modal__search-with-voice-icon {
   width: 2.2em;
-}
-
-.search-with-voice-modal__search-with-voice-btn:active {
-  background-color: #a8a8a8;
 }
 
 /* END OF SEARCH WITH VOICE MODAL */
@@ -120,14 +112,6 @@
 
 .settings-modal__btn-icon {
   width: 1.6rem;
-}
-
-.settings-modal__btn:is(:hover, :focus-visible) {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-
-.settings-modal__btn:active {
-  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .settings-modal__settings-btn-container {
@@ -182,6 +166,14 @@
 /* HOVER CAPABLE DEVICES */
 
 @media screen and (hover: hover) {
+  .search-with-voice-modal__close-btn:is(:hover, :focus-visible) {
+    background-color: #0000001a;
+  }  
+
+  .settings-modal__btn:is(:hover, :focus-visible) {
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+
   .video-info__settings-btn:is(:hover, :focus-visible ) {
     background-color: rgba(0, 0, 0 , 0.1);
   }
@@ -191,9 +183,17 @@
 
 /* ACTIVE */
 
-.video-info__settings-btn:active {
-  background-color: rgba(0, 0, 0, 0.15);
-}
+  .search-with-voice-modal__search-with-voice-btn:active {
+    background-color: #a8a8a8;
+  }
+
+  .settings-modal__btn:active {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .video-info__settings-btn:active {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
 
 /* END OF ACTIVE */
 

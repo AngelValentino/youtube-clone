@@ -23,6 +23,7 @@ function hideSideMenu() {
 // Close the side menu
 function closeSideMenu() {
   hideSideMenu();
+  document.body.style.overflow = 'initial';
   sideMenuThinLm.classList.remove('hide', 'show');
   isSideMenuModalOpen = false;
 
@@ -34,6 +35,7 @@ function closeSideMenu() {
 export function closeSideMenuWithSlide() {
   clearTimeout(hideThinModalTimId);
 
+  document.body.style.overflow = 'initial';
   sideModalHeaderLm.style.left = '-300px';
   sideMenuInnerLm.style.left = '-300px';
   sideMenuOverlayLm.style.opacity = 0;
@@ -77,6 +79,7 @@ export function toggleSideMenu() {
     clearTimeout(closeSideMenuWithSlideTimId)
     clearTimeout(hideThinModalTimId);
 
+    document.body.style.overflow = 'hidden';
     sideMenuLm.classList.add('show');
     sideMenuLm.classList.remove('hide');
     sideMenuOverlayLm.classList.add('show');
