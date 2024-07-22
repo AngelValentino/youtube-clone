@@ -1,6 +1,6 @@
 # [YouTube Clone](https://youtube-clone1.pages.dev/) 
 
-Developed a front-end YouTube **home page clone** from scratch using **HTML**, **CSS**, and **JavaScript**, featuring videos containing information about Studio Ghibli movies. The application offers a **responsive** and **accessible** interface, replicating most of the YouTube home page's logic and styles.
+Front-end YouTube **home page clone** developed from scratch using **HTML**, **CSS**, and **JavaScript**, featuring videos containing information about Studio Ghibli movies. The application offers a **responsive** and **accessible** interface, replicating most of the YouTube home page's logic and styles.
 
 ![YouTube home page clone screenshot](https://i.imgur.com/u9JDkMy.jpeg)
 
