@@ -49,7 +49,7 @@ const handleModalCloseAtEscapeKey = closeFun => e => {
 const handleModalOutsideClick = (closeFun, matchingClass) => e => {
   switch(matchingClass) {
     case '.settings-modal':
-      // Check if click is outside of settings modal and its not the toggle button
+      // Check if click is outside of settings modal and it's not the toggle button
       if (!e.target.closest(matchingClass) && !e.target.closest('.navigation-bar-right__settings-btn')) closeFun();
       break;
     
