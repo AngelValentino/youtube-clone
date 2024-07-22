@@ -206,7 +206,7 @@
   }
 }
 
-@media screen and (max-height: 472px) {
+@media screen and (max-height: 472px) and (min-width: 350px) {
   .settings-modal {
     bottom: 0;
   }
