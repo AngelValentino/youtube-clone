@@ -193,11 +193,7 @@ The application also features **ten mock videos** about **Studio Ghibli** movies
 ## Future Improvements
 
 - Configure a **server** using Node.js, Express, and MongoDB to **fetch** and **buffer** video content from an actual database.
-
 - Optimize and refactor side menu **generated HTML** for improved **performance** and **readability**.
-
 - Add **search functionality** on the server side.
-
 - Add **loaders**.
-
 - Implement a dedicated page for **video playback** and play a **preview** when the user hovers the video container.
