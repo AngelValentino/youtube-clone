@@ -19,7 +19,7 @@ let activeVideoSettingsModalLm = null; // Keeps track of the active video settin
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   title !== 'Settings'  
     ? `
-        <button aria-label="Open ${title}" class="settings-modal__btn">
+        <button class="settings-modal__btn">
           ${icon}
           ${title}
           ${chevron ? `
@@ -31,7 +31,7 @@ settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => 
       `
     : `
         <div class="settings-modal__settings-btn-container">
-          <button aria-label="Open ${title}" class="settings-modal__btn settings-modal__settings-btn">
+          <button class="settings-modal__btn settings-modal__settings-btn">
             ${icon}
             ${title}
           </button>
