@@ -17,8 +17,8 @@
 <body>
   <div id="search-with-voice-modal-container" class="search-with-voice-modal-container">
     <div id="search-with-voice-modal-content" class="search-with-voice-modal-content">
-      <button id="search-with-voice-modal__close-btn" class="search-with-voice-modal__close-btn">
-        <svg class="search-with-voice-modal__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+      <button title="Close modal" aria-label="Close modal." id="search-with-voice-modal__close-btn" class="search-with-voice-modal__close-btn">
+        <svg aria-hidden="true" role="presentation" focusable="false" class="search-with-voice-modal__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
           <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M8 8L40 40" />
             <path d="M8 40L40 8" />
@@ -27,7 +27,7 @@
       </button>
       <h2 class="search-with-voice-modal__title">Search with your voice</h2>
       <p class="search-with-voice-modal__paragraph">To search by voice, go to your browser settings and allow access to microphone</p>
-      <button id="search-with-voice-modal__search-with-voice-btn" class="search-with-voice-modal__search-with-voice-btn">
+      <button aria-label="Search with your voice." title="Search with your voice" id="search-with-voice-modal__search-with-voice-btn" class="search-with-voice-modal__search-with-voice-btn">
         <svg aria-hidden="true" role="presentation" focusable="false" class="search-with-voice-modal__search-with-voice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
           <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2">
             <rect width="14" height="27" x="17" y="4" fill="currentColor" rx="7" />
@@ -60,7 +60,7 @@
         </h1>
       </div>
       <div id="navigation-bar__middle" class="navigation-bar__middle">
-        <button data-tooltip="Back" id="navigation-bar__return-btn" class="navigation-bar__return-btn tooltip-navbar tooltip tooltip-navbar--bottom-left">
+        <button aria-label="Close search." data-tooltip="Back" id="navigation-bar__return-btn" class="navigation-bar__return-btn tooltip-navbar tooltip tooltip-navbar--bottom-left">
           <svg class="navigation-bar__return-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false">
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
           </svg>
@@ -69,8 +69,8 @@
           <div class="navigation-bar-middle__search-input-container">
             <label class="visually-hidden" for="navigation-bar-middle__search-input">Search videos</label>
             <input id="navigation-bar-middle__search-input" class="navigation-bar-middle__search-input" type="text" placeholder="Search">
-            <button id="navigation-bar-middle__search-input-close-btn" class="navigation-bar-middle__search-input-close-btn">
-              <svg class="navigation-bar-middle__search-input-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+            <button aria-label="Clear search." title="Clear search" id="navigation-bar-middle__search-input-close-btn" class="navigation-bar-middle__search-input-close-btn">
+              <svg aria-hidden="true" role="presentation" focusable="false" class="navigation-bar-middle__search-input-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                 <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                   <path d="M8 8L40 40" />
                   <path d="M8 40L40 8" />
