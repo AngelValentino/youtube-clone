@@ -1,5 +1,5 @@
-export function addProgressiveLoading(element) {
-  element.forEach(div => {
+export function addProgressiveLoading(elements) {
+  elements.forEach(div => {
     const thumbnailImg = div.querySelector('img');
   
     function loaded() {
