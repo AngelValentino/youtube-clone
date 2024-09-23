@@ -71,7 +71,7 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAv
     <a data-id="${id}" id="video-link-${id}" href="#" class="video-container" aria-label="See ${title}.">
       <div class="video-thumbnail blur-img-loader" style="background-image: url(${lowResThumbnailURL})">
         <img class="video-thumbnail__img" src="${thumbnailURL}" alt="${title} thumbnail">
-        <p arial-label="${title} duration." class="video-thumbnail__timestamp">${length}</p>
+        <p aria-label="${title} duration." class="video-thumbnail__timestamp">${length}</p>
       </div>
       <div class="video-avatar-info-container">
         <div class="video-avatar blur-img-loader" style="background-image: url(${lowResAvatarURL})">
