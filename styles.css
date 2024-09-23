@@ -1,3 +1,5 @@
+/** RESET **/
+
 *,
 *::before,
 *::after {
@@ -43,9 +45,9 @@ main {
   margin-bottom: 40px;
 }
 
-/* END OF RESET */
+/** END OF RESET **/
 
-/* UI COMPOENENTS */
+/** UI COMPOENENTS **/
 
 .visually-hidden { 
   border: 0;
@@ -106,9 +108,9 @@ main {
   transform: initial;
 }
 
-/* END OF UI COMPONENTS */
+/** END OF UI COMPONENTS **/
 
-/* HEADER NAVIGATION MENU */
+/** HEADER NAVIGATION MENU **/
 
 .navigation-bar {
   position: fixed;
@@ -128,9 +130,9 @@ main {
   height: 56px;
 }
 
-/* END OF HEADER NAVIGATION MENU */
+/** END OF HEADER NAVIGATION MENU **/
 
-/* NAVIGATION MENU HEADER */
+/** NAVIGATION MENU HEADER **/
 
 .navigation-bar__left,
 .side-menu-modal-header {
@@ -202,9 +204,9 @@ main {
   margin-bottom: -2px;
 }
 
-/* END OF NAVIGATION MENU HEADER */
+/** END OF NAVIGATION MENU HEADER **/
 
-/* NAVIGATION BAR MIDDLE */
+/** NAVIGATION BAR MIDDLE **/
 
 .navigation-bar__middle {
   display: flex;
@@ -305,9 +307,9 @@ main {
   width: 1.5rem;
 }
 
-/* END OF NAVIGATION BAR MIDDLE */
+/** END OF NAVIGATION BAR MIDDLE **/
 
-/* NAVIGATION BAR RIGHT */
+/** NAVIGATION BAR RIGHT **/
 
 .navigation-bar__right {
   display: flex;
@@ -377,9 +379,9 @@ main {
   width: 1.35rem;
 }
 
-/* END OF NAVIGATION BAR RIGHT */
+/** END OF NAVIGATION BAR RIGHT **/
 
-/* SIDE MENU */
+/** SIDE MENU **/
 
 .aside-side-menu {
   position: fixed;
@@ -542,9 +544,9 @@ main {
   transition: opacity 0.25s;
 }
 
-/* END OF SIDE MENU */
+/** END OF SIDE MENU **/
 
-/* SIDE MENU THIN */
+/** SIDE MENU THIN **/
 
 .aside-side-menu-thin {
   display: none;
@@ -596,9 +598,9 @@ main {
   line-height: 0.8;
 }
 
-/* END OF SIDE MENU THIN */
+/** END OF SIDE MENU THIN **/
 
-/* VIDEOS GRID SECTION */
+/** VIDEOS GRID SECTION **/
 
 .videos-grid {
   display: grid;
@@ -644,6 +646,8 @@ main {
   padding: 2px 4px;
   border-radius: 4px;
 }
+
+/* END OF VIDEO THUMBNAIL */
 
 /* CHANNEL ICON AND VIDEO INFO */
 
@@ -756,9 +760,9 @@ main {
 
 /* END OF CHANNEL ICON AND VIDEO INFO */
 
-/* END OF VIDEOS GRID SECTION */
+/** END OF VIDEOS GRID SECTION **/
 
-/* MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES */
+/** MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES **/
 
 @media screen and (hover: none) {
   .aside-side-menu {
@@ -766,9 +770,9 @@ main {
   }
 }
 
-/* END OF MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES */
+/** END OF MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES **/
 
-/* MEDIA QUERIES FOR HOVER CAPABLE DEVICES */
+/** MEDIA QUERIES FOR HOVER CAPABLE DEVICES **/
 
 @media screen and (hover: hover) {
   /* TOOLTIP */
@@ -862,9 +866,9 @@ main {
   /* END OF VIDEOS GRID SECTION */
 }
 
-/* END OF MEDIA QUERIES FOR HOVER CAPABLE DEVICES */
+/** END OF MEDIA QUERIES FOR HOVER CAPABLE DEVICES **/
 
-/* ACTIVE */
+/** ACTIVE **/
 
   /* NAVIGATION MENU */
     /* NAVBAR LEFT */
@@ -931,10 +935,11 @@ main {
   }
   /* END OF VIDEOS GRID SECTION */
 
-/* END OF ACTIVE */
+/** END OF ACTIVE **/
 
+/** MEDIA QUIERIES **/
 
-/*VIDEOS GRID SECTION*/
+/* VIDEOS GRID SECTION */
 
 @media screen and (max-width: 1918px) {
   .videos-grid {
@@ -1060,6 +1065,10 @@ main {
   }
 }
 
+/** END OF MEDIA QUERIES **/
+
+/** LOADERS **/
+
 /* BLUR IMAGE PROGRESSIVE LOADER */
 
 .blur-img-loader {
@@ -1102,7 +1111,9 @@ main {
 
 /* END OF BLUR IMAGE PROGRESSIVE LOADER */
 
-/* MODIFIERS */
+/** END OF LOADERS **/
+
+/** MODIFIERS **/
 
 .show {
   display: initial;
@@ -1116,4 +1127,4 @@ main {
   display: flex;
 }
 
-/* END OF MODIFIERS */
+/** END OF MODIFIERS **/
