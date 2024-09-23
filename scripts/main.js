@@ -1,10 +1,10 @@
 import { 
   settingsModalData 
-} from "../data/settingsModalData.js";
+} from "./data/settingsModalData.js";
 
 import { 
   videosData 
-} from "../data/videosData.js";
+} from "./data/videosData.js";
 
 import { 
   openSearchWithVoiceModal, 
