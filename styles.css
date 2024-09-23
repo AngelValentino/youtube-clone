@@ -106,33 +106,6 @@ main {
   transform: initial;
 }
 
-.blur-img-loader {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0 , 0.05);
-}
-
-.blur-img-loader::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  animation: pulse 2s infinite ease-in-out alternate;
-}
-
-@keyframes pulse {
-  from {
-    background-color: rgba(255, 255, 255, 0);
-  }
-  to {
-    background-color: rgba(255, 255, 255, 0.25);
-  }
-}
-
-.blur-img-loader.loaded::before {
-  content: none;
-}
-
 /* END OF UI COMPONENTS */
 
 /* HEADER NAVIGATION MENU */
@@ -651,10 +624,6 @@ main {
   aspect-ratio: 16 / 9;
 }
 
-.video-thumbnail.loaded .video-thumbnail__img {
-  opacity: 1;
-}
-
 .video-thumbnail__img {
   width: 100%;
   display: block;
@@ -662,8 +631,6 @@ main {
   height: 100%;
   object-position: center;
   object-fit: cover;
-  transition: opacity 0.25s ease-in-out;
-  opacity: 0;
 }
 
 .video-thumbnail__timestamp {
@@ -695,10 +662,6 @@ main {
   height: 36px;
 }
 
-.video-avatar.loaded .video-avatar__img {
-  opacity: 1;
-}
-
 .video-avatar__img {
   width: 100%;
   height: 100%;
@@ -706,8 +669,6 @@ main {
   display: block;
   object-position: center;
   object-fit: cover;
-  transition: opacity 0.25s ease-in-out;
-  opacity: 0;
 }
 
 .video-avatar__channel-tooltip {
@@ -735,10 +696,6 @@ main {
   border-radius: 50%;
 }
 
-.video-avatar__channel-tooltip-img-container.loaded .video-avatar__channel-tooltip-img {
-  opacity: 1;
-}
-
 .video-avatar__channel-tooltip-img {
   width: 100%;
   height: 100%;
@@ -746,8 +703,6 @@ main {
   display: block;
   object-position: center;
   object-fit: cover;
-  transition: opacity 0.25s ease-in-out;
-  opacity: 0;
 }
 
 .video-avatar__channel-tooltip-info p {
@@ -1104,6 +1059,48 @@ main {
     display: block;
   }
 }
+
+/* BLUR IMAGE PROGRESSIVE LOADER */
+
+.blur-img-loader {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0 , 0.05);
+}
+
+.blur-img-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 2s infinite ease-in-out alternate;
+}
+
+.blur-img-loader.loaded::before {
+  content: none;
+}
+
+.blur-img-loader > img {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blur-img-loader.loaded > img {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* END OF BLUR IMAGE PROGRESSIVE LOADER */
 
 /* MODIFIERS */
 

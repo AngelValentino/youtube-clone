@@ -1,10 +1,34 @@
-import { settingsModalData } from "../data/settingsModalData.js";
-import { videosData } from "../data/videosData.js";
-import { openSearchWithVoiceModal, handleToggleModalSettings, toggleModalFocus } from "./modal.js";
-import { openSearchBar } from "./searchBar.js";
-import { timeAgo, formatNumber, addProgressiveLoading } from "./utils.js";
-import { toggleSideMenu, addSideMenuEventsHandler, setSideMenuActiveClassHandler } from "./sideMenu.js";
+import { 
+  settingsModalData 
+} from "../data/settingsModalData.js";
 
+import { 
+  videosData 
+} from "../data/videosData.js";
+
+import { 
+  openSearchWithVoiceModal, 
+  handleToggleModalSettings, 
+  toggleModalFocus 
+} from "./modal.js";
+
+import { 
+  openSearchBar 
+} from "./searchBar.js";
+
+import { 
+  timeAgo, 
+  formatNumber, 
+  addProgressiveLoading 
+} from "./utils.js";
+
+import { 
+  toggleSideMenu, 
+  addSideMenuEventsHandler, 
+  setSideMenuActiveClassHandler 
+} from "./sideMenu.js";
+
+//* DOM REFERENCES
 const openSearchBarBtn = document.getElementById('navigation-bar-right__search-btn');
 const rightSearchWithVoiceBtn = document.getElementById('navigation-bar-right__search-with-voice-btn');
 const middleSearchWtichVoiceBtn = document.getElementById('navigation-bar-middle__search-with-voice-btn');
@@ -13,8 +37,11 @@ const settingsModalLm = document.getElementById('settings-modal');
 const navbarMenuBtn = document.getElementById('navigation-bar-left__menu-btn');
 const videosGridLm = document.getElementById('videos-grid');
 
+//* VARIABLES
 const settingsBtnsLms = [];
 let activeVideoSettingsModalLm = null; // Keeps track of the active video settings modal element
+
+//* GENERATE HTML
 
 settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => (
   title !== 'Settings'  
@@ -41,15 +68,15 @@ settingsModalLm.innerHTML = settingsModalData.map(({ icon, title, chevron }) => 
 
 videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAvatarURL, lowResThumbnailURL, length, title, author, views, subscribers, fromDate }) => (
   ` 
-    <a data-id="${id}" id="video-link-${id}" href="#" class="video-container">
+    <a data-id="${id}" id="video-link-${id}" href="#" class="video-container" aria-label="See ${title}.">
       <div class="video-thumbnail blur-img-loader" style="background-image: url(${lowResThumbnailURL})">
-        <img class="video-thumbnail__img" src="${thumbnailURL}" alt="${title}">
-        <p class="video-thumbnail__timestamp">${length}</p>
+        <img class="video-thumbnail__img" src="${thumbnailURL}" alt="${title} thumbnail">
+        <p arial-label="${title} duration." class="video-thumbnail__timestamp">${length}</p>
       </div>
       <div class="video-avatar-info-container">
         <div class="video-avatar blur-img-loader" style="background-image: url(${lowResAvatarURL})">
           <img title="${author}" class="video-avatar__img" src=${avatarURL} alt="${author} avatar">
-          <div aria-hidden="true" class="video-avatar__channel-tooltip">
+          <div aria-hidden="true" role="presentation" class="video-avatar__channel-tooltip">
             <div class="video-avatar__channel-tooltip-img-container blur-img-loader" style="background-image: url(${lowResAvatarURL})">
               <img class="video-avatar__channel-tooltip-img" src="${avatarURL}" alt="${author} avatar">
             </div>
@@ -87,6 +114,10 @@ videosGridLm.innerHTML = videosData.map(({ id, thumbnailURL, avatarURL, lowResAv
     </a>
   `
 )).join('');
+
+//* END OF GENERATE HTML
+
+//* FUNCTION DECLARATIONS
 
 // Check modal position and adjust if necessary
 function checkAndAdjustModalPosition(settingsModalLm) {
@@ -154,10 +185,19 @@ function toggleVideoSettingsModal(settingsModalLm) {
   }
 }
 
-// Adds progessive loading to video containers' images
-addProgressiveLoading(document.querySelectorAll('.video-thumbnail'));
-addProgressiveLoading(document.querySelectorAll('.video-avatar'));
-addProgressiveLoading(document.querySelectorAll('.video-avatar__channel-tooltip-img-container'));
+//* END OF FUNCTION DECLARATIONS
+
+//* INITIAL FUNCTION CALLS
+
+// Initial call to set the active class based on the current URL hash
+setSideMenuActiveClassHandler();
+
+// Add progressive image loading functionality to all blur image loaders
+addProgressiveLoading(document.querySelectorAll('.blur-img-loader'));
+
+//* END OF INITIAL FUNCTION CALLS
+
+//* EVENT LISTENERS
 
 // Event listener for Escape key press to close the video settings modal if modal is open
 document.body.addEventListener('keydown', e => {
@@ -222,4 +262,4 @@ openSearchBarBtn.addEventListener('click', openSearchBar);
 addSideMenuEventsHandler('side-menu');
 addSideMenuEventsHandler('side-menu-thin');
 
-setSideMenuActiveClassHandler(); // Initial call to set the active class based on the current URL hash
+//* END OF EVENT LISTENERS
