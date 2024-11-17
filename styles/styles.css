@@ -764,7 +764,7 @@ main {
 
 /** MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES **/
 
-@media screen and (hover: none) {
+@media screen and (pointer: fine) and (hover: hover) {
   .aside-side-menu {
     overflow: auto;
   }
@@ -774,7 +774,7 @@ main {
 
 /** MEDIA QUERIES FOR HOVER CAPABLE DEVICES **/
 
-@media screen and (hover: hover) {
+@media screen and (pointer: fine) and (hover: hover) {
   /* TOOLTIP */
   .tooltip-navbar:is(:hover, :focus-visible)::before {
     opacity: 0.9;

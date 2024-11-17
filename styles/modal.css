@@ -165,7 +165,7 @@
 
 /* HOVER CAPABLE DEVICES */
 
-@media screen and (hover: hover) {
+@media screen and (pointer: fine) and (hover: hover) {
   .search-with-voice-modal__close-btn:is(:hover, :focus-visible) {
     background-color: #0000001a;
   }  
