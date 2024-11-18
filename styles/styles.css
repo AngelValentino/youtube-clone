@@ -383,6 +383,10 @@ main {
 
 /** SIDE MENU **/
 
+.aside-side-menu-container {
+  overflow: hidden;
+}
+
 .aside-side-menu {
   position: fixed;
   left: 0;
@@ -764,7 +768,7 @@ main {
 
 /** MEDIA QUERIES FOR NOT HOVER CAPABLE DEVICES **/
 
-@media screen and (pointer: fine) and (hover: hover) {
+@media screen and (pointer: coarse) and (hover: none)  {
   .aside-side-menu {
     overflow: auto;
   }
