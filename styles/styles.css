@@ -383,10 +383,6 @@ main {
 
 /** SIDE MENU **/
 
-.aside-side-menu-container {
-  overflow: hidden;
-}
-
 .aside-side-menu {
   position: fixed;
   left: 0;
