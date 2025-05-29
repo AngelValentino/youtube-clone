@@ -115,7 +115,7 @@ export function toggleModalEvents(eventsHandler, action, closeFun, closeModalBtn
 //* SEARCH WITH VOICE MODAL 
 
 // Preload search with voice audio file
-const searchWithVoiceAudio = new Audio('../audios/search-with-voice-sound.mp3');
+const searchWithVoiceAudio = new Audio('../assets/audios/search-with-voice-sound.mp3');
 
 export function openSearchWithVoiceModal() {
   const eventsHandler = {};
