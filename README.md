@@ -39,7 +39,6 @@ Below are the actual audit and security test results demonstrating the portfolio
 
 ![Angel Valentino personal portfolio's Chrome lightouse full score screenshot](./docs/assets/images/project-audit-score.jpg)
 
-
 <br>
 
 ## 🧪 Local Development
@@ -74,7 +73,6 @@ Although the project uses a mix of programming patterns and best practices, they
 - **Keyboard Navigation:** Full keyboard support allows users to navigate and interact with all features without relying on a mouse or touch input.
 - **ARIA Support:** ARIA attributes are applied judiciously to enhance accessibility without overcomplicating the markup, ensuring smooth interaction with screen readers and other assistive technologies.
 - **Semantic HTML:** Semantic HTML elements are used throughout to improve both accessibility and SEO, enabling assistive technologies to accurately interpret the content structure.
-
 
 ### Architecture Overview
 
