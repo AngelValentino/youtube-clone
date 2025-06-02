@@ -1,4 +1,4 @@
-# 📺 YouTube Clone – A vanilla JavaScript modular App
+# 📺 YouTube Clone – A Vanilla JavaScript Modular App
 
 ![YouTube Clone Screenshot](./docs/assets/images/youtube-home-screenshot.jpg)
 
