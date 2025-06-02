@@ -56,7 +56,7 @@ git clone https://github.com/AngelValentino/youtube-clone.git
 
 ## 🌱 YouTube clone: Evolution, Features and Limitations
 
-### Design Philosophy
+### Development Approach
 
 - **Goal:** A simple and accessible youtube clone, responsive across all screen sizes, and easy to interact with.
 - **Crafted with care:** Every aspect of the project, from the frontend to interactive features, was thoughtfully developed following best practices, with a strong focus on accessibility, performance, and user-centered design.
@@ -64,13 +64,7 @@ git clone https://github.com/AngelValentino/youtube-clone.git
 
 ### Current Limitations
 
-Although the project uses a mix of programming patterns and best practices, they were kept as simple as possible, without relying on an **MVC architecture** or similar. This makes the codebase simpler, but it also limits scalability. To scale this project effectively, it would need to be refactored into MVC or another architectural pattern.
-
-⚠️ The following limitations should be considered:
-
-- 🛰️ No routing or backend, it is purely a static front-end demo.
-- 🎬 Does not include video playback functionality, only the UI is simulated.
-- 📚 Intended for demonstration and learning purposes, not production use.
+Although the project uses a mix of programming patterns and best practices, they were kept as simple as possible, without relying on an MVC architecture or similar. This makes the codebase simpler, but it also limits scalability. Moreover, there is no routing or backend, as it's a static front-end demo. Rather than supporting video playback, the project simulates the UI and is designed for demonstration and educational purposes, not for production use.
 
 📌 Notwithstanding, there are no current plans to update this project, as it's considered to already fulfill its purpose in a clear, accessible, and responsive way.
 
