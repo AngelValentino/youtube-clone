@@ -40,8 +40,6 @@ Below are the actual audit and security test results demonstrating the portfolio
 ![Angel Valentino personal portfolio's Chrome lightouse full score screenshot](./docs/assets/images/project-audit-score.jpg)
 
 
-
-
 <br>
 
 ## 🧪 Local Development
@@ -53,6 +51,8 @@ To use it locally for development, you can clone the repository from GitHub and 
 ```bash
 git clone https://github.com/AngelValentino/youtube-clone.git
 ```
+
+<br>
 
 ## 🌱 YouTube clone: Evolution, Features and Limitations
 
