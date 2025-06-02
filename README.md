@@ -4,7 +4,7 @@
 
 ## 📋 About
 
-Built with a strong focus on **responsiveness** and **accessibility**, this [YouTube Clone](https://youtube-clone1.pages.dev/) has been developed using **vanilla JavaScript** and a clean **modular architecture**. It thoughtfully combines procedural and functional programming techniques to keep the codebase simple, modular, and maintainable.
+Built with a strong focus on **responsiveness** and **accessibility**, the current [YouTube Clone](https://youtube-clone1.pages.dev/) has been developed using **vanilla JavaScript** and a clean **modular architecture**. It thoughtfully combines procedural and functional programming techniques to keep the codebase simple, modular, and maintainable. Featuring videos containing information about Studio Ghibli movies.
 
 It replicates the core UI and UX components of YouTube’s homepage, including:
 
@@ -12,8 +12,6 @@ It replicates the core UI and UX components of YouTube’s homepage, including:
 - 📂 Interactive side and top menus  
 - 💬 Accessible modals  
 - 🎙️ Voice search interaction  
-
-The video content featured in this project showcases information about **Studio Ghibli movies**, making it both functional and visually engaging.
 
 This project shows practical coding skills without using heavy frameworks. It highlights a strong understanding of core JavaScript and good web development practices.
 
@@ -32,7 +30,7 @@ This project draws inspiration from several sources that helped shape its develo
 - 📱 **Responsive, Dynamic Interface Across All Devices:** Fully responsive design using vanilla CSS and media queries to adapt seamlessly across desktops, tablets, mobiles, and more.
 - 🌍 **Accessibility Focus:** Designed with inclusivity in mind, including keyboard-navigable menus and ARIA support for screen readers.
 - 🖼️ **Progressive Image Loading:** Optimized images with blur load placeholders that improve performance and perceived speed.
-- 🧰 **Side Menu Navigation:** An interactive side navigation and header system that closely mimics YouTube’s complex behavior. This includes linking the thin and full-width sidebars, managing toggle logic, and replicating header responsiveness using a combination of JavaScript and CSS techniques.
+- 🧰 **Side Menu Navigation:** An interactive side navigation and header system that closely mimics YouTube’s complex behavior. This includes linking the thin and full-width sidebars, managing toggle logic, and managing header responsiveness using a combination of JavaScript and CSS techniques.
 - ⚡ **Optimized Performance:** Minimal dependencies and lightweight vanilla JS deliver fast load times. Achieves near-perfect scores in Google Lighthouse for performance, accessibility, best practices, and SEO.
 
 ### 📊 Audit and Security Scores
