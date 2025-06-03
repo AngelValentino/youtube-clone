@@ -19,7 +19,8 @@ This project shows practical coding skills without using heavy frameworks. It hi
 
 This project draws inspiration from several sources that helped shape its development:
 
-- Several **YouTube tutorials**, **forums**, and online documentation, such as **W3Schools** and **MDN**, provided valuable insights, covering everything from technical documentation to modern accessibility, security, and deployment practices.
+- The design was inspired by [YouTube](https://www.youtube.com/) homepage, and video information was sourced from [Studio Ghibli](https://www.netflix.com/es-en/browse/genre/81227213) movies.
+- Several **YouTube tutorials**, **forums**, and online documentation, such as **W3Schools** and **MDN** helped shape the development process.
 
 <br>
 
