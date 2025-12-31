@@ -4,7 +4,7 @@
 
 ## 📋 About
 
-Built with a strong focus on **responsiveness** and **accessibility**, the current [YouTube Clone](https://youtube-clone1.pages.dev/) has been developed using **vanilla JavaScript** and a clean **modular architecture**. It thoughtfully combines procedural and functional programming techniques to keep the codebase simple, modular, and maintainable. Featuring videos containing information about Studio Ghibli movies.
+Built with a strong focus on **responsiveness** and **accessibility**, the current [YouTube Clone]() has been developed using **vanilla JavaScript** and a clean **modular architecture**. It thoughtfully combines procedural and functional programming techniques to keep the codebase simple, modular, and maintainable. Featuring videos containing information about Studio Ghibli movies.
 
 It replicates the core UI and UX components of YouTube’s homepage, including:
 
