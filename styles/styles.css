@@ -164,14 +164,14 @@ main {
   color: inherit;
 }
 
-.navigation-bar-left__youtube-logo-link,
-.side-menu-modal-header__youtube-logo-link {
+.navigation-bar-left__app-logo-link,
+.side-menu-modal-header__app-logo-link {
   display: block;
   padding: 16px;
 }
 
-.navigation-bar-left__youtube-logo,
-.side-menu-modal-header__youtube-logo {
+.navigation-bar-left__app-logo,
+.side-menu-modal-header__app-logo {
   width: 5.75rem;
 }
 
@@ -179,11 +179,11 @@ main {
   display: none;
 }
 
-.navigation-bar-left__youtube-logo-small-link {
+.navigation-bar-left__app-logo-small-link {
   padding: 0 10px;
 }
 
-.navigation-bar-left__youtube-logo-small {
+.navigation-bar-left__app-logo-small {
   width: 1.9rem;
 }
 
@@ -529,7 +529,7 @@ main {
   font-weight: 500;
 }
 
-.side-menu-footer__copyright-title {
+.side-menu-footer__disclaimer {
   font-size: 0.75rem;
   color: #909090
 }
@@ -1052,7 +1052,7 @@ main {
 }
 
 @media screen and (max-width: 402px) {
-  .navigation-bar-left__youtube-logo-link {
+  .navigation-bar-left__app-logo-link {
     display: none;
   }
 
@@ -1060,7 +1060,7 @@ main {
     display: block;
   }
 
-  .navigation-bar-left__youtube-logo-small-link {
+  .navigation-bar-left__app-logo-small-link {
     display: block;
   }
 }
